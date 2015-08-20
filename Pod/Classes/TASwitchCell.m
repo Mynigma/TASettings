@@ -3,7 +3,7 @@
 //
 
 #import "TASwitchCell.h"
-#import "TASettingTitleLabel.h"
+#import "UILabel+TALabel.h"
 
 
 @implementation TASwitchCell {
@@ -14,9 +14,11 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
 
-        self.titleLabel = [TASettingTitleLabel settingLabel];
+        self.titleLabel = [UILabel ta_settingTitleLabel];
 
         self.valueSwitch = [[UISwitch alloc] init];
+
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
 
 
         [self.contentView addSubview:self.titleLabel];

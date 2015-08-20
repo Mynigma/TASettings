@@ -3,6 +3,7 @@
 //
 
 #import "TATextFieldCell.h"
+#import "UILabel+TALabel.h"
 
 
 @implementation TATextFieldCell {
@@ -13,12 +14,11 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
 
-        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        self.titleLabel.minimumScaleFactor = 0.3;
-        self.titleLabel.adjustsFontSizeToFitWidth = YES;
-        self.titleLabel.numberOfLines = 0;
+        self.titleLabel = [UILabel ta_settingTitleLabel];
 
         self.valueTextField = [[UITextField alloc] initWithFrame:CGRectZero];
+
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
 
 
         [self.contentView addSubview:self.titleLabel];

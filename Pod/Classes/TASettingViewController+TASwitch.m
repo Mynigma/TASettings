@@ -15,6 +15,8 @@
     NSAssert([tableViewCell isKindOfClass:[TASwitchCell class]], @"Must be a %@ class", NSStringFromClass([TASwitchCell class]));
     TASwitchCell *cell = (TASwitchCell *) tableViewCell;
 
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
     cell.titleLabel.text = setting.localizedTitle;
     cell.valueSwitch.on = setting.settingValue.value != nil ? [setting.settingValue.value boolValue] : [setting.settingValue.defaultValue boolValue];
 

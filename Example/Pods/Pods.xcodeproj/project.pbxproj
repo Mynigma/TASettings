@@ -11,6 +11,8 @@
 		02DE14EDE2AE05BDBCC5CB04 /* TATextFieldSetting.h in Headers */ = {isa = PBXBuildFile; fileRef = E34FEA0BE2F81164B7EA05B2 /* TATextFieldSetting.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0E8A8B775EE143D6478ADAB8 /* TASwitchCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D1C4985B78C20EDD4B79E87 /* TASwitchCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1130E08B3C01A1C819460331 /* TASettingViewController+TATextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 377FFD655BB730919A123A1B /* TASettingViewController+TATextField.m */; };
+		19A176AECCF4FBFFE26D29DA /* UILabel+TALabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A173AE52FABA081C5180C0 /* UILabel+TALabel.h */; };
+		19A17FBCCEBCD08206A086D6 /* UILabel+TALabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A17731BD662B1A59287A5B /* UILabel+TALabel.m */; };
 		24EDC9274845F9DF9922B805 /* Pods-TASettings_Example-TASettings-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 052A438ACF095C057BD24239 /* Pods-TASettings_Example-TASettings-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4075E4ADFB51FD9148FA6D98 /* TAMultiValueSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BB5BEA6E71B180AAED29FE /* TAMultiValueSetting.m */; };
 		42D0906E75F9B8687AFCFA0B /* TASwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7316FDF7C564008629E369 /* TASwitch.m */; };
@@ -61,6 +63,8 @@
 		02CD3B0DC23F48FF6E780D63 /* TASettings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TASettings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		052A438ACF095C057BD24239 /* Pods-TASettings_Example-TASettings-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TASettings_Example-TASettings-umbrella.h"; sourceTree = "<group>"; };
 		0C692C185713642D775CFD61 /* Pods-TASettings_Example-TASettings-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TASettings_Example-TASettings-prefix.pch"; sourceTree = "<group>"; };
+		19A173AE52FABA081C5180C0 /* UILabel+TALabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+TALabel.h"; sourceTree = "<group>"; };
+		19A17731BD662B1A59287A5B /* UILabel+TALabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+TALabel.m"; sourceTree = "<group>"; };
 		19C16206BB0DFE30FCBDF380 /* TATextFieldSetting.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TATextFieldSetting.m; sourceTree = "<group>"; };
 		241EA78C7B0F2A5F107B780D /* TASettings.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TASettings.m; sourceTree = "<group>"; };
 		24DE8CFDA2B475165C00B5A9 /* Pods_TASettings_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TASettings_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -266,6 +270,8 @@
 				D3694CC1240ADC209A735A30 /* TATextFieldCell.m */,
 				E34FEA0BE2F81164B7EA05B2 /* TATextFieldSetting.h */,
 				19C16206BB0DFE30FCBDF380 /* TATextFieldSetting.m */,
+				19A17731BD662B1A59287A5B /* UILabel+TALabel.m */,
+				19A173AE52FABA081C5180C0 /* UILabel+TALabel.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -290,6 +296,7 @@
 				0E8A8B775EE143D6478ADAB8 /* TASwitchCell.h in Headers */,
 				7004FAD1E2C6CB98F5ADAF9F /* TATextFieldCell.h in Headers */,
 				02DE14EDE2AE05BDBCC5CB04 /* TATextFieldSetting.h in Headers */,
+				19A176AECCF4FBFFE26D29DA /* UILabel+TALabel.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +428,7 @@
 				6B39239637318536C7C59CCC /* TASwitchCell.m in Sources */,
 				4A5DBF3C47FB6B6587493192 /* TATextFieldCell.m in Sources */,
 				915ADF3FAD55FA9945B20AF0 /* TATextFieldSetting.m in Sources */,
+				19A17FBCCEBCD08206A086D6 /* UILabel+TALabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

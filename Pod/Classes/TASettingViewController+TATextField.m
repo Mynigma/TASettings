@@ -19,6 +19,8 @@
     TATextFieldCell *cell = (TATextFieldCell *) tableViewCell;
     TATextFieldSetting *textSetting = (TATextFieldSetting *) setting;
 
+
+
     cell.titleLabel.text = textSetting.localizedTitle;
     cell.valueTextField.text = textSetting.settingValue.value;
     cell.valueTextField.placeholder = textSetting.placeholder;
