@@ -9,6 +9,8 @@
 
 @property(nonatomic, strong) UITableView *tableView;
 
+@property (nonatomic, strong) NSArray *sectionTitles;
+
 @end
 
 @implementation TASettingViewController {
@@ -58,6 +60,10 @@
         self.navigationController.navigationItem.rightBarButtonItem = buttonItem;
     }
 }
+
+#pragma mark - Accessors
+
+
 
 
 @end

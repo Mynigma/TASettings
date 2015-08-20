@@ -7,273 +7,264 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		22B795C07672D5344A244802 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BCA8C15CD942748D0496DA /* Foundation.framework */; };
-		3E04229B2ECEEF118B8A3767 /* Pods-TASettings_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0307B16BB6F3F2B3A414CD /* Pods-TASettings_Example-dummy.m */; };
-		617D7348EB76E9001C16A4E9 /* Pods-TASettings_Example-TASettings-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FE96BB96DB50F00748101928 /* Pods-TASettings_Example-TASettings-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		62A6168F86879AE8305DD5C6 /* ReplaceMe.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E8EFAE09329CACF5AE359C /* ReplaceMe.m */; };
-		7EA980130DAC56F3240BD65B /* TASettings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9E105673B34062A5FEEABC22 /* TASettings.bundle */; };
-		86FEBBAEDC790E1D582E8FFF /* Pods-TASettings_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C43DC53723086A53BF4DADEC /* Pods-TASettings_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9C643156C326AD4F1B967D56 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BCA8C15CD942748D0496DA /* Foundation.framework */; };
-		CAF34273A1635FA8678E4D5E /* Pods-TASettings_Example-TASettings-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B1159F2973A52CF559B012B6 /* Pods-TASettings_Example-TASettings-dummy.m */; };
-		D82F33BEE52B8156B0A1C564 /* TASettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AED50EE91A8043961C2728A /* TASettingViewController.m */; };
-		DC33158EC43851C437EED5A8 /* TASettingViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D0AD232246552D62661D3998 /* TASettingViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		034C98347770B0C1881DD92B /* TASetting.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F93AFA7B44FABFA99D9A02 /* TASetting.m */; };
+		053E0DE24849905913BEB112 /* Pods-TASettings_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0135E7AB3EA92BCBB7C70E92 /* Pods-TASettings_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0C20224ABA842924B3E439A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA540851CD08741FD73156A3 /* Foundation.framework */; };
+		26E8B264F3404212B373A8DC /* ReplaceMe.m in Sources */ = {isa = PBXBuildFile; fileRef = 6277482C303BFA63BB7AE6C9 /* ReplaceMe.m */; };
+		27C65DB0A88F233A057C90B4 /* TASetting.h in Headers */ = {isa = PBXBuildFile; fileRef = D54A40FC96D8D97930BC2FE2 /* TASetting.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4DFA383001D12D93553FFFA6 /* Pods-TASettings_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F8DB3FF6486E7F434C18BC01 /* Pods-TASettings_Example-dummy.m */; };
+		4E0B31417CB4319B6F1752CC /* Pods-TASettings_Example-TASettings-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D4EC3F1D93B6E6F0E6AEA7D /* Pods-TASettings_Example-TASettings-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		74E7D4FB2826E32674D1D87A /* TASettingViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 84E6F0A2D3250162615DD914 /* TASettingViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		834DFABF36EA511F803E9B17 /* TATextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E259BCEF25AC45DD98CBE4 /* TATextFieldCell.m */; };
+		88B43F4EEADA41B18171F1C8 /* TASettingTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 671C6773CA4F63B86F7A80D3 /* TASettingTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9A52E706F1EA1B3F0B5DCDCB /* TASettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D24F1DFE2D0E521D9F621C1 /* TASettingViewController.m */; };
+		B0B61C1E96B01A760370B0BD /* Pods-TASettings_Example-TASettings-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CD707685989594C36E0B88 /* Pods-TASettings_Example-TASettings-dummy.m */; };
+		B5EC81D1D2264413FDAFF581 /* TASettings.h in Headers */ = {isa = PBXBuildFile; fileRef = B2E991F2D0C6E0073B4CFE99 /* TASettings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8BFC9ACDE9FD544404BACC0 /* TATextFieldCell.h in Headers */ = {isa = PBXBuildFile; fileRef = DCDCF36110176E926B4EB5F1 /* TATextFieldCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B91BE6AAAD8A944018F3E812 /* TASettingTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7CB1095ACC4CD592BB9EF3 /* TASettingTextField.m */; };
+		E0095752C62469AE5B066173 /* TASettings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6B1820687474F880978561BF /* TASettings.bundle */; };
+		E9E94D54DE384FA21DD8DB73 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA540851CD08741FD73156A3 /* Foundation.framework */; };
+		FE613D89AC58C8373850B57F /* TASettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 487E9BF9FE9F0A3658CF262C /* TASettings.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5D6C587053E549EF64797F38 /* PBXContainerItemProxy */ = {
+		6649C22D3F62A45187CB14F8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B64109F2E7A7600B0940C7CF /* Project object */;
+			containerPortal = 4A26A6895ED0B1AADBAC6BC6 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = BC39EF3C908ECF037B10B101;
-			remoteInfo = "Pods-TASettings_Example-TASettings";
-		};
-		A8F2870102704BE8DB76EEEB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B64109F2E7A7600B0940C7CF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F4DE6B2F6582EF6434F51F80;
+			remoteGlobalIDString = 0E114988CBA73B228DFE933F;
 			remoteInfo = "Pods-TASettings_Example-TASettings-TASettings";
+		};
+		A0E7F148B8BE1DC5CE89EB99 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4A26A6895ED0B1AADBAC6BC6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 37EC7E0CADBE042E2B48E1E4;
+			remoteInfo = "Pods-TASettings_Example-TASettings";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0660320E8B0CD158805D365A /* Pods-TASettings_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TASettings_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		1DE5AA721888F5C392528F22 /* Pods-TASettings_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TASettings_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		1EBECA90871B8DE806938343 /* Pods-TASettings_Example-TASettings.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-TASettings_Example-TASettings.modulemap"; sourceTree = "<group>"; };
-		25E8EFAE09329CACF5AE359C /* ReplaceMe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ReplaceMe.m; sourceTree = "<group>"; };
-		2A55390AC9A6F76438E86B58 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3AED8389BB053E219BA69EC6 /* Pods-TASettings_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TASettings_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		3DD18F249114043C884C0E92 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		4AAF0457A146B20935C5DDDB /* Pods_TASettings_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TASettings_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		50B4CE5E69FD013409FDF352 /* TASettings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TASettings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6A0307B16BB6F3F2B3A414CD /* Pods-TASettings_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TASettings_Example-dummy.m"; sourceTree = "<group>"; };
-		7AA2480F21338A8EBC782E30 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7AED50EE91A8043961C2728A /* TASettingViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TASettingViewController.m; sourceTree = "<group>"; };
-		8053B9AC63E14C863138ED4C /* Pods-TASettings_Example-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TASettings_Example-environment.h"; sourceTree = "<group>"; };
-		89EC1A86105ED4A673EFA402 /* Pods-TASettings_Example-TASettings-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TASettings_Example-TASettings-Private.xcconfig"; sourceTree = "<group>"; };
-		9E105673B34062A5FEEABC22 /* TASettings.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TASettings.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		A2B415BFB28A195FDAF3A0DB /* Pods-TASettings_Example-TASettings-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TASettings_Example-TASettings-prefix.pch"; sourceTree = "<group>"; };
-		ABB63DAFD2067C6B53FDEA1F /* Pods-TASettings_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-TASettings_Example.modulemap"; sourceTree = "<group>"; };
-		B1159F2973A52CF559B012B6 /* Pods-TASettings_Example-TASettings-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TASettings_Example-TASettings-dummy.m"; sourceTree = "<group>"; };
-		B4BCA8C15CD942748D0496DA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		C24966048B3DDB0934DD22D7 /* Pods-TASettings_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TASettings_Example.release.xcconfig"; sourceTree = "<group>"; };
-		C43DC53723086A53BF4DADEC /* Pods-TASettings_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TASettings_Example-umbrella.h"; sourceTree = "<group>"; };
-		D0AD232246552D62661D3998 /* TASettingViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TASettingViewController.h; sourceTree = "<group>"; };
-		DAB23B15DA320D2FB18B2D31 /* Pods-TASettings_Example-TASettings.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TASettings_Example-TASettings.xcconfig"; sourceTree = "<group>"; };
-		E2CEA347C83D5BAFEA259FCA /* Pods-TASettings_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TASettings_Example-resources.sh"; sourceTree = "<group>"; };
-		F04DED30DFE3721FF8342E5B /* Pods-TASettings_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TASettings_Example-frameworks.sh"; sourceTree = "<group>"; };
-		FE96BB96DB50F00748101928 /* Pods-TASettings_Example-TASettings-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TASettings_Example-TASettings-umbrella.h"; sourceTree = "<group>"; };
+		0135E7AB3EA92BCBB7C70E92 /* Pods-TASettings_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TASettings_Example-umbrella.h"; sourceTree = "<group>"; };
+		111D608DD9C82294B2ED0660 /* Pods-TASettings_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TASettings_Example-frameworks.sh"; sourceTree = "<group>"; };
+		1A8C00953A080F164088C50A /* Pods-TASettings_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-TASettings_Example.modulemap"; sourceTree = "<group>"; };
+		22A0CF39EAC185D94B65EF26 /* Pods-TASettings_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TASettings_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		26E259BCEF25AC45DD98CBE4 /* TATextFieldCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TATextFieldCell.m; sourceTree = "<group>"; };
+		3D4EC3F1D93B6E6F0E6AEA7D /* Pods-TASettings_Example-TASettings-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TASettings_Example-TASettings-umbrella.h"; sourceTree = "<group>"; };
+		3D5FF52A69D256892E280FE2 /* Pods-TASettings_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TASettings_Example.release.xcconfig"; sourceTree = "<group>"; };
+		487E9BF9FE9F0A3658CF262C /* TASettings.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TASettings.m; sourceTree = "<group>"; };
+		4D24F1DFE2D0E521D9F621C1 /* TASettingViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TASettingViewController.m; sourceTree = "<group>"; };
+		6277482C303BFA63BB7AE6C9 /* ReplaceMe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ReplaceMe.m; sourceTree = "<group>"; };
+		671C6773CA4F63B86F7A80D3 /* TASettingTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TASettingTextField.h; sourceTree = "<group>"; };
+		68BAF1C004111BCCD9B7121A /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		6B1820687474F880978561BF /* TASettings.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TASettings.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E7CB1095ACC4CD592BB9EF3 /* TASettingTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TASettingTextField.m; sourceTree = "<group>"; };
+		700A070324D3583A883E2D1D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84E6F0A2D3250162615DD914 /* TASettingViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TASettingViewController.h; sourceTree = "<group>"; };
+		8FBDC5DB462DB433075246AD /* TASettings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TASettings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D68F3A913EE776BB959FCF4 /* Pods-TASettings_Example-TASettings-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TASettings_Example-TASettings-prefix.pch"; sourceTree = "<group>"; };
+		AA540851CD08741FD73156A3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		AE43C8242F895DAFD517B6DF /* Pods-TASettings_Example-TASettings.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-TASettings_Example-TASettings.modulemap"; sourceTree = "<group>"; };
+		B1C209D6D687C45D09E20356 /* Pods-TASettings_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TASettings_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		B2E991F2D0C6E0073B4CFE99 /* TASettings.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TASettings.h; sourceTree = "<group>"; };
+		B4D1961DA8843AEB2E4E3384 /* Pods-TASettings_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TASettings_Example-resources.sh"; sourceTree = "<group>"; };
+		BB24FBFFE3F3D789C16D0C05 /* Pods-TASettings_Example-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TASettings_Example-environment.h"; sourceTree = "<group>"; };
+		BB347183AC96537E8985F98E /* Pods-TASettings_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TASettings_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		C1CD707685989594C36E0B88 /* Pods-TASettings_Example-TASettings-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TASettings_Example-TASettings-dummy.m"; sourceTree = "<group>"; };
+		D001085D24C6C8F5C7220182 /* Pods_TASettings_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TASettings_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D517907E71D2E67625A7BF4F /* Pods-TASettings_Example-TASettings-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TASettings_Example-TASettings-Private.xcconfig"; sourceTree = "<group>"; };
+		D54A40FC96D8D97930BC2FE2 /* TASetting.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TASetting.h; sourceTree = "<group>"; };
+		DCDCF36110176E926B4EB5F1 /* TATextFieldCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TATextFieldCell.h; sourceTree = "<group>"; };
+		E4F93AFA7B44FABFA99D9A02 /* TASetting.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TASetting.m; sourceTree = "<group>"; };
+		F29CA3C1AB96EC3A4900904C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F434694F19B86298ECA5B3E3 /* Pods-TASettings_Example-TASettings.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TASettings_Example-TASettings.xcconfig"; sourceTree = "<group>"; };
+		F8DB3FF6486E7F434C18BC01 /* Pods-TASettings_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TASettings_Example-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		48181424E1185AA6515F23DE /* Frameworks */ = {
+		118247FF28943869AC3F2073 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C20224ABA842924B3E439A0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2812910425F81658A09BAC1A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E1D47EE2AC53F7EE37A29D4D /* Frameworks */ = {
+		9AA310EC6ACC775E4070AC87 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22B795C07672D5344A244802 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E4CEEDFC19B2D7BC2843243D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9C643156C326AD4F1B967D56 /* Foundation.framework in Frameworks */,
+				E9E94D54DE384FA21DD8DB73 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		14EAE37E3F34B3E89FE16E33 /* iOS */ = {
+		2AC95D319CA729DF3975E56F /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B4BCA8C15CD942748D0496DA /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		3A4B7E1C457AC8CAE44F65B4 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				14EAE37E3F34B3E89FE16E33 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		54C05959E7762FB2844263DA /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				4AAF0457A146B20935C5DDDB /* Pods_TASettings_Example.framework */,
-				9E105673B34062A5FEEABC22 /* TASettings.bundle */,
-				50B4CE5E69FD013409FDF352 /* TASettings.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		5C3055573107256163A212B7 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F8492BAF1013A71484BE197F /* TASettings */,
+				DC6C0F30867C72C1276A5CC8 /* TASettings */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		600954CA998BE98BC8A71C45 = {
+		35E066D7CCFB608EE32BF652 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				3DD18F249114043C884C0E92 /* Podfile */,
-				5C3055573107256163A212B7 /* Development Pods */,
-				3A4B7E1C457AC8CAE44F65B4 /* Frameworks */,
-				54C05959E7762FB2844263DA /* Products */,
-				A2D29E14EA8DE7245E9D8656 /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		7B76AD488597EE5AC7F10B50 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				25E8EFAE09329CACF5AE359C /* ReplaceMe.m */,
-				D0AD232246552D62661D3998 /* TASettingViewController.h */,
-				7AED50EE91A8043961C2728A /* TASettingViewController.m */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		85B0F9CD30D175DA9A9F8254 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				2A55390AC9A6F76438E86B58 /* Info.plist */,
-				1EBECA90871B8DE806938343 /* Pods-TASettings_Example-TASettings.modulemap */,
-				DAB23B15DA320D2FB18B2D31 /* Pods-TASettings_Example-TASettings.xcconfig */,
-				89EC1A86105ED4A673EFA402 /* Pods-TASettings_Example-TASettings-Private.xcconfig */,
-				B1159F2973A52CF559B012B6 /* Pods-TASettings_Example-TASettings-dummy.m */,
-				A2B415BFB28A195FDAF3A0DB /* Pods-TASettings_Example-TASettings-prefix.pch */,
-				FE96BB96DB50F00748101928 /* Pods-TASettings_Example-TASettings-umbrella.h */,
+				700A070324D3583A883E2D1D /* Info.plist */,
+				AE43C8242F895DAFD517B6DF /* Pods-TASettings_Example-TASettings.modulemap */,
+				F434694F19B86298ECA5B3E3 /* Pods-TASettings_Example-TASettings.xcconfig */,
+				D517907E71D2E67625A7BF4F /* Pods-TASettings_Example-TASettings-Private.xcconfig */,
+				C1CD707685989594C36E0B88 /* Pods-TASettings_Example-TASettings-dummy.m */,
+				9D68F3A913EE776BB959FCF4 /* Pods-TASettings_Example-TASettings-prefix.pch */,
+				3D4EC3F1D93B6E6F0E6AEA7D /* Pods-TASettings_Example-TASettings-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "Example/Pods/Target Support Files/Pods-TASettings_Example-TASettings";
 			sourceTree = "<group>";
 		};
-		8C5B93DB29A33A21E053ED69 /* Pod */ = {
+		4A51611B65391DC34971E7F0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7B76AD488597EE5AC7F10B50 /* Classes */,
+				C43F3E8111B42B9D8A4456A5 /* iOS */,
 			);
-			path = Pod;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A2D29E14EA8DE7245E9D8656 /* Targets Support Files */ = {
+		9750040E2A2BE51692B93FDA /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				C036EF44120D610A85F3A3D8 /* Pods-TASettings_Example */,
+				F872B09707D97180CB02625B /* Pods-TASettings_Example */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		C036EF44120D610A85F3A3D8 /* Pods-TASettings_Example */ = {
+		BC181B27C22855B4A3A36CFB = {
 			isa = PBXGroup;
 			children = (
-				7AA2480F21338A8EBC782E30 /* Info.plist */,
-				ABB63DAFD2067C6B53FDEA1F /* Pods-TASettings_Example.modulemap */,
-				1DE5AA721888F5C392528F22 /* Pods-TASettings_Example-acknowledgements.markdown */,
-				3AED8389BB053E219BA69EC6 /* Pods-TASettings_Example-acknowledgements.plist */,
-				6A0307B16BB6F3F2B3A414CD /* Pods-TASettings_Example-dummy.m */,
-				8053B9AC63E14C863138ED4C /* Pods-TASettings_Example-environment.h */,
-				F04DED30DFE3721FF8342E5B /* Pods-TASettings_Example-frameworks.sh */,
-				E2CEA347C83D5BAFEA259FCA /* Pods-TASettings_Example-resources.sh */,
-				C43DC53723086A53BF4DADEC /* Pods-TASettings_Example-umbrella.h */,
-				0660320E8B0CD158805D365A /* Pods-TASettings_Example.debug.xcconfig */,
-				C24966048B3DDB0934DD22D7 /* Pods-TASettings_Example.release.xcconfig */,
+				68BAF1C004111BCCD9B7121A /* Podfile */,
+				2AC95D319CA729DF3975E56F /* Development Pods */,
+				4A51611B65391DC34971E7F0 /* Frameworks */,
+				F7FF8FCFD00E2A3F8FF5E8CA /* Products */,
+				9750040E2A2BE51692B93FDA /* Targets Support Files */,
 			);
-			name = "Pods-TASettings_Example";
-			path = "Target Support Files/Pods-TASettings_Example";
 			sourceTree = "<group>";
 		};
-		F8492BAF1013A71484BE197F /* TASettings */ = {
+		C43F3E8111B42B9D8A4456A5 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				8C5B93DB29A33A21E053ED69 /* Pod */,
-				85B0F9CD30D175DA9A9F8254 /* Support Files */,
+				AA540851CD08741FD73156A3 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		D0384A37D433402C0F98C139 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				DDE8E39EE87D4C43C11EF2B3 /* Classes */,
+			);
+			path = Pod;
+			sourceTree = "<group>";
+		};
+		DC6C0F30867C72C1276A5CC8 /* TASettings */ = {
+			isa = PBXGroup;
+			children = (
+				D0384A37D433402C0F98C139 /* Pod */,
+				35E066D7CCFB608EE32BF652 /* Support Files */,
 			);
 			name = TASettings;
 			path = ../..;
 			sourceTree = "<group>";
 		};
+		DDE8E39EE87D4C43C11EF2B3 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				6277482C303BFA63BB7AE6C9 /* ReplaceMe.m */,
+				D54A40FC96D8D97930BC2FE2 /* TASetting.h */,
+				E4F93AFA7B44FABFA99D9A02 /* TASetting.m */,
+				671C6773CA4F63B86F7A80D3 /* TASettingTextField.h */,
+				6E7CB1095ACC4CD592BB9EF3 /* TASettingTextField.m */,
+				84E6F0A2D3250162615DD914 /* TASettingViewController.h */,
+				4D24F1DFE2D0E521D9F621C1 /* TASettingViewController.m */,
+				B2E991F2D0C6E0073B4CFE99 /* TASettings.h */,
+				487E9BF9FE9F0A3658CF262C /* TASettings.m */,
+				DCDCF36110176E926B4EB5F1 /* TATextFieldCell.h */,
+				26E259BCEF25AC45DD98CBE4 /* TATextFieldCell.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		F7FF8FCFD00E2A3F8FF5E8CA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D001085D24C6C8F5C7220182 /* Pods_TASettings_Example.framework */,
+				6B1820687474F880978561BF /* TASettings.bundle */,
+				8FBDC5DB462DB433075246AD /* TASettings.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F872B09707D97180CB02625B /* Pods-TASettings_Example */ = {
+			isa = PBXGroup;
+			children = (
+				F29CA3C1AB96EC3A4900904C /* Info.plist */,
+				1A8C00953A080F164088C50A /* Pods-TASettings_Example.modulemap */,
+				22A0CF39EAC185D94B65EF26 /* Pods-TASettings_Example-acknowledgements.markdown */,
+				B1C209D6D687C45D09E20356 /* Pods-TASettings_Example-acknowledgements.plist */,
+				F8DB3FF6486E7F434C18BC01 /* Pods-TASettings_Example-dummy.m */,
+				BB24FBFFE3F3D789C16D0C05 /* Pods-TASettings_Example-environment.h */,
+				111D608DD9C82294B2ED0660 /* Pods-TASettings_Example-frameworks.sh */,
+				B4D1961DA8843AEB2E4E3384 /* Pods-TASettings_Example-resources.sh */,
+				0135E7AB3EA92BCBB7C70E92 /* Pods-TASettings_Example-umbrella.h */,
+				BB347183AC96537E8985F98E /* Pods-TASettings_Example.debug.xcconfig */,
+				3D5FF52A69D256892E280FE2 /* Pods-TASettings_Example.release.xcconfig */,
+			);
+			name = "Pods-TASettings_Example";
+			path = "Target Support Files/Pods-TASettings_Example";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		06C1B6BD65219356C0773429 /* Headers */ = {
+		1F6BB9ADF8410D776C40CF91 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				617D7348EB76E9001C16A4E9 /* Pods-TASettings_Example-TASettings-umbrella.h in Headers */,
-				DC33158EC43851C437EED5A8 /* TASettingViewController.h in Headers */,
+				053E0DE24849905913BEB112 /* Pods-TASettings_Example-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		32DB6FD558C7E4C936B44DDC /* Headers */ = {
+		BD177F180E024E806466E677 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86FEBBAEDC790E1D582E8FFF /* Pods-TASettings_Example-umbrella.h in Headers */,
+				4E0B31417CB4319B6F1752CC /* Pods-TASettings_Example-TASettings-umbrella.h in Headers */,
+				27C65DB0A88F233A057C90B4 /* TASetting.h in Headers */,
+				88B43F4EEADA41B18171F1C8 /* TASettingTextField.h in Headers */,
+				74E7D4FB2826E32674D1D87A /* TASettingViewController.h in Headers */,
+				B5EC81D1D2264413FDAFF581 /* TASettings.h in Headers */,
+				B8BFC9ACDE9FD544404BACC0 /* TATextFieldCell.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		818B966FD6CF69CD3C8E23D4 /* Pods-TASettings_Example */ = {
+		0E114988CBA73B228DFE933F /* Pods-TASettings_Example-TASettings-TASettings */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 837595E5391616BDC3F9B1EA /* Build configuration list for PBXNativeTarget "Pods-TASettings_Example" */;
+			buildConfigurationList = F06A885177A746D08113123C /* Build configuration list for PBXNativeTarget "Pods-TASettings_Example-TASettings-TASettings" */;
 			buildPhases = (
-				5D683F9435B1FA718DB98170 /* Sources */,
-				E1D47EE2AC53F7EE37A29D4D /* Frameworks */,
-				32DB6FD558C7E4C936B44DDC /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				461AAD381BCF4010FFC5FCB5 /* PBXTargetDependency */,
-			);
-			name = "Pods-TASettings_Example";
-			productName = "Pods-TASettings_Example";
-			productReference = 4AAF0457A146B20935C5DDDB /* Pods_TASettings_Example.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		BC39EF3C908ECF037B10B101 /* Pods-TASettings_Example-TASettings */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4F932C88FF263E1FEC3D920E /* Build configuration list for PBXNativeTarget "Pods-TASettings_Example-TASettings" */;
-			buildPhases = (
-				1B144D8D3D7545D0A68A0BD5 /* Sources */,
-				E4CEEDFC19B2D7BC2843243D /* Frameworks */,
-				FB8203DB291ED5CFCB95E2D7 /* Resources */,
-				06C1B6BD65219356C0773429 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CEF5C4C89ACC10C1326A9617 /* PBXTargetDependency */,
-			);
-			name = "Pods-TASettings_Example-TASettings";
-			productName = "Pods-TASettings_Example-TASettings";
-			productReference = 50B4CE5E69FD013409FDF352 /* TASettings.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		F4DE6B2F6582EF6434F51F80 /* Pods-TASettings_Example-TASettings-TASettings */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 60ED7F1DEA30EEE074992787 /* Build configuration list for PBXNativeTarget "Pods-TASettings_Example-TASettings-TASettings" */;
-			buildPhases = (
-				2EC1590BDFDFA4EEC6C9A45A /* Sources */,
-				48181424E1185AA6515F23DE /* Frameworks */,
-				121F422C5B141F8B0906512C /* Resources */,
+				579D8F93D9E68251424E752D /* Sources */,
+				2812910425F81658A09BAC1A /* Frameworks */,
+				4436E7BCD0C4D9E7281EC52C /* Resources */,
 			);
 			buildRules = (
 			);
@@ -281,210 +272,142 @@
 			);
 			name = "Pods-TASettings_Example-TASettings-TASettings";
 			productName = "Pods-TASettings_Example-TASettings-TASettings";
-			productReference = 9E105673B34062A5FEEABC22 /* TASettings.bundle */;
+			productReference = 6B1820687474F880978561BF /* TASettings.bundle */;
 			productType = "com.apple.product-type.bundle";
+		};
+		37EC7E0CADBE042E2B48E1E4 /* Pods-TASettings_Example-TASettings */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BFEA2F65B20710E6D37D37E7 /* Build configuration list for PBXNativeTarget "Pods-TASettings_Example-TASettings" */;
+			buildPhases = (
+				14919372E921308D016563AA /* Sources */,
+				9AA310EC6ACC775E4070AC87 /* Frameworks */,
+				51693103DF2F0191F4E91682 /* Resources */,
+				BD177F180E024E806466E677 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				559EF4091E71E23307A2659C /* PBXTargetDependency */,
+			);
+			name = "Pods-TASettings_Example-TASettings";
+			productName = "Pods-TASettings_Example-TASettings";
+			productReference = 8FBDC5DB462DB433075246AD /* TASettings.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		60257F686EEBD40A613A2EFE /* Pods-TASettings_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA3F52D9423C559283C117B9 /* Build configuration list for PBXNativeTarget "Pods-TASettings_Example" */;
+			buildPhases = (
+				5A78DA56807C20B9523EA06F /* Sources */,
+				118247FF28943869AC3F2073 /* Frameworks */,
+				1F6BB9ADF8410D776C40CF91 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				129A9C11B80B4E73128219E6 /* PBXTargetDependency */,
+			);
+			name = "Pods-TASettings_Example";
+			productName = "Pods-TASettings_Example";
+			productReference = D001085D24C6C8F5C7220182 /* Pods_TASettings_Example.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		B64109F2E7A7600B0940C7CF /* Project object */ = {
+		4A26A6895ED0B1AADBAC6BC6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0640;
 			};
-			buildConfigurationList = EABC3CD1C6F4D8C0FD5B10F7 /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 679FA992996482A142A24874 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 600954CA998BE98BC8A71C45;
-			productRefGroup = 54C05959E7762FB2844263DA /* Products */;
+			mainGroup = BC181B27C22855B4A3A36CFB;
+			productRefGroup = F7FF8FCFD00E2A3F8FF5E8CA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				818B966FD6CF69CD3C8E23D4 /* Pods-TASettings_Example */,
-				BC39EF3C908ECF037B10B101 /* Pods-TASettings_Example-TASettings */,
-				F4DE6B2F6582EF6434F51F80 /* Pods-TASettings_Example-TASettings-TASettings */,
+				60257F686EEBD40A613A2EFE /* Pods-TASettings_Example */,
+				37EC7E0CADBE042E2B48E1E4 /* Pods-TASettings_Example-TASettings */,
+				0E114988CBA73B228DFE933F /* Pods-TASettings_Example-TASettings-TASettings */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		121F422C5B141F8B0906512C /* Resources */ = {
+		4436E7BCD0C4D9E7281EC52C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FB8203DB291ED5CFCB95E2D7 /* Resources */ = {
+		51693103DF2F0191F4E91682 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EA980130DAC56F3240BD65B /* TASettings.bundle in Resources */,
+				E0095752C62469AE5B066173 /* TASettings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1B144D8D3D7545D0A68A0BD5 /* Sources */ = {
+		14919372E921308D016563AA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAF34273A1635FA8678E4D5E /* Pods-TASettings_Example-TASettings-dummy.m in Sources */,
-				62A6168F86879AE8305DD5C6 /* ReplaceMe.m in Sources */,
-				D82F33BEE52B8156B0A1C564 /* TASettingViewController.m in Sources */,
+				B0B61C1E96B01A760370B0BD /* Pods-TASettings_Example-TASettings-dummy.m in Sources */,
+				26E8B264F3404212B373A8DC /* ReplaceMe.m in Sources */,
+				034C98347770B0C1881DD92B /* TASetting.m in Sources */,
+				B91BE6AAAD8A944018F3E812 /* TASettingTextField.m in Sources */,
+				9A52E706F1EA1B3F0B5DCDCB /* TASettingViewController.m in Sources */,
+				FE613D89AC58C8373850B57F /* TASettings.m in Sources */,
+				834DFABF36EA511F803E9B17 /* TATextFieldCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2EC1590BDFDFA4EEC6C9A45A /* Sources */ = {
+		579D8F93D9E68251424E752D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5D683F9435B1FA718DB98170 /* Sources */ = {
+		5A78DA56807C20B9523EA06F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E04229B2ECEEF118B8A3767 /* Pods-TASettings_Example-dummy.m in Sources */,
+				4DFA383001D12D93553FFFA6 /* Pods-TASettings_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		461AAD381BCF4010FFC5FCB5 /* PBXTargetDependency */ = {
+		129A9C11B80B4E73128219E6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-TASettings_Example-TASettings";
-			target = BC39EF3C908ECF037B10B101 /* Pods-TASettings_Example-TASettings */;
-			targetProxy = 5D6C587053E549EF64797F38 /* PBXContainerItemProxy */;
+			target = 37EC7E0CADBE042E2B48E1E4 /* Pods-TASettings_Example-TASettings */;
+			targetProxy = A0E7F148B8BE1DC5CE89EB99 /* PBXContainerItemProxy */;
 		};
-		CEF5C4C89ACC10C1326A9617 /* PBXTargetDependency */ = {
+		559EF4091E71E23307A2659C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-TASettings_Example-TASettings-TASettings";
-			target = F4DE6B2F6582EF6434F51F80 /* Pods-TASettings_Example-TASettings-TASettings */;
-			targetProxy = A8F2870102704BE8DB76EEEB /* PBXContainerItemProxy */;
+			target = 0E114988CBA73B228DFE933F /* Pods-TASettings_Example-TASettings-TASettings */;
+			targetProxy = 6649C22D3F62A45187CB14F8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		38375008F2A2329D1B130D71 /* Release */ = {
+		02A1864916D48A51381C218F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89EC1A86105ED4A673EFA402 /* Pods-TASettings_Example-TASettings-Private.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-TASettings_Example-TASettings/Pods-TASettings_Example-TASettings-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Pods-TASettings_Example-TASettings/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-TASettings_Example-TASettings/Pods-TASettings_Example-TASettings.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = TASettings;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		5C97A322B63F16A34F68D102 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89EC1A86105ED4A673EFA402 /* Pods-TASettings_Example-TASettings-Private.xcconfig */;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods-TASettings_Example";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				PRODUCT_NAME = TASettings;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		7528E63E7C2DE754A8E7A283 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89EC1A86105ED4A673EFA402 /* Pods-TASettings_Example-TASettings-Private.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-TASettings_Example-TASettings/Pods-TASettings_Example-TASettings-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Pods-TASettings_Example-TASettings/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-TASettings_Example-TASettings/Pods-TASettings_Example-TASettings.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = TASettings;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		76000EC740F4ED0B24B4FCB4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89EC1A86105ED4A673EFA402 /* Pods-TASettings_Example-TASettings-Private.xcconfig */;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods-TASettings_Example";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				PRODUCT_NAME = TASettings;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
-		8EB3AB3EA33D26D42295E0FA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0660320E8B0CD158805D365A /* Pods-TASettings_Example.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-TASettings_Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-TASettings_Example/Pods-TASettings_Example.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods_TASettings_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		9F8BA52307C944400A1F174F /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C24966048B3DDB0934DD22D7 /* Pods-TASettings_Example.release.xcconfig */;
+			baseConfigurationReference = 3D5FF52A69D256892E280FE2 /* Pods-TASettings_Example.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -511,7 +434,47 @@
 			};
 			name = Release;
 		};
-		BB5E0446170453F7E2A872FD /* Release */ = {
+		22F63BFC660912DFF91399B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D517907E71D2E67625A7BF4F /* Pods-TASettings_Example-TASettings-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-TASettings_Example-TASettings/Pods-TASettings_Example-TASettings-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-TASettings_Example-TASettings/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-TASettings_Example-TASettings/Pods-TASettings_Example-TASettings.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = TASettings;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		271FC6E78EBD3637E9CE3CE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D517907E71D2E67625A7BF4F /* Pods-TASettings_Example-TASettings-Private.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods-TASettings_Example";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = TASettings;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		3D646484DBF4690E904FC93E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -545,7 +508,7 @@
 			};
 			name = Release;
 		};
-		EBF937BA7D5DC7EBCB53CD67 /* Debug */ = {
+		3EE71C4C87A8109D2020F1B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -584,46 +547,115 @@
 			};
 			name = Debug;
 		};
+		5CD8DAE1F16A66903243291B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D517907E71D2E67625A7BF4F /* Pods-TASettings_Example-TASettings-Private.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods-TASettings_Example";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = TASettings;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		7407CB38832D88E16BF18965 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D517907E71D2E67625A7BF4F /* Pods-TASettings_Example-TASettings-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-TASettings_Example-TASettings/Pods-TASettings_Example-TASettings-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-TASettings_Example-TASettings/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-TASettings_Example-TASettings/Pods-TASettings_Example-TASettings.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = TASettings;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		859BED5DF4F913D2DF9D696A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB347183AC96537E8985F98E /* Pods-TASettings_Example.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-TASettings_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-TASettings_Example/Pods-TASettings_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_TASettings_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4F932C88FF263E1FEC3D920E /* Build configuration list for PBXNativeTarget "Pods-TASettings_Example-TASettings" */ = {
+		679FA992996482A142A24874 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7528E63E7C2DE754A8E7A283 /* Debug */,
-				38375008F2A2329D1B130D71 /* Release */,
+				3EE71C4C87A8109D2020F1B0 /* Debug */,
+				3D646484DBF4690E904FC93E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		60ED7F1DEA30EEE074992787 /* Build configuration list for PBXNativeTarget "Pods-TASettings_Example-TASettings-TASettings" */ = {
+		BFEA2F65B20710E6D37D37E7 /* Build configuration list for PBXNativeTarget "Pods-TASettings_Example-TASettings" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5C97A322B63F16A34F68D102 /* Debug */,
-				76000EC740F4ED0B24B4FCB4 /* Release */,
+				7407CB38832D88E16BF18965 /* Debug */,
+				22F63BFC660912DFF91399B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		837595E5391616BDC3F9B1EA /* Build configuration list for PBXNativeTarget "Pods-TASettings_Example" */ = {
+		CA3F52D9423C559283C117B9 /* Build configuration list for PBXNativeTarget "Pods-TASettings_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8EB3AB3EA33D26D42295E0FA /* Debug */,
-				9F8BA52307C944400A1F174F /* Release */,
+				859BED5DF4F913D2DF9D696A /* Debug */,
+				02A1864916D48A51381C218F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EABC3CD1C6F4D8C0FD5B10F7 /* Build configuration list for PBXProject "Pods" */ = {
+		F06A885177A746D08113123C /* Build configuration list for PBXNativeTarget "Pods-TASettings_Example-TASettings-TASettings" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EBF937BA7D5DC7EBCB53CD67 /* Debug */,
-				BB5E0446170453F7E2A872FD /* Release */,
+				271FC6E78EBD3637E9CE3CE2 /* Debug */,
+				5CD8DAE1F16A66903243291B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = B64109F2E7A7600B0940C7CF /* Project object */;
+	rootObject = 4A26A6895ED0B1AADBAC6BC6 /* Project object */;
 }
