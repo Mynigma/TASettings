@@ -12,4 +12,9 @@
 
 @property(nonatomic, strong) TASettings *settings;
 
+@property(nonatomic, strong) UITableView *tableView;
+
+
+- (TASetting *)settingForIndexPath:(NSIndexPath *)indexPath;
+
 @end

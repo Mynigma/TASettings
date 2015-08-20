@@ -19,7 +19,7 @@ typedef NS_ENUM(NSUInteger , TASettingType) {
 @property (nonatomic, copy) NSString *localizedTitle;
 @property (nonatomic, copy) NSString *localizedFooterText;
 
-@property (nonatomic, copy) TASettingValue *value;
+@property (nonatomic, strong) TASettingValue *settingValue;
 
 - (instancetype)initWithSettingType:(TASettingType)settingType localizedTitle:(NSString *)localizedTitle;
 

@@ -11,9 +11,10 @@
 @property (nonatomic, strong) id value;
 @property (nonatomic, strong) id defaultValue;
 
-- (instancetype)initWithTitle:(NSString *)title;
+- (instancetype)initWithTitle:(NSString *)title value:(id)value defaultValue:(id)defaultValue;
 
-+ (instancetype)valueWithTitle:(NSString *)title;
++ (instancetype)valueWithValue:(id)value;
+
 
 
 @end

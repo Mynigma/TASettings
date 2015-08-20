@@ -5,11 +5,12 @@
 #import "TASettingViewController.h"
 #import "TATextFieldCell.h"
 #import "TATextFieldSetting.h"
+#import "TASettingViewController+TATextField.h"
 
 
 @interface TASettingViewController () <UITableViewDataSource>
 
-@property(nonatomic, strong) UITableView *tableView;
+
 
 @property(nonatomic, strong) NSArray *sections;
 
@@ -68,24 +69,20 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellId" forIndexPath:indexPath];
-    TASettings *settings = [self settingsForSection:indexPath.section];
-    TASetting *setting = settings.settings[indexPath.row];
+    TASetting *setting = [self settingForIndexPath:indexPath];
+
     [self configureCell:cell withSetting:setting];
 
     return cell;
 }
 
-#pragma mark - Cell Configuration
+#pragma mark - Public
 
-- (void)configureCell:(TATextFieldCell *)tableViewCell withSetting:(TASetting *)setting
+- (TASetting *)settingForIndexPath:(NSIndexPath *)indexPath
 {
-    TATextFieldCell *cell = (TATextFieldCell *) tableViewCell;
-    TATextFieldSetting *textSetting = (TATextFieldSetting *) setting;
-
-    cell.titleLabel.text = textSetting.localizedTitle;
-    cell.valueTextField.placeholder = textSetting.placeholder;
-    cell.valueTextField.keyboardType = textSetting.keyboardType;
-    cell.valueTextField.secureTextEntry = textSetting.secure;
+    TASettings *settings = [self settingsForSection:indexPath.section];
+    TASetting *setting = settings.settings[indexPath.row];
+    return setting;
 }
 
 
