@@ -3,6 +3,7 @@
 //
 
 #import "TASwitchCell.h"
+#import "TASettingTitleLabel.h"
 
 
 @implementation TASwitchCell {
@@ -13,10 +14,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
 
-        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        self.titleLabel.minimumScaleFactor = 0.3;
-        self.titleLabel.adjustsFontSizeToFitWidth = YES;
-        self.titleLabel.numberOfLines = 0;
+        self.titleLabel = [TASettingTitleLabel settingLabel];
 
         self.valueSwitch = [[UISwitch alloc] init];
 

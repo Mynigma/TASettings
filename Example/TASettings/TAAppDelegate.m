@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Jan Chaloupecky. All rights reserved.
 //
 
+#import <TASettings/TATextFieldCell.h>
+#import <TASettings/TASettingTitleLabel.h>
 #import "TAAppDelegate.h"
 
 @implementation TAAppDelegate
@@ -13,6 +15,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+//    [[UILabel appearanceWhenContainedIn:[UITableViewCell class], nil] setFont:[UIFont boldSystemFontOfSize:15]];
+    [[TATextFieldCell appearance] setTitleLabelFont:[UIFont boldSystemFontOfSize:15]];
     return YES;
 }
 

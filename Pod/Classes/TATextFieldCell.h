@@ -5,9 +5,11 @@
 #import <Foundation/Foundation.h>
 
 
-@interface TATextFieldCell : UITableViewCell
+@interface TATextFieldCell : UITableViewCell <UIAppearanceContainer>
 
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UITextField *valueTextField;
+
+@property (nonatomic, strong) UI_APPEARANCE_SELECTOR UIFont *titleLabelFont;
 
 @end

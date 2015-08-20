@@ -68,10 +68,15 @@
                                                                                views:views]];
 
 
-
-
-
-
 }
+
+#pragma mark - UIAppearanceContainer
+
+- (void)setTitleLabelFont:(UIFont *)titleLabelFont
+{
+    _titleLabelFont = titleLabelFont;
+    self.titleLabel.font = titleLabelFont;
+}
+
 
 @end
