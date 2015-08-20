@@ -42,6 +42,11 @@
 
     setting.settingValue.value = textField.text;
 
+    id <TASettingViewControllerDelegate> o = self.delegate;
+    if ([o respondsToSelector:@selector(settingViewController:didChangeSetting:)]) {
+        [o settingViewController:self didChangeSetting:setting];
+    }
+
 }
 
 

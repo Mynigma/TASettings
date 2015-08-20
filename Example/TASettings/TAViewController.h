@@ -8,6 +8,8 @@
 
 @import UIKit;
 
+#import <TASettings/TASettingViewController.h>
+
 @interface TAViewController : UIViewController
 
 @end

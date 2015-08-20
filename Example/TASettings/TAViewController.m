@@ -7,10 +7,9 @@
 //
 
 #import "TAViewController.h"
-#import <TASettings/TASettingViewController.h>
 #import <TASettings/TATextFieldSetting.h>
 
-@interface TAViewController ()
+@interface TAViewController () <TASettingViewControllerDelegate>
 
 @end
 
@@ -33,6 +32,7 @@
 - (IBAction)showSettings:(id)sender
 {
     TASettingViewController *settingViewController = [[TASettingViewController alloc] init];
+    settingViewController.delegate = self;
 
 
     UINavigationController *navigationController  = [[UINavigationController alloc] initWithRootViewController:settingViewController];
@@ -69,6 +69,13 @@
     settings.settings = @[ generalSection, incomingSection ];
 
     return settings;
+}
+
+#pragma mark - TASettingViewControllerDelegate
+
+- (void)settingViewController:(TASettingViewController *)controller didChangeSetting:(TASetting *)setting
+{
+    NSLog(@"Setting value changed: %@", setting);
 }
 
 

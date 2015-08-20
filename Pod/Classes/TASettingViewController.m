@@ -6,6 +6,7 @@
 #import "TATextFieldCell.h"
 #import "TATextFieldSetting.h"
 #import "TASettingViewController+TATextField.h"
+#import "TASettingValue.h"
 
 
 @interface TASettingViewController () <UITableViewDataSource>
