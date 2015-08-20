@@ -7,7 +7,9 @@
 //
 
 #import "TAViewController.h"
+#import "TASettingTextField.h"
 #import <TASettings/TASettingViewController.h>
+#import <TASettings/TASettingTextField.h>
 
 @interface TAViewController ()
 
@@ -62,14 +64,14 @@
             [TASetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"Host"],
     ];
 
-    TASettings *outgoinfSection = [TASettings settingWithSettingType:TASettingTypeGroup localizedTitle:@"OUtgoing"];
+    TASettings *outgoingSection = [TASettings settingWithSettingType:TASettingTypeGroup localizedTitle:@"OUtgoing"];
     incomingSection.settings = @[
-            [TASetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"User Name"],
+            [TASettingTextField settingWithSettingType:TASettingTypeTextField localizedTitle:@"User Name"],
             [TASetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"Password"],
             [TASetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"Host"],
     ];
 
-    settings.settings = @[ generalSection, incomingSection ];
+    settings.settings = @[ generalSection, incomingSection, outgoingSection ];
 
     return settings;
 }
