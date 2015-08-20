@@ -26,17 +26,46 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Actions
+
 - (IBAction)showSettings:(id)sender
 {
     TASettingViewController *settingViewController = [[TASettingViewController alloc] init];
 
-    settingViewController.showDoneButton = YES;
-    
+
     UINavigationController *navigationController  = [[UINavigationController alloc] initWithRootViewController:settingViewController];
-    
+
+
+    settingViewController.showDoneButton = YES;
+    settingViewController.settings = [self settings];
+
     [self presentViewController:navigationController animated:YES completion:nil];
 }
 
+#pragma mark - Helper
+
+-(TASettings *) settings {
+    TASettings *settings = [[TASettings alloc] init];
+    settings.localizedTitle = @"Account Setting";
+
+    TASettings *generalSection = [TASettings settingWithSettingType:TASettingTypeGroup localizedTitle:@"General"];
+    generalSection.settings = @[
+            [TASetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"Account Name"],
+            [TASetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"Sender Name"],
+    ];
+
+    TASettings *incomingSection = [TASettings settingWithSettingType:TASettingTypeGroup localizedTitle:@"General"];
+    incomingSection.settings = @[
+            [TASetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"User Name"],
+            [TASetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"Password"],
+            [TASetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"Host"],
+    ];
+
+    settings.settings = @[ generalSection, incomingSection ];
+
+    return settings;
+}
 
 
 @end
