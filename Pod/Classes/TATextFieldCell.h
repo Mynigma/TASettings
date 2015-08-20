@@ -6,4 +6,8 @@
 
 
 @interface TATextFieldCell : UITableViewCell
+
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UITextField *valueTextField;
+
 @end

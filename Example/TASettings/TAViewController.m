@@ -55,7 +55,14 @@
             [TASetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"Sender Name"],
     ];
 
-    TASettings *incomingSection = [TASettings settingWithSettingType:TASettingTypeGroup localizedTitle:@"General"];
+    TASettings *incomingSection = [TASettings settingWithSettingType:TASettingTypeGroup localizedTitle:@"Incoming"];
+    incomingSection.settings = @[
+            [TASetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"User Name"],
+            [TASetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"Password"],
+            [TASetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"Host"],
+    ];
+
+    TASettings *outgoinfSection = [TASettings settingWithSettingType:TASettingTypeGroup localizedTitle:@"OUtgoing"];
     incomingSection.settings = @[
             [TASetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"User Name"],
             [TASetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"Password"],

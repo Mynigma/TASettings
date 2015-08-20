@@ -3,6 +3,7 @@
 //
 
 #import "TASettingViewController.h"
+#import "TATextFieldCell.h"
 
 
 @interface TASettingViewController () <UITableViewDataSource>
@@ -23,7 +24,8 @@
 {
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     self.tableView.dataSource = self;
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"CellId"];
+    //[self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"CellId"];
+    [self.tableView registerClass:[TATextFieldCell class] forCellReuseIdentifier:@"CellId"];
 
     [self.view addSubview:self.tableView];
 }
@@ -76,7 +78,9 @@
 
 - (void)configureCell:(UITableViewCell *)tableViewCell withSetting:(TASetting *)setting
 {
-    tableViewCell.textLabel.text = setting.localizedTitle;
+    TATextFieldCell *cell = (TATextFieldCell *) tableViewCell;
+
+    cell.titleLabel.text = setting.localizedTitle;
 }
 
 
