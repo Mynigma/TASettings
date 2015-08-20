@@ -7,5 +7,6 @@
 
 @interface TASettingViewController (TATextField) <UITextFieldDelegate>
 
-- (void)configureCell:(UITableViewCell *)tableViewCell withSetting:(TASetting *)setting;
+- (void)configureTextFieldCell:(UITableViewCell *)tableViewCell withSetting:(TASetting *)setting;
+
 @end

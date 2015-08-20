@@ -10,6 +10,7 @@ typedef NS_ENUM(NSUInteger , TASettingType) {
     TASettingTypeGroup,
     TASettingTypeChild,
     TASettingTypeTextField,
+    TASettingTypeSwitch,
     TASettingTypeMultiValue,
 };
 
@@ -23,7 +24,11 @@ typedef NS_ENUM(NSUInteger , TASettingType) {
 
 - (instancetype)initWithSettingType:(TASettingType)settingType localizedTitle:(NSString *)localizedTitle;
 
+#pragma mark - Factory Methods
+
 + (instancetype)settingWithSettingType:(TASettingType)settingType localizedTitle:(NSString *)localizedTitle;
+
++ (instancetype)switchSettingWithTitle:(NSString *)title settingValue:(TASettingValue *) settingValue;
 
 
 @end

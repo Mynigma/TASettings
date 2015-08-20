@@ -6,15 +6,16 @@
 #import "TATextFieldSetting.h"
 #import "TATextFieldCell.h"
 #import "TASettingValue.h"
+#import "TASettingViewController+Delegates.h"
 
 
 @implementation TASettingViewController (TATextField)
 
 #pragma mark - Cell Configuration
 
-- (void)configureCell:(UITableViewCell *)tableViewCell withSetting:(TASetting *)setting
+- (void)configureTextFieldCell:(UITableViewCell *)tableViewCell withSetting:(TASetting *)setting
 {
-    NSAssert([tableViewCell isKindOfClass:[TATextFieldCell class]], @"Must be a %@ class",NSStringFromClass([TATextFieldCell class]));
+    NSAssert([tableViewCell isKindOfClass:[TATextFieldCell class]], @"Must be a %@ class", NSStringFromClass([TATextFieldCell class]));
     TATextFieldCell *cell = (TATextFieldCell *) tableViewCell;
     TATextFieldSetting *textSetting = (TATextFieldSetting *) setting;
 
@@ -32,22 +33,7 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     UITableViewCell *cell = textField.superview.superview; // context view then cell
-    NSIndexPath *indexPath =  [self.tableView indexPathForCell:cell];
-    TASetting *setting = [self settingForIndexPath:indexPath];
-
-    // todo call delegate for validation
-    if(!setting.settingValue) {
-        setting.settingValue = [[TASettingValue alloc] init];
-    }
-
-    setting.settingValue.value = textField.text;
-
-    id <TASettingViewControllerDelegate> o = self.delegate;
-    if ([o respondsToSelector:@selector(settingViewController:didChangeSetting:)]) {
-        [o settingViewController:self didChangeSetting:setting];
-    }
-
+    [self handleChangedValue:textField.text inCell:cell];
 }
-
 
 @end

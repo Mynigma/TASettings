@@ -36,6 +36,23 @@
     return self;
 }
 
+- (instancetype)initWithValue:(id)value defaultValue:(id)defaultValue
+{
+    self = [super init];
+    if (self) {
+        self.value = value;
+        self.defaultValue = defaultValue;
+    }
+
+    return self;
+}
+
++ (instancetype)valueWithValue:(id)value defaultValue:(id)defaultValue
+{
+    return [[self alloc] initWithValue:value defaultValue:defaultValue];
+}
+
+
 + (instancetype)valueWithValue:(id)value
 {
     return [[self alloc] initWithValue:value];

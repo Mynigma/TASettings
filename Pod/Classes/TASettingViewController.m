@@ -7,10 +7,11 @@
 #import "TATextFieldSetting.h"
 #import "TASettingViewController+TATextField.h"
 #import "TASettingValue.h"
+#import "TASwitchCell.h"
+#import "TASettingViewController+TASwitch.h"
 
 
 @interface TASettingViewController () <UITableViewDataSource>
-
 
 
 @property(nonatomic, strong) NSArray *sections;
@@ -27,8 +28,9 @@
 {
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     self.tableView.dataSource = self;
-    //[self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"CellId"];
-    [self.tableView registerClass:[TATextFieldCell class] forCellReuseIdentifier:@"CellId"];
+
+    [self.tableView registerClass:[TATextFieldCell class] forCellReuseIdentifier:[self cellIdentifierForSettingType:TASettingTypeTextField]];
+    [self.tableView registerClass:[TASwitchCell class] forCellReuseIdentifier:[self cellIdentifierForSettingType:TASettingTypeSwitch]];
 
     [self.view addSubview:self.tableView];
 }
@@ -69,10 +71,23 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellId" forIndexPath:indexPath];
     TASetting *setting = [self settingForIndexPath:indexPath];
 
-    [self configureCell:cell withSetting:setting];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[self cellIdentifierForSettingType:setting.settingType] forIndexPath:indexPath];
+
+    switch (setting.settingType) {
+        case TASettingTypeChild:
+            break;
+        case TASettingTypeTextField:
+            [self configureTextFieldCell:cell withSetting:setting];
+            break;
+        case TASettingTypeMultiValue:
+            break;
+        case TASettingTypeSwitch:
+            [self configureSwitchCell:cell withSetting:setting];
+            break;
+    }
+
 
     return cell;
 }
@@ -99,6 +114,23 @@
 - (TASettings *)settingsForSection:(NSInteger)section
 {
     return self.sections ? self.sections[section] : self.settings;
+}
+
+- (NSString *)cellIdentifierForSettingType:(TASettingType)settingType
+{
+    static NSDictionary *mapping;
+    static dispatch_once_t token;
+
+    dispatch_once(&token, ^{
+        mapping = @{
+                @(TASettingTypeTextField) : @"TASettingTypeTextFieldCellId",
+                @(TASettingTypeSwitch) : @"TASettingTypeSwitchCellId"
+        };
+    });
+
+    NSString *cellId = mapping[@(settingType)];
+    NSAssert(cellId, @"Must provide a mapping for cell id");
+    return cellId;
 }
 
 - (void)addDoneButtonIfNecessary

@@ -8,6 +8,7 @@
 
 #import "TAViewController.h"
 #import <TASettings/TATextFieldSetting.h>
+#import <TASettings/TASettingValue.h>
 
 @interface TAViewController () <TASettingViewControllerDelegate>
 
@@ -50,10 +51,13 @@
     TASettings *settings = [[TASettings alloc] init];
     settings.localizedTitle = @"Account Setting";
 
+
+
     TASettings *generalSection = [TASettings settingWithSettingType:TASettingTypeGroup localizedTitle:@"General"];
     generalSection.settings = @[
             [[TATextFieldSetting alloc] initWithTitle:@"Account Name" placeholderValue:@"Gmail" secure:NO keyboardType:UIKeyboardTypeAlphabet],
             [[TATextFieldSetting alloc] initWithTitle:@"Sender Name" placeholderValue:@"John Doe" secure:NO keyboardType:UIKeyboardTypeAlphabet],
+            [TASetting switchSettingWithTitle:@"Copy to sent messages" settingValue:[TASettingValue valueWithValue:nil defaultValue:@YES]],
     ];
 
     TASettings *incomingSection = [TASettings settingWithSettingType:TASettingTypeGroup localizedTitle:@"Incoming"];
