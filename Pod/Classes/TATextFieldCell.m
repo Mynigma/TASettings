@@ -19,7 +19,7 @@
         self.titleLabel.numberOfLines = 0;
 
         self.valueTextField = [[UITextField alloc] initWithFrame:CGRectZero];
-        self.valueTextField.keyboardType
+
 
         [self.contentView addSubview:self.titleLabel];
         [self.contentView addSubview:self.valueTextField];

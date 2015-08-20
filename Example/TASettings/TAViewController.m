@@ -7,9 +7,8 @@
 //
 
 #import "TAViewController.h"
-#import "TASettingTextField.h"
 #import <TASettings/TASettingViewController.h>
-#import <TASettings/TASettingTextField.h>
+#import <TASettings/TATextFieldSetting.h>
 
 @interface TAViewController ()
 
@@ -53,25 +52,21 @@
 
     TASettings *generalSection = [TASettings settingWithSettingType:TASettingTypeGroup localizedTitle:@"General"];
     generalSection.settings = @[
-            [TASetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"Account Name"],
-            [TASetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"Sender Name"],
+            [[TATextFieldSetting alloc] initWithTitle:@"Account Name" placeholderValue:@"Gmail" secure:NO keyboardType:UIKeyboardTypeAlphabet],
+            [[TATextFieldSetting alloc] initWithTitle:@"Sender Name" placeholderValue:@"John Doe" secure:NO keyboardType:UIKeyboardTypeAlphabet],
     ];
 
     TASettings *incomingSection = [TASettings settingWithSettingType:TASettingTypeGroup localizedTitle:@"Incoming"];
     incomingSection.settings = @[
-            [TASetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"User Name"],
-            [TASetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"Password"],
-            [TASetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"Host"],
+            [TATextFieldSetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"User Name"],
+            [[TATextFieldSetting alloc] initWithTitle:@"Password" placeholderValue:nil secure:YES keyboardType:UIKeyboardTypeAlphabet],
+            [[TATextFieldSetting alloc] initWithTitle:@"Host" placeholderValue:@"imap.google.com" secure:NO keyboardType:UIKeyboardTypeAlphabet],
+            [[TATextFieldSetting alloc] initWithTitle:@"Port" placeholderValue:@"993" secure:NO keyboardType:UIKeyboardTypeNamePhonePad],
     ];
 
-    TASettings *outgoingSection = [TASettings settingWithSettingType:TASettingTypeGroup localizedTitle:@"OUtgoing"];
-    incomingSection.settings = @[
-            [TASettingTextField settingWithSettingType:TASettingTypeTextField localizedTitle:@"User Name"],
-            [TASetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"Password"],
-            [TASetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"Host"],
-    ];
 
-    settings.settings = @[ generalSection, incomingSection, outgoingSection ];
+
+    settings.settings = @[ generalSection, incomingSection ];
 
     return settings;
 }

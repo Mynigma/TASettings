@@ -10,6 +10,11 @@
 
 @property (nonatomic, assign) BOOL secure;
 @property (nonatomic, assign) UIKeyboardType keyboardType;
+@property (nonatomic, copy) NSString *placeholder;
+
+- (instancetype)initWithTitle:(NSString *)title placeholderValue:(NSString *)placeholderValue secure:(BOOL)secure keyboardType:(UIKeyboardType)keyboardType;
+
+
 
 
 @end

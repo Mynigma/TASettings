@@ -4,6 +4,7 @@
 
 #import "TASettingViewController.h"
 #import "TATextFieldCell.h"
+#import "TATextFieldSetting.h"
 
 
 @interface TASettingViewController () <UITableViewDataSource>
@@ -76,11 +77,15 @@
 
 #pragma mark - Cell Configuration
 
-- (void)configureCell:(UITableViewCell *)tableViewCell withSetting:(TASetting *)setting
+- (void)configureCell:(TATextFieldCell *)tableViewCell withSetting:(TASetting *)setting
 {
     TATextFieldCell *cell = (TATextFieldCell *) tableViewCell;
+    TATextFieldSetting *textSetting = (TATextFieldSetting *) setting;
 
-    cell.titleLabel.text = setting.localizedTitle;
+    cell.titleLabel.text = textSetting.localizedTitle;
+    cell.valueTextField.placeholder = textSetting.placeholder;
+    cell.valueTextField.keyboardType = textSetting.keyboardType;
+    cell.valueTextField.secureTextEntry = textSetting.secure;
 }
 
 

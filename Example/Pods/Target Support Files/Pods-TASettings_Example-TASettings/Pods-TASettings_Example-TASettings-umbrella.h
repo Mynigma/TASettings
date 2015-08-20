@@ -3,7 +3,6 @@
 #import "TAMultiValueSetting.h"
 #import "TASetting.h"
 #import "TASettings.h"
-#import "TASettingTextField.h"
 #import "TASettingValue.h"
 #import "TASettingViewController.h"
 #import "TATextFieldCell.h"
