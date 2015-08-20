@@ -5,8 +5,3 @@ target 'TASettings_Example', :exclusive => true do
   pod "TASettings", :path => "../"
 end
 
-target 'TASettings_Tests', :exclusive => true do
-  pod "TASettings", :path => "../"
-
-  
-end

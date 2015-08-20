@@ -7,6 +7,7 @@
 //
 
 #import "TAViewController.h"
+#import <TASettings/TASettingViewController.h>
 
 @interface TAViewController ()
 
@@ -24,6 +25,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)showSettings:(id)sender
+{
+    TASettingViewController *settingViewController = [[TASettingViewController alloc] init];
+
+    settingViewController.showDoneButton = YES;
+    
+    UINavigationController *navigationController  = [[UINavigationController alloc] initWithRootViewController:settingViewController];
+    
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 @end
