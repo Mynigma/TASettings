@@ -3,7 +3,6 @@
 //
 
 #import "TASettingViewController.h"
-#import "TASettingGroup.h"
 
 
 @interface TASettingViewController () <UITableViewDataSource>
@@ -60,7 +59,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return  [self settingsForSection:section].settings.count;
+    return [self settingsForSection:section].settings.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -77,7 +76,7 @@
 
 - (void)configureCell:(UITableViewCell *)tableViewCell withSetting:(TASetting *)setting
 {
-   tableViewCell.textLabel.text = setting.localizedTitle;
+    tableViewCell.textLabel.text = setting.localizedTitle;
 }
 
 

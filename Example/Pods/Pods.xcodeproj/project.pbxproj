@@ -10,7 +10,6 @@
 		034C98347770B0C1881DD92B /* TASetting.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F93AFA7B44FABFA99D9A02 /* TASetting.m */; };
 		053E0DE24849905913BEB112 /* Pods-TASettings_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0135E7AB3EA92BCBB7C70E92 /* Pods-TASettings_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C20224ABA842924B3E439A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA540851CD08741FD73156A3 /* Foundation.framework */; };
-		26E8B264F3404212B373A8DC /* ReplaceMe.m in Sources */ = {isa = PBXBuildFile; fileRef = 6277482C303BFA63BB7AE6C9 /* ReplaceMe.m */; };
 		27C65DB0A88F233A057C90B4 /* TASetting.h in Headers */ = {isa = PBXBuildFile; fileRef = D54A40FC96D8D97930BC2FE2 /* TASetting.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DFA383001D12D93553FFFA6 /* Pods-TASettings_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F8DB3FF6486E7F434C18BC01 /* Pods-TASettings_Example-dummy.m */; };
 		4E0B31417CB4319B6F1752CC /* Pods-TASettings_Example-TASettings-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D4EC3F1D93B6E6F0E6AEA7D /* Pods-TASettings_Example-TASettings-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -54,7 +53,6 @@
 		3D5FF52A69D256892E280FE2 /* Pods-TASettings_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TASettings_Example.release.xcconfig"; sourceTree = "<group>"; };
 		487E9BF9FE9F0A3658CF262C /* TASettings.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TASettings.m; sourceTree = "<group>"; };
 		4D24F1DFE2D0E521D9F621C1 /* TASettingViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TASettingViewController.m; sourceTree = "<group>"; };
-		6277482C303BFA63BB7AE6C9 /* ReplaceMe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ReplaceMe.m; sourceTree = "<group>"; };
 		671C6773CA4F63B86F7A80D3 /* TASettingTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TASettingTextField.h; sourceTree = "<group>"; };
 		68BAF1C004111BCCD9B7121A /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		6B1820687474F880978561BF /* TASettings.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TASettings.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -187,7 +185,6 @@
 		DDE8E39EE87D4C43C11EF2B3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				6277482C303BFA63BB7AE6C9 /* ReplaceMe.m */,
 				D54A40FC96D8D97930BC2FE2 /* TASetting.h */,
 				E4F93AFA7B44FABFA99D9A02 /* TASetting.m */,
 				671C6773CA4F63B86F7A80D3 /* TASettingTextField.h */,
@@ -363,7 +360,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0B61C1E96B01A760370B0BD /* Pods-TASettings_Example-TASettings-dummy.m in Sources */,
-				26E8B264F3404212B373A8DC /* ReplaceMe.m in Sources */,
 				034C98347770B0C1881DD92B /* TASetting.m in Sources */,
 				B91BE6AAAD8A944018F3E812 /* TASettingTextField.m in Sources */,
 				9A52E706F1EA1B3F0B5DCDCB /* TASettingViewController.m in Sources */,
