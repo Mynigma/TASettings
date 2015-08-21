@@ -7,7 +7,8 @@
 //
 
 #import <TASettings/TATextFieldCell.h>
-#import <TASettings/TASettingTitleLabel.h>
+#import <TASettings/TASwitchCell.h>
+
 #import "TAAppDelegate.h"
 
 @implementation TAAppDelegate
@@ -17,6 +18,10 @@
     // Override point for customization after application launch.
 //    [[UILabel appearanceWhenContainedIn:[UITableViewCell class], nil] setFont:[UIFont boldSystemFontOfSize:15]];
     [[TATextFieldCell appearance] setTitleLabelFont:[UIFont boldSystemFontOfSize:15]];
+    [[TATextFieldCell appearance] setValueTextFieldFont:[UIFont systemFontOfSize:15]];
+
+    [[TASwitchCell appearance] setTitleLabelFont:[UIFont boldSystemFontOfSize:15]];
+
     return YES;
 }
 

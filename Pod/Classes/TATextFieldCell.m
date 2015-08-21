@@ -78,5 +78,11 @@
     self.titleLabel.font = titleLabelFont;
 }
 
+- (void)setValueTextFieldFont:(UIFont *)valueTextFieldFont
+{
+    _valueTextFieldFont = valueTextFieldFont;
+    self.valueTextField.font = valueTextFieldFont;
+}
+
 
 @end

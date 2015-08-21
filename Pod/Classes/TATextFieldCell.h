@@ -11,5 +11,6 @@
 @property (nonatomic, strong) UITextField *valueTextField;
 
 @property (nonatomic, strong) UI_APPEARANCE_SELECTOR UIFont *titleLabelFont;
+@property (nonatomic, strong) UI_APPEARANCE_SELECTOR UIFont *valueTextFieldFont;
 
 @end
