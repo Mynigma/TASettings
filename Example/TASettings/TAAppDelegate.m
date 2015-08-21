@@ -17,10 +17,9 @@
 {
     // Override point for customization after application launch.
 //    [[UILabel appearanceWhenContainedIn:[UITableViewCell class], nil] setFont:[UIFont boldSystemFontOfSize:15]];
-    [[TATextFieldCell appearance] setTitleLabelFont:[UIFont boldSystemFontOfSize:15]];
+    [[TASettingCell appearance] setTitleLabelFont:[UIFont boldSystemFontOfSize:15]];
     [[TATextFieldCell appearance] setValueTextFieldFont:[UIFont systemFontOfSize:15]];
 
-    [[TASwitchCell appearance] setTitleLabelFont:[UIFont boldSystemFontOfSize:15]];
 
     return YES;
 }

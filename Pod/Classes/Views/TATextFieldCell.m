@@ -14,15 +14,12 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
 
-        self.titleLabel = [UILabel ta_settingTitleLabel];
 
         self.valueTextField = [[UITextField alloc] initWithFrame:CGRectZero];
-
         self.selectionStyle = UITableViewCellSelectionStyleNone;
 
-
-        [self.contentView addSubview:self.titleLabel];
         [self.contentView addSubview:self.valueTextField];
+        
         [self setupAutoLayout];
 
     }
@@ -47,22 +44,25 @@
                                                                 multiplier:0.3 constant:0]];
 
     NSDictionary *metrics = @{};
-    NSDictionary *views = NSDictionaryOfVariableBindings(_titleLabel, _valueTextField);
+    NSDictionary *views = @{
+            @"titleLabel" : self.titleLabel,
+            @"valueTextField" : self.valueTextField,
+    };
 
 
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[_titleLabel]-[_valueTextField]-|"
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[titleLabel]-[valueTextField]-|"
                                                                              options:(NSLayoutFormatOptions) 0
                                                                              metrics:metrics
                                                                                views:views]];
 
     // vertical spacing to label
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[_titleLabel]-|"
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[titleLabel]-|"
                                                                              options:(NSLayoutFormatOptions) 0
                                                                              metrics:metrics
                                                                                views:views]];
 
     // vertical spacing to label
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[_valueTextField]-|"
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[valueTextField]-|"
                                                                              options:(NSLayoutFormatOptions) 0
                                                                              metrics:metrics
                                                                                views:views]];
@@ -72,11 +72,6 @@
 
 #pragma mark - UIAppearanceContainer
 
-- (void)setTitleLabelFont:(UIFont *)titleLabelFont
-{
-    _titleLabelFont = titleLabelFont;
-    self.titleLabel.font = titleLabelFont;
-}
 
 - (void)setValueTextFieldFont:(UIFont *)valueTextFieldFont
 {

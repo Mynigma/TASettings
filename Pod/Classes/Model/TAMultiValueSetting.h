@@ -8,10 +8,9 @@
 
 @interface TAMultiValueSetting : TASetting
 
-@property (nonatomic, strong) NSArray *values;  // TASettingValue
+@property(nonatomic, strong) NSArray *values;  // TASettingValue
 
-- (instancetype)initWithValues:(NSArray *)values;
-+ (instancetype)settingWithValues:(NSArray *)values;
++ (instancetype)settingWithTitle:(NSString *)title values:(NSArray *)values;
 
 
 @end

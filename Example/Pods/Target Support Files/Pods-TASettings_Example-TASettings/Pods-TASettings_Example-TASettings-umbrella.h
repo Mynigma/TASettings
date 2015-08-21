@@ -10,6 +10,8 @@
 #import "TASettingValue.h"
 #import "TASwitch.h"
 #import "TATextFieldSetting.h"
+#import "TAMultiValueCell.h"
+#import "TASettingCell.h"
 #import "TASwitchCell.h"
 #import "TATextFieldCell.h"
 #import "UILabel+TALabel.h"

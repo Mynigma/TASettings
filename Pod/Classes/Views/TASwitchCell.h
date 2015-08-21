@@ -3,13 +3,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TASettingCell.h"
 
 
-@interface TASwitchCell : UITableViewCell
+@interface TASwitchCell : TASettingCell
 
-@property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UISwitch *valueSwitch;
 
-@property (nonatomic, strong) UI_APPEARANCE_SELECTOR UIFont *titleLabelFont;
 
+-(void) setupAutoLayout;
 @end

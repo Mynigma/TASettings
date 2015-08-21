@@ -8,9 +8,9 @@
 @implementation TAMultiValueSetting {
 
 }
-- (instancetype)initWithValues:(NSArray *)values
+- (instancetype)initWithTitle:(NSString *)title values:(NSArray *)values
 {
-    self = [super init];
+    self = [super initWithSettingType:TASettingTypeMultiValue localizedTitle:title];
     if (self) {
         self.values = values;
     }
@@ -18,9 +18,9 @@
     return self;
 }
 
-+ (instancetype)settingWithValues:(NSArray *)values
++ (instancetype)settingWithTitle:(NSString *)title values:(NSArray *)values
 {
-    return [[self alloc] initWithValues:values];
+    return [[self alloc] initWithTitle:title values:values];
 }
 
 @end

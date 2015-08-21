@@ -39,16 +39,19 @@
 
 
     NSDictionary *metrics = @{};
-    NSDictionary *views = NSDictionaryOfVariableBindings(_titleLabel, _valueSwitch);
+    NSDictionary *views = @{ 
+            @"titleLabel" : self.titleLabel,
+            @"valueSwitch" : self.valueSwitch
+    };
 
 
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[_titleLabel]-[_valueSwitch]-|"
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[titleLabel]-[valueSwitch]-|"
                                                                              options:(NSLayoutFormatOptions) 0
                                                                              metrics:metrics
                                                                                views:views]];
 
     // vertical spacing to label
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[_titleLabel]-|"
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[titleLabel]-|"
                                                                              options:(NSLayoutFormatOptions) 0
                                                                              metrics:metrics
                                                                                views:views]];
@@ -66,14 +69,7 @@
 
 
 
-}
+};
 
-#pragma mark - UIAppearanceContainer
-
-- (void)setTitleLabelFont:(UIFont *)titleLabelFont
-{
-    _titleLabelFont = titleLabelFont;
-    self.titleLabel.font = titleLabelFont;
-}
 
 @end

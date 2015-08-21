@@ -3,14 +3,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TASettingCell.h"
 
 
-@interface TATextFieldCell : UITableViewCell <UIAppearanceContainer>
+@interface TATextFieldCell : TASettingCell <UIAppearanceContainer>
 
-@property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UITextField *valueTextField;
 
-@property (nonatomic, strong) UI_APPEARANCE_SELECTOR UIFont *titleLabelFont;
 @property (nonatomic, strong) UI_APPEARANCE_SELECTOR UIFont *valueTextFieldFont;
+
 
 @end
