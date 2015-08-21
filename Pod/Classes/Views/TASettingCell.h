@@ -11,6 +11,7 @@
 @property (nonatomic, strong) UILabel *subtitleLabel;
 
 @property (nonatomic, strong) UI_APPEARANCE_SELECTOR UIFont *titleLabelFont;
+@property (nonatomic, strong) UI_APPEARANCE_SELECTOR UIFont *subtitleLabelFont;
 
 
 @end

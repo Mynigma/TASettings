@@ -14,15 +14,9 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
 
-        self.titleLabel = [UILabel ta_settingTitleLabel];
-
         self.valueSwitch = [[UISwitch alloc] init];
-
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
-
-
-        [self.contentView addSubview:self.titleLabel];
         [self.contentView addSubview:self.valueSwitch];
+
         [self setupAutoLayout];
 
     }

@@ -47,6 +47,23 @@
     return self;
 }
 
+- (instancetype)initWithTitle:(NSString *)title value:(id)value
+{
+    self = [super init];
+    if (self) {
+        self.title = title;
+        self.value = value;
+    }
+
+    return self;
+}
+
++ (instancetype)valueWithTitle:(NSString *)title value:(id)value
+{
+    return [[self alloc] initWithTitle:title value:value];
+}
+
+
 + (instancetype)valueWithValue:(id)value defaultValue:(id)defaultValue
 {
     return [[self alloc] initWithValue:value defaultValue:defaultValue];

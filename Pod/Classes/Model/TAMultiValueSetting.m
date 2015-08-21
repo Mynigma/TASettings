@@ -3,6 +3,7 @@
 //
 
 #import "TAMultiValueSetting.h"
+#import "TASettingValue.h"
 
 
 @implementation TAMultiValueSetting {
@@ -22,5 +23,20 @@
 {
     return [[self alloc] initWithTitle:title values:values];
 }
+
+#pragma mark - Accessors
+
+- (NSString *)selectedSubtitle
+{
+    __block NSString *subtitle = @"";
+    [self.values enumerateObjectsUsingBlock:^(TASettingValue * obj, NSUInteger idx, BOOL *stop) {
+
+        if([obj.value boolValue]) {
+            subtitle = [subtitle stringByAppendingString:[NSString stringWithFormat:@"%@%@", subtitle.length == 0 ? @"" : @",", obj.title]];
+        }
+    }];
+    return subtitle;
+}
+
 
 @end

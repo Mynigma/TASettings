@@ -9,6 +9,7 @@
 #import "TAViewController.h"
 #import <TASettings/TATextFieldSetting.h>
 #import <TASettings/TASettingValue.h>
+#import <TASettings/TAMultiValueSetting.h>
 
 @interface TAViewController () <TASettingViewControllerDelegate>
 
@@ -51,6 +52,12 @@
     TASettings *settings = [[TASettings alloc] init];
     settings.localizedTitle = @"Account Setting";
 
+    NSArray *sslValues = @[
+    [TASettingValue valueWithTitle:@"Auto" value:@NO],
+    [TASettingValue valueWithTitle:@"Clear" value:@NO],
+    [TASettingValue valueWithTitle:@"START TLS" value:@YES],
+    [TASettingValue valueWithTitle:@"SSL" value:@NO]];
+
 
 
     TASettings *generalSection = [TASettings settingWithSettingType:TASettingTypeGroup localizedTitle:@"General"];
@@ -66,6 +73,7 @@
             [[TATextFieldSetting alloc] initWithTitle:@"Password" placeholderValue:nil secure:YES keyboardType:UIKeyboardTypeAlphabet],
             [[TATextFieldSetting alloc] initWithTitle:@"Host" placeholderValue:@"imap.google.com" secure:NO keyboardType:UIKeyboardTypeAlphabet],
             [[TATextFieldSetting alloc] initWithTitle:@"Port" placeholderValue:@"993" secure:NO keyboardType:UIKeyboardTypeNamePhonePad],
+            [TAMultiValueSetting settingWithTitle:@"SSL" values:sslValues],
     ];
 
 

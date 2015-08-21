@@ -16,7 +16,10 @@
     if (self) {
 
         self.titleLabel = [UILabel ta_settingTitleLabel];
+        self.subtitleLabel = [UILabel ta_settingTitleLabel];
+
         [self.contentView addSubview:self.titleLabel];
+        [self.contentView addSubview:self.subtitleLabel];
 
     }
 
@@ -29,6 +32,12 @@
 {
     _titleLabelFont = titleLabelFont;
     self.titleLabel.font = titleLabelFont;
+}
+
+- (void)setSubtitleLabelFont:(UIFont *)subtitleLabelFont
+{
+    _subtitleLabelFont = subtitleLabelFont;
+    self.subtitleLabel.font = subtitleLabelFont;
 }
 
 

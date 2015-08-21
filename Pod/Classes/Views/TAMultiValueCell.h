@@ -3,7 +3,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TASettingCell.h"
 
 
-@interface TAMultiValueCell : NSObject
+@interface TAMultiValueCell : TASettingCell
+
+
+
 @end

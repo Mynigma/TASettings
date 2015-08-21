@@ -9,6 +9,8 @@
 #import "TASettingValue.h"
 #import "TASwitchCell.h"
 #import "TASettingViewController+TASwitch.h"
+#import "TAMultiValueCell.h"
+#import "TAMultiValueSetting.h"
 
 
 @interface TASettingViewController () <UITableViewDataSource>
@@ -31,6 +33,7 @@
 
     [self.tableView registerClass:[TATextFieldCell class] forCellReuseIdentifier:[self cellIdentifierForSettingType:TASettingTypeTextField]];
     [self.tableView registerClass:[TASwitchCell class] forCellReuseIdentifier:[self cellIdentifierForSettingType:TASettingTypeSwitch]];
+    [self.tableView registerClass:[TAMultiValueCell class] forCellReuseIdentifier:[self cellIdentifierForSettingType:TASettingTypeMultiValue]];
 
     [self.view addSubview:self.tableView];
 }
@@ -82,14 +85,26 @@
             [self configureTextFieldCell:cell withSetting:setting];
             break;
         case TASettingTypeMultiValue:
+            [self configureMultiValueCell:cell withSetting:setting];
             break;
         case TASettingTypeSwitch:
             [self configureSwitchCell:cell withSetting:setting];
             break;
     }
 
-
     return cell;
+}
+
+- (void)configureMultiValueCell:(UITableViewCell *)tableViewCell withSetting:(TASetting *)setting
+{
+
+    NSAssert([tableViewCell isKindOfClass:[TAMultiValueCell class]], @"Must be a %@ class", NSStringFromClass([TAMultiValueCell class]));
+    TAMultiValueCell *cell = (TAMultiValueCell *) tableViewCell;
+
+    TAMultiValueSetting *multiValueSetting = (TAMultiValueSetting *) setting;
+    cell.titleLabel.text = setting.localizedTitle;
+    cell.subtitleLabel.text = multiValueSetting.selectedSubtitle;
+
 }
 
 #pragma mark - Public
@@ -124,6 +139,7 @@
     dispatch_once(&token, ^{
         mapping = @{
                 @(TASettingTypeTextField) : @"TASettingTypeTextFieldCellId",
+                @(TASettingTypeMultiValue) : @"TASettingTypeMultiValueCellId",
                 @(TASettingTypeSwitch) : @"TASettingTypeSwitchCellId"
         };
     });
