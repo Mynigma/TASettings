@@ -1,1 +1,1 @@
-../../../../../Pod/Classes/TASwitchCell.h
+../../../../../Pod/Classes/Views/TASwitchCell.h

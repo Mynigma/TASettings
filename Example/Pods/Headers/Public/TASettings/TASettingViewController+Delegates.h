@@ -1,1 +1,1 @@
-../../../../../Pod/Classes/TASettingViewController+Delegates.h
+../../../../../Pod/Classes/Controllers/TASettingViewController+Delegates.h

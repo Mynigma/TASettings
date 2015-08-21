@@ -1,1 +1,1 @@
-../../../../../Pod/Classes/TATextFieldSetting.h
+../../../../../Pod/Classes/Model/TATextFieldSetting.h

@@ -1,1 +1,1 @@
-../../../../../Pod/Classes/TASettings.h
+../../../../../Pod/Classes/Model/TASettings.h

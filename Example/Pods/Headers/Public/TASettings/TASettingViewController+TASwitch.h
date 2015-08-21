@@ -1,1 +1,1 @@
-../../../../../Pod/Classes/TASettingViewController+TASwitch.h
+../../../../../Pod/Classes/Controllers/TASettingViewController+TASwitch.h

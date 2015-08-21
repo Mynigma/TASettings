@@ -1,1 +1,1 @@
-../../../../../Pod/Classes/TAMultiValueSetting.h
+../../../../../Pod/Classes/Model/TAMultiValueSetting.h

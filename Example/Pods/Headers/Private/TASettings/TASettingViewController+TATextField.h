@@ -1,1 +1,1 @@
-../../../../../Pod/Classes/TASettingViewController+TATextField.h
+../../../../../Pod/Classes/Controllers/TASettingViewController+TATextField.h

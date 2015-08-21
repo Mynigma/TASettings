@@ -1,1 +1,1 @@
-../../../../../Pod/Classes/TASwitch.h
+../../../../../Pod/Classes/Model/TASwitch.h
