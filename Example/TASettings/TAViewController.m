@@ -76,9 +76,18 @@
             [TAMultiValueSetting settingWithTitle:@"SSL" values:sslValues],
     ];
 
+    TASettings *outgoingSection = [TASettings settingWithSettingType:TASettingTypeGroup localizedTitle:@"Outgoing"];
+    outgoingSection.settings = @[
+            [TATextFieldSetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"User Name"],
+            [[TATextFieldSetting alloc] initWithTitle:@"Password" placeholderValue:nil secure:YES keyboardType:UIKeyboardTypeAlphabet],
+            [[TATextFieldSetting alloc] initWithTitle:@"Host" placeholderValue:@"smtp.google.com" secure:NO keyboardType:UIKeyboardTypeAlphabet],
+            [[TATextFieldSetting alloc] initWithTitle:@"Port" placeholderValue:@"587" secure:NO keyboardType:UIKeyboardTypeNamePhonePad],
+            [TAMultiValueSetting settingWithTitle:@"SSL" values:sslValues],
+    ];
 
 
-    settings.settings = @[ generalSection, incomingSection ];
+
+    settings.settings = @[ generalSection, incomingSection, outgoingSection ];
 
     return settings;
 }

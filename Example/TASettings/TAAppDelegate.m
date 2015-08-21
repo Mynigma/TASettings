@@ -22,6 +22,14 @@
     [[TATextFieldCell appearance] setValueTextFieldFont:[UIFont systemFontOfSize:15]];
 
 
+    NSDictionary *navBarTextAttributes = @{
+            NSForegroundColorAttributeName : [UIColor whiteColor]
+    };
+    [[UINavigationBar appearance] setTitleTextAttributes:navBarTextAttributes];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.19 green:0.32 blue:0.5 alpha:1]];
+    [[UINavigationBar appearance] setTranslucent:YES];
+
+
     return YES;
 }
 
