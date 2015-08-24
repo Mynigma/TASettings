@@ -121,6 +121,7 @@
 
 - (void)doneButtonPressed:(id)doneButton
 {
+    [self.delegate settingViewController:self didRequestSaveSettings:self.settings];
 
 }
 
@@ -158,7 +159,7 @@
                                                                                     target:self
                                                                                     action:@selector(doneButtonPressed:)];
 
-        self.navigationController.navigationItem.rightBarButtonItem = buttonItem;
+        self.navigationItem.rightBarButtonItem = buttonItem;
     }
 }
 

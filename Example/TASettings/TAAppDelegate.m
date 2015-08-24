@@ -30,6 +30,13 @@
     [[UINavigationBar appearance] setTranslucent:YES];
 
 
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil]
+            setTitleTextAttributes:@{
+                    NSForegroundColorAttributeName : [UIColor whiteColor]
+            }
+                          forState:UIControlStateNormal];
+
+
     return YES;
 }
 

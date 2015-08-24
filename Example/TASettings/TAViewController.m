@@ -104,5 +104,11 @@
     NSLog(@"Setting value changed: %@", setting);
 }
 
+- (void)settingViewController:(TASettingViewController *)controller didRequestSaveSettings:(TASettings *)setting
+{
+    NSLog(@"%s", sel_getName(_cmd));
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 @end

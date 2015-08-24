@@ -13,8 +13,8 @@
 
 @optional
 - (void)settingViewController:(TASettingViewController *)controller didChangeSetting:(TASetting *)setting;
-- (void)settingViewController:(TASettingViewController *)controller willDismissSetting:(TASetting *)setting;
-- (void)settingViewController:(TASettingViewController *)controller didRequestSaveSettings:(TASetting *)setting;
+- (void)settingViewController:(TASettingViewController *)controller willDismissSettings:(TASettings *)setting;
+- (void)settingViewController:(TASettingViewController *)controller didRequestSaveSettings:(TASettings *)setting;
 
 @end
 
