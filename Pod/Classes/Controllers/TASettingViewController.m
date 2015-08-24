@@ -27,6 +27,17 @@
 
 #pragma mark - View Life Cycle
 
+- (instancetype)initWithSettings:(TASettings *)settings
+{
+    self = [super init];
+    if (self) {
+        self.settings = settings;
+    }
+    return self;
+
+}
+
+
 - (void)viewDidLoad
 {
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
@@ -164,7 +175,7 @@
     });
 
     NSString *cellId = mapping[@(settingType)];
-    NSAssert(cellId, @"Must provide a mapping for cell id");
+    NSAssert(cellId, @"Must provide a mapping for setting type  %d", settingType);
     return cellId;
 }
 

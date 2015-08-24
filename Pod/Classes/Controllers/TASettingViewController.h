@@ -31,10 +31,13 @@
 @interface TASettingViewController : UIViewController
 
 @property(nonatomic, assign) BOOL showDoneButton;
-@property(nonatomic, strong) TASettings *settings;
+@property(nonatomic, strong, readonly) TASettings *settings;
 @property(nonatomic, strong) UITableView *tableView;
 
 @property(nonatomic, strong) id <TASettingViewControllerDelegate> delegate;
+
+- (instancetype)initWithSettings:(TASettings *)settings NS_DESIGNATED_INITIALIZER;
+
 
 
 - (TASetting *)settingForIndexPath:(NSIndexPath *)indexPath;

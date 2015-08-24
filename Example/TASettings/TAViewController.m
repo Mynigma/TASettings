@@ -34,15 +34,16 @@
 
 - (IBAction)showSettings:(id)sender
 {
-    TASettingViewController *settingViewController = [[TASettingViewController alloc] init];
-    settingViewController.delegate = self;
 
+    TASettingViewController *settingViewController = [[TASettingViewController alloc] initWithSettings:[self settings]];
+
+    settingViewController.delegate = self;
+    settingViewController.showDoneButton = YES;
 
     UINavigationController *navigationController  = [[UINavigationController alloc] initWithRootViewController:settingViewController];
 
 
-    settingViewController.showDoneButton = YES;
-    settingViewController.settings = [self settings];
+
 
     [self presentViewController:navigationController animated:YES completion:nil];
 }
