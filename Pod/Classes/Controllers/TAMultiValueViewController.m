@@ -43,7 +43,7 @@ static void *TAMultiContext = &TAMultiContext;
 
     [self.view addSubview:self.tableView];
 
-    self.title = self.setting.localizedTitle;
+    self.title = self.setting.title;
     [self.setting.values enumerateObjectsUsingBlock:^(TASettingValue *settingValue, NSUInteger idx, BOOL *stop) {
         [settingValue addObserver:self
                        forKeyPath:@"value"

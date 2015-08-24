@@ -4,14 +4,12 @@
 
 #import "TASettingViewController.h"
 #import "TATextFieldCell.h"
-#import "TATextFieldSetting.h"
-#import "TASettingViewController+TATextField.h"
-#import "TASettingValue.h"
 #import "TASwitchCell.h"
-#import "TASettingViewController+TASwitch.h"
 #import "TAMultiValueCell.h"
 #import "TAMultiValueSetting.h"
 #import "TAMultiValueViewController.h"
+#import "TAActionCell.h"
+#import "TASettingViewController+CellConfiguration.h"
 
 
 @interface TASettingViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -47,6 +45,7 @@
     [self.tableView registerClass:[TATextFieldCell class] forCellReuseIdentifier:[self cellIdentifierForSettingType:TASettingTypeTextField]];
     [self.tableView registerClass:[TASwitchCell class] forCellReuseIdentifier:[self cellIdentifierForSettingType:TASettingTypeSwitch]];
     [self.tableView registerClass:[TAMultiValueCell class] forCellReuseIdentifier:[self cellIdentifierForSettingType:TASettingTypeMultiValue]];
+    [self.tableView registerClass:[TAActionCell class] forCellReuseIdentifier:[self cellIdentifierForSettingType:TASettingTypeAction]];
 
     [self.view addSubview:self.tableView];
 }
@@ -71,7 +70,7 @@
 {
     TASettings *settings = [self settingsForSection:section];
 
-    return settings.localizedTitle;
+    return settings.title;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -103,6 +102,9 @@
         case TASettingTypeSwitch:
             [self configureSwitchCell:cell withSetting:setting];
             break;
+        case TASettingTypeAction:
+            [self configureActionCell:cell withSetting:setting];
+            break;
     }
 
     return cell;
@@ -124,17 +126,7 @@
 }
 
 
-- (void)configureMultiValueCell:(UITableViewCell *)tableViewCell withSetting:(TASetting *)setting
-{
 
-    NSAssert([tableViewCell isKindOfClass:[TAMultiValueCell class]], @"Must be a %@ class", NSStringFromClass([TAMultiValueCell class]));
-    TAMultiValueCell *cell = (TAMultiValueCell *) tableViewCell;
-
-    TAMultiValueSetting *multiValueSetting = (TAMultiValueSetting *) setting;
-    cell.titleLabel.text = setting.localizedTitle;
-    cell.subtitleLabel.text = multiValueSetting.selectedSubtitle;
-
-}
 
 #pragma mark - Public
 
@@ -170,7 +162,8 @@
         mapping = @{
                 @(TASettingTypeTextField) : @"TASettingTypeTextFieldCellId",
                 @(TASettingTypeMultiValue) : @"TASettingTypeMultiValueCellId",
-                @(TASettingTypeSwitch) : @"TASettingTypeSwitchCellId"
+                @(TASettingTypeSwitch) : @"TASettingTypeSwitchCellId",
+                @(TASettingTypeAction) : @"TASettingTypeActionCellId"
         };
     });
 
@@ -198,7 +191,7 @@
 {
     _settings = settings;
 
-    self.title = settings.localizedTitle;
+    self.title = settings.title;
 
     self.sections = [settings.settings filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(TASetting *setting, NSDictionary *bindings) {
         return setting.settingType == TASettingTypeGroup;

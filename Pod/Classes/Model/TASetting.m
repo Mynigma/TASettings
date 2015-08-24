@@ -10,12 +10,12 @@
 @implementation TASetting {
 
 }
-- (instancetype)initWithSettingType:(TASettingType)settingType localizedTitle:(NSString *)localizedTitle
+- (instancetype)initWithSettingType:(TASettingType)settingType title:(NSString *)title
 {
     self = [super init];
     if (self) {
         self.settingType = settingType;
-        self.localizedTitle = localizedTitle;
+        self.title = title;
     }
 
     return self;
@@ -25,12 +25,17 @@
 
 + (instancetype)settingWithSettingType:(TASettingType)settingType localizedTitle:(NSString *)localizedTitle
 {
-    return [[self alloc] initWithSettingType:settingType localizedTitle:localizedTitle];
+    return [[self alloc] initWithSettingType:settingType title:localizedTitle];
+}
+
++ (instancetype)settingWithSettingType:(TASettingType)settingType
+{
+    return [[self class] settingWithSettingType:settingType localizedTitle:nil];
 }
 
 + (instancetype)switchSettingWithTitle:(NSString *)title settingValue:(TASettingValue *) settingValue
 {
-    TASetting *setting = [[self alloc] initWithSettingType:TASettingTypeSwitch localizedTitle:title];
+    TASetting *setting = [[self alloc] initWithSettingType:TASettingTypeSwitch title:title];
     setting.settingValue = settingValue;
 
     return setting;
@@ -39,7 +44,7 @@
 - (NSString *)description
 {
     NSMutableString *description = [NSMutableString stringWithFormat:@"<%@: ", NSStringFromClass([self class])];
-    [description appendFormat:@"%@", self.localizedTitle];
+    [description appendFormat:@"%@", self.title];
     [description appendString:@">"];
     return description;
 }

@@ -10,7 +10,7 @@
 }
 - (instancetype)initWithTitle:(NSString *)title placeholderValue:(NSString *)placeholderValue secure:(BOOL)secure keyboardType:(UIKeyboardType)keyboardType
 {
-    self = [super initWithSettingType:TASettingTypeTextField localizedTitle:title];
+    self = [super initWithSettingType:TASettingTypeTextField title:title];
     if (self) {
         self.secure = secure;
         self.keyboardType = keyboardType;

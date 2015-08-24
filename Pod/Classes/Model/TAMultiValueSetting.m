@@ -11,7 +11,7 @@
 }
 - (instancetype)initWithTitle:(NSString *)title values:(NSArray *)values
 {
-    self = [super initWithSettingType:TASettingTypeMultiValue localizedTitle:title];
+    self = [super initWithSettingType:TASettingTypeMultiValue title:title];
     if (self) {
         self.values = values;
     }

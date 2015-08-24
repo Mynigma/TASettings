@@ -13,22 +13,24 @@ typedef NS_ENUM(NSUInteger , TASettingType) {
     TASettingTypeTextField,
     TASettingTypeSwitch,
     TASettingTypeMultiValue,
+    TASettingTypeAction,
 };
 
 @interface TASetting : NSObject
 
 @property (nonatomic, assign) TASettingType settingType;
-@property (nonatomic, copy) NSString *localizedTitle;
-@property (nonatomic, copy) NSString *localizedFooterText;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *footerText;
 @property (nonatomic, strong) TASettingValue *settingValue;
 
 @property (nonatomic, strong) id<TASettingValidator> validator;
 
-- (instancetype)initWithSettingType:(TASettingType)settingType localizedTitle:(NSString *)localizedTitle;
+- (instancetype)initWithSettingType:(TASettingType)settingType title:(NSString *)title NS_DESIGNATED_INITIALIZER;
 
 #pragma mark - Factory Methods
 
 + (instancetype)settingWithSettingType:(TASettingType)settingType localizedTitle:(NSString *)localizedTitle;
++ (instancetype)settingWithSettingType:(TASettingType)settingType;
 
 + (instancetype)switchSettingWithTitle:(NSString *)title settingValue:(TASettingValue *) settingValue;
 

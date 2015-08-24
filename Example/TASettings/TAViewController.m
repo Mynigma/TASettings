@@ -11,9 +11,11 @@
 #import <TASettings/TASettingValue.h>
 #import <TASettings/TAMultiValueSetting.h>
 #import <TASettings/TANumberValidator.h>
+#import <TASettings/TAActionSetting.h>
 
 @interface TAViewController () <TASettingViewControllerDelegate>
 
+@property(nonatomic, strong) TASettingViewController *settingViewController;
 @end
 
 @implementation TAViewController
@@ -35,12 +37,12 @@
 - (IBAction)showSettings:(id)sender
 {
 
-    TASettingViewController *settingViewController = [[TASettingViewController alloc] initWithSettings:[self settings]];
+    self.settingViewController = [[TASettingViewController alloc] initWithSettings:[self settings]];
 
-    settingViewController.delegate = self;
-    settingViewController.showDoneButton = YES;
+    self.settingViewController.delegate = self;
+    self.settingViewController.showDoneButton = YES;
 
-    UINavigationController *navigationController  = [[UINavigationController alloc] initWithRootViewController:settingViewController];
+    UINavigationController *navigationController  = [[UINavigationController alloc] initWithRootViewController:self.settingViewController];
 
 
 
@@ -52,7 +54,7 @@
 
 -(TASettings *) settings {
     TASettings *settings = [[TASettings alloc] init];
-    settings.localizedTitle = @"Account Setting";
+    settings.title = @"Account Setting";
 
     NSArray *sslValues = @[
     [TASettingValue valueWithTitle:@"Auto" value:@NO],
@@ -93,9 +95,37 @@
 
 
 
-    settings.settings = @[ generalSection, incomingSection, outgoingSection ];
+    TASettings *deleteSection = [TASettings settingWithSettingType:TASettingTypeGroup];
+    deleteSection.settings = @[
+            [[TAActionSetting alloc] initWithTitle:@"Delete Account" target:self action:@selector(deleteAction:)]
+    ];
+
+
+    settings.settings = @[ generalSection, incomingSection, outgoingSection, deleteSection];
 
     return settings;
+}
+
+- (void)deleteAction:(id)deleteAction
+{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Delete Account" message:@"Are you sure you want to continue? All account information will be deleted." preferredStyle:UIAlertControllerStyleActionSheet];
+
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Delete Account" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        NSLog(@"%s", sel_getName(_cmd));
+    }]];
+
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Not sure" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSLog(@"%s", sel_getName(_cmd));
+    }]];
+
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        NSLog(@"%s", sel_getName(_cmd));
+    }]];
+
+    [self.settingViewController presentViewController:alertController animated:YES completion:nil];
+
+
+    NSLog(@"%s", sel_getName(_cmd));
 }
 
 #pragma mark - TASettingViewControllerDelegate

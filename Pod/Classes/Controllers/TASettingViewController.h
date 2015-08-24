@@ -36,7 +36,7 @@
 
 @property(nonatomic, strong) id <TASettingViewControllerDelegate> delegate;
 
-- (instancetype)initWithSettings:(TASettings *)settings NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithSettings:(TASettings * )settings NS_DESIGNATED_INITIALIZER;
 
 
 
