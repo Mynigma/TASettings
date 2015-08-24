@@ -4,6 +4,7 @@
 
 #import "TASettingViewController+Delegates.h"
 #import "TASettingValue.h"
+#import "TASettingValidator.h"
 
 
 @implementation TASettingViewController (Delegates)
@@ -14,7 +15,14 @@
 
     TASetting *setting = [self settingForIndexPath:indexPath];
 
-    // todo call delegate for validation
+    if ([setting.validator respondsToSelector:@selector(validateValue:forSetting:error:)]) {
+        NSError *validationError;
+        if (![setting.validator validateValue:value forSetting:setting error:&validationError]) {
+            NSLog(@"Validation failed for setting %@: %@", setting, validationError);
+            return;
+        }
+    }
+
     if (!setting.settingValue) {
         setting.settingValue = [[TASettingValue alloc] init];
     }

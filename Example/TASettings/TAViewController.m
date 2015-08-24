@@ -10,6 +10,7 @@
 #import <TASettings/TATextFieldSetting.h>
 #import <TASettings/TASettingValue.h>
 #import <TASettings/TAMultiValueSetting.h>
+#import <TASettings/TANumberValidator.h>
 
 @interface TAViewController () <TASettingViewControllerDelegate>
 
@@ -67,12 +68,16 @@
             [TASetting switchSettingWithTitle:@"Copy to sent messages" settingValue:[TASettingValue valueWithValue:nil defaultValue:@YES]],
     ];
 
+
+    TASetting *portSetting = [[TATextFieldSetting alloc] initWithTitle:@"Port" placeholderValue:@"993" secure:NO keyboardType:UIKeyboardTypeNamePhonePad];
+    portSetting.validator = [[TANumberValidator alloc] init];
+
     TASettings *incomingSection = [TASettings settingWithSettingType:TASettingTypeGroup localizedTitle:@"Incoming"];
     incomingSection.settings = @[
             [TATextFieldSetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"User Name"],
             [[TATextFieldSetting alloc] initWithTitle:@"Password" placeholderValue:nil secure:YES keyboardType:UIKeyboardTypeAlphabet],
             [[TATextFieldSetting alloc] initWithTitle:@"Host" placeholderValue:@"imap.google.com" secure:NO keyboardType:UIKeyboardTypeAlphabet],
-            [[TATextFieldSetting alloc] initWithTitle:@"Port" placeholderValue:@"993" secure:NO keyboardType:UIKeyboardTypeNamePhonePad],
+            portSetting,
             [TAMultiValueSetting settingWithTitle:@"SSL" values:sslValues],
     ];
 

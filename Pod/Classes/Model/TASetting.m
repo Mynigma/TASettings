@@ -4,6 +4,7 @@
 
 #import "TASetting.h"
 #import "TASettingValue.h"
+#import "TASettingValidator.h"
 
 
 @implementation TASetting {

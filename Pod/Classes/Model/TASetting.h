@@ -5,6 +5,7 @@
 #import <Foundation/Foundation.h>
 
 @class TASettingValue;
+@protocol TASettingValidator;
 
 typedef NS_ENUM(NSUInteger , TASettingType) {
     TASettingTypeGroup,
@@ -19,8 +20,9 @@ typedef NS_ENUM(NSUInteger , TASettingType) {
 @property (nonatomic, assign) TASettingType settingType;
 @property (nonatomic, copy) NSString *localizedTitle;
 @property (nonatomic, copy) NSString *localizedFooterText;
-
 @property (nonatomic, strong) TASettingValue *settingValue;
+
+@property (nonatomic, strong) id<TASettingValidator> validator;
 
 - (instancetype)initWithSettingType:(TASettingType)settingType localizedTitle:(NSString *)localizedTitle;
 
