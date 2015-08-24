@@ -7,13 +7,22 @@
 
 @class TASettingViewController;
 @class TASettingValue;
+@class TAMultiValueSetting;
 
 
 @protocol TASettingViewControllerDelegate <NSObject>
 
 @optional
+
+#pragma mark - Value Changes
+
 - (void)settingViewController:(TASettingViewController *)controller didChangeSetting:(TASetting *)setting;
+- (void)settingViewController:(TASettingViewController *)controller didSelectValue:(TASettingValue *)settingValue inSettings:(TAMultiValueSetting *)setting;
+
+#pragma mark - Saving
+
 - (void)settingViewController:(TASettingViewController *)controller willDismissSettings:(TASettings *)setting;
+
 - (void)settingViewController:(TASettingViewController *)controller didRequestSaveSettings:(TASettings *)setting;
 
 @end

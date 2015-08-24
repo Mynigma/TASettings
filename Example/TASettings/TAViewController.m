@@ -110,5 +110,16 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)settingViewController:(TASettingViewController *)controller didSelectValue:(TASettingValue *)settingValue inSettings:(TAMultiValueSetting *)setting
+{
+    NSLog(@"%s %@", sel_getName(_cmd), settingValue.title);
+    // deselect the previously selected
+    [setting.values enumerateObjectsUsingBlock:^(TASettingValue *currentSettingValue, NSUInteger idx, BOOL *stop) {
+        if(currentSettingValue != settingValue && [currentSettingValue.value boolValue]) {
+            currentSettingValue.value = @NO;
+        }
+    }];
+}
+
 
 @end

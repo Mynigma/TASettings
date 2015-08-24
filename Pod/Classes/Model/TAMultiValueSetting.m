@@ -29,13 +29,21 @@
 - (NSString *)selectedSubtitle
 {
     __block NSString *subtitle = @"";
-    [self.values enumerateObjectsUsingBlock:^(TASettingValue * obj, NSUInteger idx, BOOL *stop) {
+    [self.values enumerateObjectsUsingBlock:^(TASettingValue *obj, NSUInteger idx, BOOL *stop) {
 
-        if([obj.value boolValue]) {
-            subtitle = [subtitle stringByAppendingString:[NSString stringWithFormat:@"%@%@", subtitle.length == 0 ? @"" : @",", obj.title]];
+        if ([obj.value boolValue]) {
+            subtitle = [subtitle stringByAppendingString:[NSString stringWithFormat:@"%@%@", subtitle.length == 0 ? @"" : @", ", obj.title]];
         }
     }];
     return subtitle;
+}
+
+- (void)setValues:(NSArray *)values
+{
+    _values = values;
+    [values enumerateObjectsUsingBlock:^(TASettingValue *settingValue, NSUInteger idx, BOOL *stop) {
+        settingValue.parent = self;
+    }];
 }
 
 

@@ -3,6 +3,7 @@
 //
 
 #import "TASettingValue.h"
+#import "TASetting.h"
 
 
 @implementation TASettingValue {

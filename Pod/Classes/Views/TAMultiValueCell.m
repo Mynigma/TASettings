@@ -14,6 +14,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        self.subtitleLabel.textAlignment = NSTextAlignmentRight;
         [self setupAutoLayout];
     }
 

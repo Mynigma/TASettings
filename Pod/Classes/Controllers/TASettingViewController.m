@@ -11,9 +11,10 @@
 #import "TASettingViewController+TASwitch.h"
 #import "TAMultiValueCell.h"
 #import "TAMultiValueSetting.h"
+#import "TAMultiValueViewController.h"
 
 
-@interface TASettingViewController () <UITableViewDataSource>
+@interface TASettingViewController () <UITableViewDataSource, UITableViewDelegate>
 
 
 @property(nonatomic, strong) NSArray *sections;
@@ -30,6 +31,7 @@
 {
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     self.tableView.dataSource = self;
+    self.tableView.delegate = self;
 
     [self.tableView registerClass:[TATextFieldCell class] forCellReuseIdentifier:[self cellIdentifierForSettingType:TASettingTypeTextField]];
     [self.tableView registerClass:[TASwitchCell class] forCellReuseIdentifier:[self cellIdentifierForSettingType:TASettingTypeSwitch]];
@@ -94,6 +96,22 @@
 
     return cell;
 }
+
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    TASetting *setting = [self settingForIndexPath:indexPath];
+    if(setting.settingType == TASettingTypeMultiValue) {
+        TAMultiValueViewController *multiValueViewController = [[TAMultiValueViewController alloc] initWithSetting:(TAMultiValueSetting *) setting];
+        multiValueViewController.delegate = self.delegate;
+        [self.navigationController pushViewController:multiValueViewController animated:YES];
+    }
+}
+
 
 - (void)configureMultiValueCell:(UITableViewCell *)tableViewCell withSetting:(TASetting *)setting
 {

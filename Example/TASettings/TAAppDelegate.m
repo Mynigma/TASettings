@@ -26,15 +26,10 @@
             NSForegroundColorAttributeName : [UIColor whiteColor]
     };
     [[UINavigationBar appearance] setTitleTextAttributes:navBarTextAttributes];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.19 green:0.32 blue:0.5 alpha:1]];
+
     [[UINavigationBar appearance] setTranslucent:YES];
-
-
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil]
-            setTitleTextAttributes:@{
-                    NSForegroundColorAttributeName : [UIColor whiteColor]
-            }
-                          forState:UIControlStateNormal];
 
 
     return YES;

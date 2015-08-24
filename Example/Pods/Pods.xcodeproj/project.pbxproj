@@ -13,6 +13,10 @@
 		0E009A03E522C2F82177EC8E /* Pods-TASettings_Example-TASettings-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 647B96B0D96DD226445B482A /* Pods-TASettings_Example-TASettings-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		143E1A43D7321A4480C13C4F /* TASettings.m in Sources */ = {isa = PBXBuildFile; fileRef = DFC2C3E69D6DBAE312DFBBF5 /* TASettings.m */; };
 		146C7F0773E4A41DC1A3353B /* Pods-TASettings_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 86EE10EB6D531235FFD3F49D /* Pods-TASettings_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19A173ABF258593CABBA43A7 /* TALabelCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A173294C07F81AD01B0FE7 /* TALabelCell.h */; };
+		19A1775B34953105AEA456DC /* TAMultiValueViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A17A2621C336332205DE52 /* TAMultiValueViewController.h */; };
+		19A17BBBB42FCB7F6E646A59 /* TAMultiValueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A17E86A10B90AEB8F88630 /* TAMultiValueViewController.m */; };
+		19A17EDBFA5F4F9F6A20DB2F /* TALabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A17105A7CC60549CA1D85D /* TALabelCell.m */; };
 		19ED80628AC11B609604FF91 /* TATextFieldCell.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D928CA9D0F2495D735C807 /* TATextFieldCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2075FBD19F2DE98A7273AAA4 /* TASettingCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 01C41E9359431F837A22E429 /* TASettingCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		20D193476C2C25A272A51742 /* TAMultiValueCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E24016CAADD1E84943BF6F5 /* TAMultiValueCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -72,6 +76,10 @@
 		0622E052A7343D745A93E41F /* TASettingViewController+TATextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TASettingViewController+TATextField.m"; sourceTree = "<group>"; };
 		16DE17544BE206018C72D2E6 /* TASettingValue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TASettingValue.m; sourceTree = "<group>"; };
 		192372CA4CB80D4AA0241687 /* Pods-TASettings_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TASettings_Example-dummy.m"; sourceTree = "<group>"; };
+		19A17105A7CC60549CA1D85D /* TALabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TALabelCell.m; sourceTree = "<group>"; };
+		19A173294C07F81AD01B0FE7 /* TALabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TALabelCell.h; sourceTree = "<group>"; };
+		19A17A2621C336332205DE52 /* TAMultiValueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAMultiValueViewController.h; sourceTree = "<group>"; };
+		19A17E86A10B90AEB8F88630 /* TAMultiValueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAMultiValueViewController.m; sourceTree = "<group>"; };
 		1CB75389481570C6BA1FCEDE /* UILabel+TALabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UILabel+TALabel.h"; sourceTree = "<group>"; };
 		1CF1194B307DBCF50A7B9C8A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		1EDF4BF043290D6DA96153E5 /* TASwitchCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TASwitchCell.m; sourceTree = "<group>"; };
@@ -273,6 +281,8 @@
 				C7496915F1372B47CD099EFD /* TASettingViewController+TASwitch.m */,
 				44EA375D72FBC0AE9996B831 /* TASettingViewController+TATextField.h */,
 				0622E052A7343D745A93E41F /* TASettingViewController+TATextField.m */,
+				19A17E86A10B90AEB8F88630 /* TAMultiValueViewController.m */,
+				19A17A2621C336332205DE52 /* TAMultiValueViewController.h */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -317,6 +327,8 @@
 				F712CCC0007A02176D826EDB /* TATextFieldCell.m */,
 				1CB75389481570C6BA1FCEDE /* UILabel+TALabel.h */,
 				6E49506CDA129AC9CC147DBE /* UILabel+TALabel.m */,
+				19A17105A7CC60549CA1D85D /* TALabelCell.m */,
+				19A173294C07F81AD01B0FE7 /* TALabelCell.h */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -346,6 +358,8 @@
 				19ED80628AC11B609604FF91 /* TATextFieldCell.h in Headers */,
 				EFA710B215FE3673BD3694CA /* TATextFieldSetting.h in Headers */,
 				F71435C8C53014F43CF0953B /* UILabel+TALabel.h in Headers */,
+				19A1775B34953105AEA456DC /* TAMultiValueViewController.h in Headers */,
+				19A173ABF258593CABBA43A7 /* TALabelCell.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +510,8 @@
 				3856A840401446AA7DF63978 /* TATextFieldCell.m in Sources */,
 				81BAE3BA363970E1C523DA55 /* TATextFieldSetting.m in Sources */,
 				26C7B89E9CEAF7C728A02974 /* UILabel+TALabel.m in Sources */,
+				19A17BBBB42FCB7F6E646A59 /* TAMultiValueViewController.m in Sources */,
+				19A17EDBFA5F4F9F6A20DB2F /* TALabelCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
