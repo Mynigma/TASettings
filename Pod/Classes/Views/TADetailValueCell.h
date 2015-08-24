@@ -6,7 +6,7 @@
 #import "TASettingCell.h"
 
 
-@interface TAMultiValueCell : TASettingCell
+@interface TADetailValueCell : TASettingCell
 
 
 

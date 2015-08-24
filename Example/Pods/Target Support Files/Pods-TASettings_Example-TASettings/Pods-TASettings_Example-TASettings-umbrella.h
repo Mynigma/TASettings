@@ -15,7 +15,7 @@
 #import "TASwitch.h"
 #import "TATextFieldSetting.h"
 #import "TALabelCell.h"
-#import "TAMultiValueCell.h"
+#import "TADetailValueCell.h"
 #import "TASettingCell.h"
 #import "TASwitchCell.h"
 #import "TATextFieldCell.h"

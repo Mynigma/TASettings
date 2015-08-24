@@ -2,10 +2,10 @@
 // Created by Jan on 21/08/15.
 //
 
-#import "TAMultiValueCell.h"
+#import "TADetailValueCell.h"
 
 
-@implementation TAMultiValueCell {
+@implementation TADetailValueCell {
 
 }
 

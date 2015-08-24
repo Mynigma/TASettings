@@ -5,7 +5,7 @@
 #import "TASettingViewController.h"
 #import "TATextFieldCell.h"
 #import "TASwitchCell.h"
-#import "TAMultiValueCell.h"
+#import "TADetailValueCell.h"
 #import "TAMultiValueSetting.h"
 #import "TAMultiValueViewController.h"
 #import "TAActionCell.h"
@@ -44,7 +44,8 @@
 
     [self.tableView registerClass:[TATextFieldCell class] forCellReuseIdentifier:[self cellIdentifierForSettingType:TASettingTypeTextField]];
     [self.tableView registerClass:[TASwitchCell class] forCellReuseIdentifier:[self cellIdentifierForSettingType:TASettingTypeSwitch]];
-    [self.tableView registerClass:[TAMultiValueCell class] forCellReuseIdentifier:[self cellIdentifierForSettingType:TASettingTypeMultiValue]];
+    [self.tableView registerClass:[TADetailValueCell class] forCellReuseIdentifier:[self cellIdentifierForSettingType:TASettingTypeMultiValue]];
+    [self.tableView registerClass:[TADetailValueCell class] forCellReuseIdentifier:[self cellIdentifierForSettingType:TASettingTypeChild]];
     [self.tableView registerClass:[TAActionCell class] forCellReuseIdentifier:[self cellIdentifierForSettingType:TASettingTypeAction]];
 
     [self.view addSubview:self.tableView];
@@ -92,6 +93,7 @@
 
     switch (setting.settingType) {
         case TASettingTypeChild:
+            [self configureChildCell:cell withSetting:setting];
             break;
         case TASettingTypeTextField:
             [self configureTextFieldCell:cell withSetting:setting];
@@ -104,6 +106,8 @@
             break;
         case TASettingTypeAction:
             [self configureActionCell:cell withSetting:setting];
+            break;
+        case TASettingTypeGroup:
             break;
     }
 
@@ -123,10 +127,14 @@
         multiValueViewController.delegate = self.delegate;
         [self.navigationController pushViewController:multiValueViewController animated:YES];
     }
+
+    if (setting.settingType == TASettingTypeChild) {
+        // todo the casting is wrong here :(
+        TASettingViewController *multiValueViewController = [[TASettingViewController alloc] initWithSettings:setting];
+        multiValueViewController.delegate = self.delegate;
+        [self.navigationController pushViewController:multiValueViewController animated:YES];
+    }
 }
-
-
-
 
 #pragma mark - Public
 
@@ -143,7 +151,6 @@
 - (void)doneButtonPressed:(id)doneButton
 {
     [self.delegate settingViewController:self didRequestSaveSettings:self.settings];
-
 }
 
 #pragma mark - Helpers
@@ -161,7 +168,8 @@
     dispatch_once(&token, ^{
         mapping = @{
                 @(TASettingTypeTextField) : @"TASettingTypeTextFieldCellId",
-                @(TASettingTypeMultiValue) : @"TASettingTypeMultiValueCellId",
+                @(TASettingTypeMultiValue) : @"TASettingTypeDetailCellId",
+                @(TASettingTypeChild) : @"TASettingTypeDetailCellId",
                 @(TASettingTypeSwitch) : @"TASettingTypeSwitchCellId",
                 @(TASettingTypeAction) : @"TASettingTypeActionCellId"
         };

@@ -8,7 +8,7 @@
 #import "TATextFieldSetting.h"
 #import "TATextFieldCell.h"
 #import "TAMultiValueSetting.h"
-#import "TAMultiValueCell.h"
+#import "TADetailValueCell.h"
 #import "TASettingValidator.h"
 #import "TAActionCell.h"
 #import "TAActionSetting.h"
@@ -47,14 +47,21 @@
 
 - (void)configureMultiValueCell:(UITableViewCell *)tableViewCell withSetting:(TASetting *)setting
 {
-
-    NSAssert([tableViewCell isKindOfClass:[TAMultiValueCell class]], @"Must be a %@ class", NSStringFromClass([TAMultiValueCell class]));
-    TAMultiValueCell *cell = (TAMultiValueCell *) tableViewCell;
+    NSAssert([tableViewCell isKindOfClass:[TADetailValueCell class]], @"Must be a %@ class", NSStringFromClass([TADetailValueCell class]));
+    TADetailValueCell *cell = (TADetailValueCell *) tableViewCell;
 
     TAMultiValueSetting *multiValueSetting = (TAMultiValueSetting *) setting;
     cell.titleLabel.text = setting.title;
     cell.subtitleLabel.text = multiValueSetting.selectedSubtitle;
 
+}
+
+- (void)configureChildCell:(UITableViewCell *)tableViewCell withSetting:(TASetting *)setting
+{
+    NSAssert([tableViewCell isKindOfClass:[TADetailValueCell class]], @"Must be a %@ class", NSStringFromClass([TADetailValueCell class]));
+    TADetailValueCell *cell = (TADetailValueCell *) tableViewCell;
+    cell.titleLabel.text = setting.title;
+    cell.subtitleLabel.text = nil;
 }
 
 - (void)configureActionCell:(UITableViewCell *)tableViewCell withSetting:(TASetting *)setting

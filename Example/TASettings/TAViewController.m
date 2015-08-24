@@ -53,8 +53,8 @@
 #pragma mark - Helper
 
 -(TASettings *) settings {
-    TASettings *settings = [[TASettings alloc] init];
-    settings.title = @"Account Setting";
+    TASettings *settings = [[TASettings alloc] initWithSettingType:TASettingTypeChild title:@"Account Setting"];
+
 
     NSArray *sslValues = @[
     [TASettingValue valueWithTitle:@"Auto" value:@NO],
@@ -100,8 +100,11 @@
             [[TAActionSetting alloc] initWithTitle:@"Delete Account" target:self action:@selector(deleteAction:)]
     ];
 
+    TASettings *childSection = [TASettings settingWithSettingType:TASettingTypeGroup];
+    deleteSection.settings = @[ settings ];
 
-    settings.settings = @[ generalSection, incomingSection, outgoingSection, deleteSection];
+
+    settings.settings = @[ generalSection, incomingSection, outgoingSection, deleteSection, childSection];
 
     return settings;
 }
