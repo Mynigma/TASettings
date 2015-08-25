@@ -18,10 +18,11 @@ typedef NS_ENUM(NSUInteger , TASettingType) {
 
 @interface TASetting : NSObject
 
-@property (nonatomic, assign) TASettingType settingType;
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *footerText;
-@property (nonatomic, strong) TASettingValue *settingValue;
+@property(nonatomic, assign) TASettingType settingType;
+@property(nonatomic, copy) NSString *title;
+@property(nonatomic, copy) NSString *footerText;
+@property(nonatomic, strong) TASettingValue *settingValue;
+@property(nonatomic, strong) NSArray *settings; // Array of NSSettings
 
 @property (nonatomic, strong) id<TASettingValidator> validator;
 

@@ -6,12 +6,14 @@
 #import "TASetting.h"
 
 
+typedef void(^TAActionSettingBlock)(TASetting * setting);
+
 @interface TAActionSetting : TASetting
 
-@property (nonatomic, strong) id target;
-@property (nonatomic, assign) SEL action;
+@property (nonatomic, copy) TAActionSettingBlock actionBlock;
 
 
-- (instancetype)initWithTitle:(NSString *)title target:(id)target action:(SEL)action NS_DESIGNATED_INITIALIZER;
+
+- (instancetype)initWithTitle:(NSString *)title actionBlock:(TAActionSettingBlock)actionBlock NS_DESIGNATED_INITIALIZER;
 
 @end

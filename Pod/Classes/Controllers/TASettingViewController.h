@@ -2,12 +2,12 @@
 // Created by Jan on 20/08/15.
 //
 
-#import <Foundation/Foundation.h>
-#import "TASettings.h"
+#import <UIKit/UIKit.h>
 
 @class TASettingViewController;
 @class TASettingValue;
 @class TAMultiValueSetting;
+@class TASetting;
 
 
 @protocol TASettingViewControllerDelegate <NSObject>
@@ -21,9 +21,9 @@
 
 #pragma mark - Saving
 
-- (void)settingViewController:(TASettingViewController *)controller willDismissSettings:(TASettings *)setting;
+- (void)settingViewController:(TASettingViewController *)controller willDismissSettings:(TASetting *)setting;
 
-- (void)settingViewController:(TASettingViewController *)controller didRequestSaveSettings:(TASettings *)setting;
+- (void)settingViewController:(TASettingViewController *)controller didRequestSaveSettings:(TASetting *)setting;
 
 @end
 
@@ -31,12 +31,12 @@
 @interface TASettingViewController : UIViewController
 
 @property(nonatomic, assign) BOOL showDoneButton;
-@property(nonatomic, strong, readonly) TASettings *settings;
+@property(nonatomic, strong, readonly) TASetting *settings;
 @property(nonatomic, strong) UITableView *tableView;
 
-@property(nonatomic, strong) id <TASettingViewControllerDelegate> delegate;
+@property(nonatomic, weak) id <TASettingViewControllerDelegate> delegate;
 
-- (instancetype)initWithSettings:(TASettings * )settings NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithSettings:(TASetting * )settings NS_DESIGNATED_INITIALIZER;
 
 
 

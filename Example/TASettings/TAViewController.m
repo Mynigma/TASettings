@@ -1,6 +1,6 @@
 //
 //  TAViewController.m
-//  TASettings
+//  TASetting
 //
 //  Created by Jan Chaloupecky on 08/20/2015.
 //  Copyright (c) 2015 Jan Chaloupecky. All rights reserved.
@@ -23,7 +23,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,9 +42,7 @@
     self.settingViewController.delegate = self;
     self.settingViewController.showDoneButton = YES;
 
-    UINavigationController *navigationController  = [[UINavigationController alloc] initWithRootViewController:self.settingViewController];
-
-
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.settingViewController];
 
 
     [self presentViewController:navigationController animated:YES completion:nil];
@@ -52,37 +50,36 @@
 
 #pragma mark - Helper
 
--(TASettings *) settings {
-    TASettings *settings = [[TASettings alloc] initWithSettingType:TASettingTypeChild title:@"Account Setting"];
+- (TASetting *)settings
+{
+    TASetting *settings = [[TASetting alloc] initWithSettingType:TASettingTypeChild title:@"Account Setting"];
 
 
     NSArray *sslValues = @[
-    [TASettingValue valueWithTitle:@"Auto" value:@NO],
-    [TASettingValue valueWithTitle:@"Clear" value:@NO],
-    [TASettingValue valueWithTitle:@"START TLS" value:@YES],
-    [TASettingValue valueWithTitle:@"SSL" value:@NO]];
+            [TASettingValue valueWithTitle:@"Auto" value:@NO],
+            [TASettingValue valueWithTitle:@"Clear" value:@NO],
+            [TASettingValue valueWithTitle:@"START TLS" value:@YES],
+            [TASettingValue valueWithTitle:@"SSL" value:@NO] ];
 
 
-
-    TASettings *generalSection = [TASettings settingWithSettingType:TASettingTypeGroup localizedTitle:@"General"];
+    TASetting *generalSection = [TASetting settingWithSettingType:TASettingTypeGroup localizedTitle:@"General"];
     generalSection.settings = @[
             [[TATextFieldSetting alloc] initWithTitle:@"Account Name" placeholderValue:@"Gmail" secure:NO keyboardType:UIKeyboardTypeAlphabet],
             [[TATextFieldSetting alloc] initWithTitle:@"Sender Name" placeholderValue:@"John Doe" secure:NO keyboardType:UIKeyboardTypeAlphabet],
             [TASetting switchSettingWithTitle:@"Copy to sent messages" settingValue:[TASettingValue valueWithValue:nil defaultValue:@YES]],
     ];
 
-    TASettings *oauthSection = [TASettings settingWithSettingType:TASettingTypeGroup localizedTitle:@"OAuth"];
+    TASetting *oauthSection = [TASetting settingWithSettingType:TASettingTypeGroup localizedTitle:@"OAuth"];
     oauthSection.footerText = @"";
     oauthSection.settings = @[
-            [[TAActionSetting alloc] initWithTitle:@"Disconnect" target:self action:@selector(oauthAction:)]
+            [[TAActionSetting alloc] initWithTitle:@"Disconnect" actionBlock:self.oauthActionBlock]
     ];
-
 
 
     TASetting *portSetting = [[TATextFieldSetting alloc] initWithTitle:@"Port" placeholderValue:@"993" secure:NO keyboardType:UIKeyboardTypeNamePhonePad];
     portSetting.validator = [[TANumberValidator alloc] init];
 
-    TASettings *incomingSection = [TASettings settingWithSettingType:TASettingTypeGroup localizedTitle:@"Incoming"];
+    TASetting *incomingSection = [TASetting settingWithSettingType:TASettingTypeGroup localizedTitle:@"Incoming"];
     incomingSection.settings = @[
             [TATextFieldSetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"User Name"],
             [[TATextFieldSetting alloc] initWithTitle:@"Password" placeholderValue:nil secure:YES keyboardType:UIKeyboardTypeAlphabet],
@@ -91,7 +88,7 @@
             [TAMultiValueSetting settingWithTitle:@"SSL" values:sslValues],
     ];
 
-    TASettings *outgoingSection = [TASettings settingWithSettingType:TASettingTypeGroup localizedTitle:@"Outgoing"];
+    TASetting *outgoingSection = [TASetting settingWithSettingType:TASettingTypeGroup localizedTitle:@"Outgoing"];
     outgoingSection.settings = @[
             [TATextFieldSetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"User Name"],
             [[TATextFieldSetting alloc] initWithTitle:@"Password" placeholderValue:nil secure:YES keyboardType:UIKeyboardTypeAlphabet],
@@ -101,44 +98,48 @@
     ];
 
 
-
-    TASettings *deleteSection = [TASettings settingWithSettingType:TASettingTypeGroup];
+    TASetting *deleteSection = [TASetting settingWithSettingType:TASettingTypeGroup];
     deleteSection.footerText = @"";
     deleteSection.settings = @[
-            [[TAActionSetting alloc] initWithTitle:@"Delete Account" target:self action:@selector(deleteAction:)]
+            [[TAActionSetting alloc] initWithTitle:@"Delete Account" actionBlock:self.deleteActionBlock]
     ];
 
-    TASettings *childSection = [TASettings settingWithSettingType:TASettingTypeGroup];
+    TASetting *childSection = [TASetting settingWithSettingType:TASettingTypeGroup];
     childSection.settings = @[ settings ];
 
 
-    settings.settings = @[ generalSection, oauthSection, incomingSection, outgoingSection, deleteSection, childSection];
+    settings.settings = @[ generalSection, oauthSection, incomingSection, outgoingSection, deleteSection ];
 
     return settings;
 }
 
-- (void)oauthAction:(id)oauthAction
+- (TAActionSettingBlock)oauthActionBlock
 {
-    TAActionSetting *actionSetting = oauthAction;
-    actionSetting.title = @"Connect";
+    return ^(TASetting *setting) {
+        setting.title = [setting.title isEqualToString:@"Connect"] ? @"Disconnect" : @"Connect";
+    };
+
 }
 
-- (void)deleteAction:(id)deleteAction
+- (TAActionSettingBlock)deleteActionBlock
 {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Delete Account" message:@"Are you sure you want to continue? All account information will be deleted." preferredStyle:UIAlertControllerStyleActionSheet];
+    return ^(TASetting *setting) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Delete Account" message:@"Are you sure you want to continue? All account information will be deleted." preferredStyle:UIAlertControllerStyleActionSheet];
 
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Delete Account" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
-        NSLog(@"action %@", action.title);
-    }]];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Delete Account" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+            NSLog(@"action %@", action.title);
+        }]];
 
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-        NSLog(@"action %@", action.title);
-    }]];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+            NSLog(@"action %@", action.title);
+        }]];
 
-    [self.settingViewController presentViewController:alertController animated:YES completion:nil];
+        [self.settingViewController presentViewController:alertController animated:YES completion:nil];
 
 
-    NSLog(@"%s", sel_getName(_cmd));
+        NSLog(@"%s", sel_getName(_cmd));
+    };
+
 }
 
 #pragma mark - TASettingViewControllerDelegate
@@ -148,9 +149,10 @@
     NSLog(@"Setting value changed: %@", setting);
 }
 
-- (void)settingViewController:(TASettingViewController *)controller didRequestSaveSettings:(TASettings *)setting
+- (void)settingViewController:(TASettingViewController *)controller didRequestSaveSettings:(TASetting *)setting
 {
     NSLog(@"%s", sel_getName(_cmd));
+    self.settingViewController = nil;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -159,7 +161,7 @@
     NSLog(@"%s %@", sel_getName(_cmd), settingValue.title);
     // deselect the previously selected
     [setting.values enumerateObjectsUsingBlock:^(TASettingValue *currentSettingValue, NSUInteger idx, BOOL *stop) {
-        if(currentSettingValue != settingValue && [currentSettingValue.value boolValue]) {
+        if (currentSettingValue != settingValue && [currentSettingValue.value boolValue]) {
             currentSettingValue.value = @NO;
         }
     }];

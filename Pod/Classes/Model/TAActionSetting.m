@@ -9,12 +9,11 @@
 
 }
 
-- (instancetype)initWithTitle:(NSString *)title target:(id)target action:(SEL)action
+- (instancetype)initWithTitle:(NSString *)title actionBlock:(TAActionSettingBlock)actionBlock
 {
     self = [super initWithSettingType:TASettingTypeAction title:title];
     if (self) {
-        self.target = target;
-        self.action = action;
+        self.actionBlock = actionBlock;
     }
     return self;
 }

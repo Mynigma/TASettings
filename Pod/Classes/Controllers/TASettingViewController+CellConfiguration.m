@@ -97,10 +97,8 @@
     UITableViewCell *cell = (UITableViewCell *) button.superview.superview;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     TAActionSetting *setting = (TAActionSetting *)[self settingForIndexPath:indexPath];
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-    [setting.target performSelector:setting.action withObject:setting];
-#pragma clang diagnostic pop
+    setting.actionBlock(setting);
+
 
 
 }

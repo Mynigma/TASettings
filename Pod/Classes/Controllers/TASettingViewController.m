@@ -10,6 +10,7 @@
 #import "TAMultiValueViewController.h"
 #import "TAActionCell.h"
 #import "TASettingViewController+CellConfiguration.h"
+#import "TASetting.h"
 
 
 static void *TAContext = &TAContext;
@@ -26,7 +27,7 @@ static void *TAContext = &TAContext;
 
 #pragma mark - View Life Cycle
 
-- (instancetype)initWithSettings:(TASettings *)settings
+- (instancetype)initWithSettings:(TASetting *)settings
 {
     self = [super init];
     if (self) {
@@ -70,7 +71,7 @@ static void *TAContext = &TAContext;
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    TASettings *settings = [self settingsForSection:section];
+    TASetting *settings = [self settingsForSection:section];
 
     return settings.title;
 }
@@ -123,7 +124,7 @@ static void *TAContext = &TAContext;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
     TASetting *setting = [self settingForIndexPath:indexPath];
-    if(setting.settingType == TASettingTypeMultiValue) {
+    if (setting.settingType == TASettingTypeMultiValue) {
         TAMultiValueViewController *multiValueViewController = [[TAMultiValueViewController alloc] initWithSetting:(TAMultiValueSetting *) setting];
         multiValueViewController.delegate = self.delegate;
         [self.navigationController pushViewController:multiValueViewController animated:YES];
@@ -141,7 +142,7 @@ static void *TAContext = &TAContext;
 
 - (TASetting *)settingForIndexPath:(NSIndexPath *)indexPath
 {
-    TASettings *settings = [self settingsForSection:indexPath.section];
+    TASetting *settings = [self settingsForSection:indexPath.section];
     TASetting *setting = settings.settings[indexPath.row];
     return setting;
 }
@@ -156,7 +157,7 @@ static void *TAContext = &TAContext;
 
 #pragma mark - Helpers
 
-- (TASettings *)settingsForSection:(NSInteger)section
+- (TASetting *)settingsForSection:(NSInteger)section
 {
     return self.sections ? self.sections[section] : self.settings;
 }
@@ -196,7 +197,7 @@ static void *TAContext = &TAContext;
 
 #pragma mark - Accessors
 
-- (void)setSettings:(TASettings *)settings
+- (void)setSettings:(TASetting *)settings
 {
 
     [self stopObservingSettings:_settings];
@@ -214,27 +215,41 @@ static void *TAContext = &TAContext;
 
 #pragma mark - KVO
 
-- (void)startObservingSettings:(TASettings *)settings
+- (void)traverseSettings:(TASetting *)setting withBlock:(void (^)(TASetting *leafSetting))block
 {
-    [settings.settings enumerateObjectsUsingBlock:^(TASetting *setting, NSUInteger idx, BOOL *stop) {
-        if (setting.settingType == TASettingTypeGroup) {
-            [self startObservingSettings:settings.settings];
-        }
+    if (setting.settings.count > 0) {
+        [setting.settings enumerateObjectsUsingBlock:^(TASetting *childSetting, NSUInteger idx2, BOOL *stop2) {
+            [self traverseSettings:childSetting withBlock:block];
+        }];
 
-        [setting addObserver:self
-                  forKeyPath:@"title"
-                     options:0 context:TAContext];
+    } else {
+        block(setting);
+    }
+}
 
+- (void)startObservingSettings:(TASetting *)settings
+{
+    [self traverseSettings:settings withBlock:^(TASetting *leafSetting) {
+        [leafSetting addObserver:self
+                      forKeyPath:@"title"
+                         options:0 context:TAContext];
+        [leafSetting addObserver:self
+                      forKeyPath:@"settingValue"
+                         options:0 context:TAContext];
     }];
 }
 
-- (void)stopObservingSettings:(TASettings *)settings
+- (void)stopObservingSettings:(TASetting *)settings
 {
-    [settings.settings enumerateObjectsUsingBlock:^(TASetting *setting, NSUInteger idx, BOOL *stop) {
+    [self traverseSettings:settings withBlock:^(TASetting *leafSetting) {
 
-        [setting removeObserver:self
-                  forKeyPath:@"title"
-                     context:TAContext];
+        [leafSetting removeObserver:self
+                         forKeyPath:@"title"
+                            context:TAContext];
+
+        [leafSetting removeObserver:self
+                         forKeyPath:@"settingValue"
+                            context:TAContext];
 
     }];
 }
@@ -242,13 +257,7 @@ static void *TAContext = &TAContext;
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if (context == TAContext) {
-
-        if([keyPath isEqualToString:@"title"]) {
-            [self.tableView reloadData];
-        }
-//        TASettingValue *settingValue = object;
-//        NSUInteger index = [self.setting.values indexOfObject:settingValue];
-//        [self.tableView reloadRowsAtIndexPaths:@[ [NSIndexPath indexPathForRow:index inSection:0] ] withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView reloadData];
     }
 }
 
