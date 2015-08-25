@@ -99,8 +99,6 @@
     TAActionSetting *setting = (TAActionSetting *)[self settingForIndexPath:indexPath];
     setting.actionBlock(setting);
 
-
-
 }
 
 - (void)handleChangedValue:(id)value inCell:(UITableViewCell *)cell
@@ -114,10 +112,6 @@
             NSLog(@"Validation failed for setting %@: %@", setting, validationError);
             return;
         }
-    }
-
-    if (!setting.settingValue) {
-        setting.settingValue = [[TASettingValue alloc] init];
     }
 
     setting.settingValue.value = value;

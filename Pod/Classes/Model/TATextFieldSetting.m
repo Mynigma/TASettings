@@ -16,10 +16,7 @@
         self.keyboardType = keyboardType;
         self.placeholder = placeholderValue;
     }
-
     return self;
 }
-
-
 
 @end

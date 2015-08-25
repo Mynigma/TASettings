@@ -7,6 +7,10 @@
 #import "TASettingValidator.h"
 
 
+@interface TASetting ()
+@property(nonatomic, strong, readwrite) TASettingValue *settingValue;
+@end
+
 @implementation TASetting {
 
 }
@@ -40,6 +44,15 @@
 
     return setting;
 }
+
+- (TASettingValue *)settingValue
+{
+    if(!_settingValue) {
+        _settingValue = [[TASettingValue alloc] init];
+    }
+    return _settingValue;
+}
+
 
 - (NSString *)description
 {
