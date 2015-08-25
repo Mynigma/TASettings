@@ -71,7 +71,7 @@
     TAActionSetting *actionSetting = (TAActionSetting *) setting;
 
     [cell.button setTitle:setting.title forState:UIControlStateNormal];
-    [cell.button addTarget:actionSetting.target action:actionSetting.action forControlEvents:UIControlEventTouchDown];
+    [cell.button addTarget:self action:@selector(actionCellButtonPressed:) forControlEvents:UIControlEventTouchDown];
 }
 
 #pragma mark - Switch Changes
@@ -90,10 +90,24 @@
     [self handleChangedValue:textField.text inCell:cell];
 }
 
+#pragma mark - Button Action
+
+-(void) actionCellButtonPressed:(UIButton *) button
+{
+    UITableViewCell *cell = (UITableViewCell *) button.superview.superview;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    TAActionSetting *setting = (TAActionSetting *)[self settingForIndexPath:indexPath];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    [setting.target performSelector:setting.action withObject:setting];
+#pragma clang diagnostic pop
+
+
+}
+
 - (void)handleChangedValue:(id)value inCell:(UITableViewCell *)cell
 {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-
     TASetting *setting = [self settingForIndexPath:indexPath];
 
     if ([setting.validator respondsToSelector:@selector(validateValue:forSetting:error:)]) {

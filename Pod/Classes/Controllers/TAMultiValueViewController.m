@@ -44,13 +44,10 @@ static void *TAMultiContext = &TAMultiContext;
     [self.view addSubview:self.tableView];
 
     self.title = self.setting.title;
-    [self.setting.values enumerateObjectsUsingBlock:^(TASettingValue *settingValue, NSUInteger idx, BOOL *stop) {
-        [settingValue addObserver:self
-                       forKeyPath:@"value"
-                          options:0 context:TAMultiContext];
-
-    }];
+    [self startObservingSettings];
 }
+
+
 
 - (void)viewDidLayoutSubviews
 {
@@ -95,6 +92,16 @@ static void *TAMultiContext = &TAMultiContext;
 }
 
 #pragma mark - KVO
+
+- (void)startObservingSettings
+{
+    [self.setting.values enumerateObjectsUsingBlock:^(TASettingValue *settingValue, NSUInteger idx, BOOL *stop) {
+        [settingValue addObserver:self
+                       forKeyPath:@"value"
+                          options:0 context:TAMultiContext];
+
+    }];
+}
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {

@@ -71,6 +71,13 @@
             [TASetting switchSettingWithTitle:@"Copy to sent messages" settingValue:[TASettingValue valueWithValue:nil defaultValue:@YES]],
     ];
 
+    TASettings *oauthSection = [TASettings settingWithSettingType:TASettingTypeGroup localizedTitle:@"OAuth"];
+    oauthSection.footerText = @"";
+    oauthSection.settings = @[
+            [[TAActionSetting alloc] initWithTitle:@"Disconnect" target:self action:@selector(oauthAction:)]
+    ];
+
+
 
     TASetting *portSetting = [[TATextFieldSetting alloc] initWithTitle:@"Port" placeholderValue:@"993" secure:NO keyboardType:UIKeyboardTypeNamePhonePad];
     portSetting.validator = [[TANumberValidator alloc] init];
@@ -96,17 +103,24 @@
 
 
     TASettings *deleteSection = [TASettings settingWithSettingType:TASettingTypeGroup];
+    deleteSection.footerText = @"";
     deleteSection.settings = @[
             [[TAActionSetting alloc] initWithTitle:@"Delete Account" target:self action:@selector(deleteAction:)]
     ];
 
     TASettings *childSection = [TASettings settingWithSettingType:TASettingTypeGroup];
-    deleteSection.settings = @[ settings ];
+    childSection.settings = @[ settings ];
 
 
-    settings.settings = @[ generalSection, incomingSection, outgoingSection, deleteSection, childSection];
+    settings.settings = @[ generalSection, oauthSection, incomingSection, outgoingSection, deleteSection, childSection];
 
     return settings;
+}
+
+- (void)oauthAction:(id)oauthAction
+{
+    TAActionSetting *actionSetting = oauthAction;
+    actionSetting.title = @"Connect";
 }
 
 - (void)deleteAction:(id)deleteAction
@@ -114,15 +128,11 @@
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Delete Account" message:@"Are you sure you want to continue? All account information will be deleted." preferredStyle:UIAlertControllerStyleActionSheet];
 
     [alertController addAction:[UIAlertAction actionWithTitle:@"Delete Account" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
-        NSLog(@"%s", sel_getName(_cmd));
-    }]];
-
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Not sure" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        NSLog(@"%s", sel_getName(_cmd));
+        NSLog(@"action %@", action.title);
     }]];
 
     [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-        NSLog(@"%s", sel_getName(_cmd));
+        NSLog(@"action %@", action.title);
     }]];
 
     [self.settingViewController presentViewController:alertController animated:YES completion:nil];

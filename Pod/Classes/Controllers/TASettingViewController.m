@@ -12,8 +12,9 @@
 #import "TASettingViewController+CellConfiguration.h"
 
 
-@interface TASettingViewController () <UITableViewDataSource, UITableViewDelegate>
+static void *TAContext = &TAContext;
 
+@interface TASettingViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property(nonatomic, strong) NSArray *sections;
 
@@ -197,6 +198,9 @@
 
 - (void)setSettings:(TASettings *)settings
 {
+
+    [self stopObservingSettings:_settings];
+
     _settings = settings;
 
     self.title = settings.title;
@@ -205,6 +209,52 @@
         return setting.settingType == TASettingTypeGroup;
     }]];
 
+    [self startObservingSettings:settings];
+}
+
+#pragma mark - KVO
+
+- (void)startObservingSettings:(TASettings *)settings
+{
+    [settings.settings enumerateObjectsUsingBlock:^(TASetting *setting, NSUInteger idx, BOOL *stop) {
+        if (setting.settingType == TASettingTypeGroup) {
+            [self startObservingSettings:settings.settings];
+        }
+
+        [setting addObserver:self
+                  forKeyPath:@"title"
+                     options:0 context:TAContext];
+
+    }];
+}
+
+- (void)stopObservingSettings:(TASettings *)settings
+{
+    [settings.settings enumerateObjectsUsingBlock:^(TASetting *setting, NSUInteger idx, BOOL *stop) {
+
+        [setting removeObserver:self
+                  forKeyPath:@"title"
+                     context:TAContext];
+
+    }];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context == TAContext) {
+
+        if([keyPath isEqualToString:@"title"]) {
+            [self.tableView reloadData];
+        }
+//        TASettingValue *settingValue = object;
+//        NSUInteger index = [self.setting.values indexOfObject:settingValue];
+//        [self.tableView reloadRowsAtIndexPaths:@[ [NSIndexPath indexPathForRow:index inSection:0] ] withRowAnimation:UITableViewRowAnimationNone];
+    }
+}
+
+- (void)dealloc
+{
+    [self stopObservingSettings:self.settings];
 }
 
 
