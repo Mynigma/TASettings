@@ -162,6 +162,8 @@
             currentSettingValue.value = @NO;
         }
     }];
+
+    [controller.navigationController popViewControllerAnimated:YES];
 }
 
 

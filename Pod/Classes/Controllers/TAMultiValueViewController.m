@@ -79,7 +79,9 @@ static void *TAMultiContext = &TAMultiContext;
     TASettingValue *settingValue = self.setting.values[(NSUInteger) indexPath.row];
     settingValue.value = @(![settingValue.value boolValue]);
 
-    [self.delegate settingViewController:(TASettingViewController *) self.parentViewController didSelectValue:settingValue inSettings:(TAMultiValueSetting *) settingValue.parent];
+    // Todo, too much assumtion
+    TASettingViewController *settingViewController = self.navigationController.viewControllers[self.navigationController.viewControllers.count - 2];
+    [self.delegate settingViewController:settingViewController didSelectValue:settingValue inSettings:(TAMultiValueSetting *) settingValue.parent];
 }
 
 
