@@ -52,7 +52,7 @@
 
     TAMultiValueSetting *multiValueSetting = (TAMultiValueSetting *) setting;
     cell.titleLabel.text = setting.title;
-    cell.subtitleLabel.text = multiValueSetting.selectedSubtitle;
+    cell.subtitleLabel.text = multiValueSetting.subtitle;
 
 }
 

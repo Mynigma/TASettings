@@ -6,6 +6,8 @@
 #import "TASettingValue.h"
 
 
+static void *TAMultiValueSettingContext = &TAMultiValueSettingContext;
+
 @implementation TAMultiValueSetting {
 
 }
@@ -14,6 +16,7 @@
     self = [super initWithSettingType:TASettingTypeMultiValue title:title];
     if (self) {
         self.values = values;
+        [self startObservingValues];
     }
 
     return self;
@@ -24,19 +27,43 @@
     return [[self alloc] initWithTitle:title values:values];
 }
 
-#pragma mark - Accessors
+#pragma mark - KVO
 
-- (NSString *)selectedSubtitle
+- (void)startObservingValues
+{
+    [self.values enumerateObjectsUsingBlock:^(TASettingValue *settingValue, NSUInteger idx, BOOL *stop) {
+        [settingValue addObserver:self forKeyPath:@"value" options:0 context:TAMultiValueSettingContext];
+    }];
+
+}
+
+- (void)stopObservingValues
+{
+    [self.values enumerateObjectsUsingBlock:^(TASettingValue *settingValue, NSUInteger idx, BOOL *stop) {
+        [settingValue removeObserver:self forKeyPath:@"value" context:TAMultiValueSettingContext];
+    }];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context == TAMultiValueSettingContext) {
+        [self createSubtitle];
+    }
+}
+
+
+- (void)createSubtitle
 {
     __block NSString *subtitle = @"";
     [self.values enumerateObjectsUsingBlock:^(TASettingValue *obj, NSUInteger idx, BOOL *stop) {
-
         if ([obj.value boolValue]) {
             subtitle = [subtitle stringByAppendingString:[NSString stringWithFormat:@"%@%@", subtitle.length == 0 ? @"" : @", ", obj.title]];
         }
     }];
-    return subtitle;
+    self.subtitle = subtitle;
 }
+
+#pragma mark - Accessors
 
 - (void)setValues:(NSArray *)values
 {
@@ -44,6 +71,13 @@
     [values enumerateObjectsUsingBlock:^(TASettingValue *settingValue, NSUInteger idx, BOOL *stop) {
         settingValue.parent = self;
     }];
+
+    [self createSubtitle];
+}
+
+- (void)dealloc
+{
+    [self stopObservingValues];
 }
 
 

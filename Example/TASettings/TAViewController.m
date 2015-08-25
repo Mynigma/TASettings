@@ -135,9 +135,6 @@
         }]];
 
         [self.settingViewController presentViewController:alertController animated:YES completion:nil];
-
-
-        NSLog(@"%s", sel_getName(_cmd));
     };
 
 }

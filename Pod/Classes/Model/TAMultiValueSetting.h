@@ -10,7 +10,7 @@
 
 @property(nonatomic, strong) NSArray *values;  // TASettingValue
 
-@property(nonatomic, readonly) NSString *selectedSubtitle;
+
 
 + (instancetype)settingWithTitle:(NSString *)title values:(NSArray *)values;
 
