@@ -39,11 +39,12 @@ static char TAEditingIndexPathKey;
     CGSize keyboardSize = [[notification userInfo][UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
 
     UIEdgeInsets contentInsets;
-    if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])) {
-        contentInsets = UIEdgeInsetsMake(0.0, 0.0, (keyboardSize.height), 0.0);
-    } else {
-        contentInsets = UIEdgeInsetsMake(0.0, 0.0, (keyboardSize.width), 0.0);
-    }
+    CGFloat topLayoutGuideLength = self.topLayoutGuide.length;
+//    if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])) {
+        contentInsets = UIEdgeInsetsMake(topLayoutGuideLength, 0.0, (keyboardSize.height), 0.0);
+//    } else {
+//        contentInsets = UIEdgeInsetsMake(0.0, 0.0, (keyboardSize.width), 0.0);
+//    }
 
     NSNumber *rate = notification.userInfo[UIKeyboardAnimationDurationUserInfoKey];
     [self applyContentInset:contentInsets withDuration:rate.floatValue];

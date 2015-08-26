@@ -155,6 +155,7 @@ static void *TAContext = &TAContext;
 
 - (void)doneButtonPressed:(id)doneButton
 {
+    [self.view endEditing:YES];
     [self.delegate settingViewController:self didRequestSaveSettings:self.settings];
 }
 

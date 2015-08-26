@@ -15,7 +15,6 @@ typedef void(^TAActionSettingBlock)(TASettingViewController *settingViewControll
 @property (nonatomic, copy) TAActionSettingBlock actionBlock;
 
 
-
 - (instancetype)initWithTitle:(NSString *)title actionBlock:(TAActionSettingBlock)actionBlock NS_DESIGNATED_INITIALIZER;
 
 @end
