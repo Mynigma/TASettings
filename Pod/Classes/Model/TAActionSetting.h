@@ -5,8 +5,10 @@
 #import <Foundation/Foundation.h>
 #import "TASetting.h"
 
+@class TASettingViewController;
 
-typedef void(^TAActionSettingBlock)(TASetting * setting);
+
+typedef void(^TAActionSettingBlock)(TASettingViewController *settingViewController, TASetting * setting);
 
 @interface TAActionSetting : TASetting
 

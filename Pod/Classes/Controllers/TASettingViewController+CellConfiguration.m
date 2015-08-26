@@ -12,6 +12,7 @@
 #import "TASettingValidator.h"
 #import "TAActionCell.h"
 #import "TAActionSetting.h"
+#import "TASettingViewController+Keyboard.h"
 
 
 @implementation TASettingViewController (CellConfiguration)
@@ -86,18 +87,25 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    UITableViewCell *cell = textField.superview.superview; // context view then cell
+    UITableViewCell *cell = (UITableViewCell *) textField.superview.superview; // context view then cell
     [self handleChangedValue:textField.text inCell:cell];
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    UITableViewCell *cell = (UITableViewCell *) textField.superview.superview; // context view then cell
+    self.ta_editingIndexPath = [self.tableView indexPathForCell:cell];
+    [self.tableView scrollToRowAtIndexPath:self.ta_editingIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 }
 
 #pragma mark - Button Action
 
--(void) actionCellButtonPressed:(UIButton *) button
+- (void)actionCellButtonPressed:(UIButton *)button
 {
     UITableViewCell *cell = (UITableViewCell *) button.superview.superview;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    TAActionSetting *setting = (TAActionSetting *)[self settingForIndexPath:indexPath];
-    setting.actionBlock(setting);
+    TAActionSetting *setting = (TAActionSetting *) [self settingForIndexPath:indexPath];
+    setting.actionBlock(self, setting);
 
 }
 

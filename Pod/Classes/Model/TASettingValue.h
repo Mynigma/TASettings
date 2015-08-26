@@ -10,7 +10,7 @@
 @interface TASettingValue : NSObject
 
 @property (nonatomic, copy) NSString *title;
-@property (nonatomic, strong) id value;
+@property (nonatomic, strong) id value;  // TODO, use NSValueTransformer to conver to/from from human readable and model values
 @property (nonatomic, strong) id defaultValue;
 @property (nonatomic, weak) TASetting *parent;
 

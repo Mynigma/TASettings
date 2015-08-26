@@ -118,7 +118,7 @@
 
 - (TAActionSettingBlock)oauthActionBlock
 {
-    return ^(TASetting *setting) {
+    return ^(TASettingViewController *controller, TASetting *setting) {
         setting.title = [setting.title isEqualToString:@"Connect"] ? @"Disconnect" : @"Connect";
     };
 
@@ -126,7 +126,7 @@
 
 - (TAActionSettingBlock)deleteActionBlock
 {
-    return ^(TASetting *setting) {
+    return ^(TASettingViewController *controller, TASetting *setting) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Delete Account" message:@"Are you sure you want to continue? All account information will be deleted." preferredStyle:UIAlertControllerStyleActionSheet];
 
         [alertController addAction:[UIAlertAction actionWithTitle:@"Delete Account" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
@@ -137,7 +137,7 @@
             NSLog(@"action %@", action.title);
         }]];
 
-        [self.settingViewController presentViewController:alertController animated:YES completion:nil];
+        [controller presentViewController:alertController animated:YES completion:nil];
     };
 
 }

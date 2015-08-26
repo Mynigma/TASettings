@@ -3,6 +3,7 @@
 //
 
 #import "TAActionSetting.h"
+#import "TASettingViewController.h"
 
 
 @implementation TAActionSetting {

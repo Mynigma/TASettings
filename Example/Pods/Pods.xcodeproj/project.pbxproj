@@ -12,6 +12,8 @@
 		056E098ABD4DFA02A25A9FFD /* TAMultiValueSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C939A194DA44813451FF52 /* TAMultiValueSetting.m */; };
 		0F9A52EEA19FFB3290C6E3B7 /* Pods-TASettings_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6320FDB217BD6EAF609B91 /* Pods-TASettings_Example-dummy.m */; };
 		1874DAC4B4942825588840D8 /* TASwitchCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C2077AD33C4644D7D03DEC2 /* TASwitchCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19A170A30DF2CB282E58C5E2 /* TASettingViewController+Keyboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A172F626591DB40D51A65F /* TASettingViewController+Keyboard.h */; };
+		19A17CFFB3F951554B1610CB /* TASettingViewController+Keyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A17465B7940D61E0B68FA1 /* TASettingViewController+Keyboard.m */; };
 		1ECFDFDC7DA7C0F1D67BE789 /* TASettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55D72603E9622E81DB5502F1 /* TASettingViewController.m */; };
 		1F455DE7FC4D6FDC19BD8823 /* TASettingValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF005B361E398E020414FD5 /* TASettingValue.m */; };
 		2051B47440702059FC2A1D2E /* TATextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5042D67FC496B08C7515D01 /* TATextFieldCell.m */; };
@@ -75,6 +77,8 @@
 		0F56A16BE76A50F28450B970 /* Pods-TASettings_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TASettings_Example.release.xcconfig"; sourceTree = "<group>"; };
 		15FEC7CBE2E93AF7B4D891F5 /* Pods-TASettings_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TASettings_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		1630B879A8DACF31E16A7AF3 /* TANumberValidator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TANumberValidator.h; sourceTree = "<group>"; };
+		19A172F626591DB40D51A65F /* TASettingViewController+Keyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TASettingViewController+Keyboard.h"; sourceTree = "<group>"; };
+		19A17465B7940D61E0B68FA1 /* TASettingViewController+Keyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TASettingViewController+Keyboard.m"; sourceTree = "<group>"; };
 		260AF809342F025F2945E1D6 /* TADetailValueCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TADetailValueCell.h; sourceTree = "<group>"; };
 		2632DA3F5B9E413A192A500D /* TASettingValue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TASettingValue.h; sourceTree = "<group>"; };
 		2E9F8E2B80AF48103527BD19 /* TASetting.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TASetting.h; sourceTree = "<group>"; };
@@ -194,6 +198,8 @@
 				55D72603E9622E81DB5502F1 /* TASettingViewController.m */,
 				99E43D7B787AF2457A5C6018 /* TASettingViewController+CellConfiguration.h */,
 				3CCFA17C8A8639FC83F6FD16 /* TASettingViewController+CellConfiguration.m */,
+				19A17465B7940D61E0B68FA1 /* TASettingViewController+Keyboard.m */,
+				19A172F626591DB40D51A65F /* TASettingViewController+Keyboard.h */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -353,6 +359,7 @@
 				65120FB26323AD8597C28C7E /* TATextFieldCell.h in Headers */,
 				DB15FFCB3FB45877EB462654 /* TATextFieldSetting.h in Headers */,
 				F6B3F1222330971067DE5B0E /* UILabel+TALabel.h in Headers */,
+				19A170A30DF2CB282E58C5E2 /* TASettingViewController+Keyboard.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +496,7 @@
 				2051B47440702059FC2A1D2E /* TATextFieldCell.m in Sources */,
 				8B8D781EAAE6ACC1E1DA9D0B /* TATextFieldSetting.m in Sources */,
 				8BB6E233A7C52773D847AFA0 /* UILabel+TALabel.m in Sources */,
+				19A17CFFB3F951554B1610CB /* TASettingViewController+Keyboard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

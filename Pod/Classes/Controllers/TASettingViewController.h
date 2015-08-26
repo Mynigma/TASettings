@@ -34,6 +34,7 @@
 @property(nonatomic, strong, readonly) TASetting *settings;
 @property(nonatomic, strong) UITableView *tableView;
 
+
 @property(nonatomic, weak) id <TASettingViewControllerDelegate> delegate;
 
 - (instancetype)initWithSettings:(TASetting * )settings NS_DESIGNATED_INITIALIZER;

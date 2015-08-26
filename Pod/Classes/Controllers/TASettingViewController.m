@@ -11,6 +11,7 @@
 #import "TAActionCell.h"
 #import "TASettingViewController+CellConfiguration.h"
 #import "TASetting.h"
+#import "TASettingViewController+Keyboard.h"
 
 
 static void *TAContext = &TAContext;
@@ -51,6 +52,8 @@ static void *TAContext = &TAContext;
     [self.tableView registerClass:[TAActionCell class] forCellReuseIdentifier:[self cellIdentifierForSettingType:TASettingTypeAction]];
 
     [self.view addSubview:self.tableView];
+
+    [self startObservingKeyboard];
 }
 
 
@@ -260,7 +263,7 @@ static void *TAContext = &TAContext;
 - (void)dealloc
 {
     [self stopObservingSettings:self.settings];
+    [self stopObservingKeyboard];
 }
-
 
 @end
