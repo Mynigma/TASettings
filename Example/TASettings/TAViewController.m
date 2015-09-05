@@ -12,6 +12,7 @@
 #import <TASettings/TAMultiValueSetting.h>
 #import <TASettings/TANumberValidator.h>
 #import <TASettings/TAActionSetting.h>
+#import <TransformerKit/TTTDateTransformers.h>
 
 @interface TAViewController () <TASettingViewControllerDelegate>
 
@@ -85,12 +86,19 @@
     TASetting *incomingSection = [TASetting settingWithSettingType:TASettingTypeGroup localizedTitle:@"Incoming"];
 
     TASetting *passwordSetting = [[TATextFieldSetting alloc] initWithTitle:@"Password" placeholderValue:nil secure:YES keyboardType:UIKeyboardTypeAlphabet];
+    TASetting *dateSetting = [[TATextFieldSetting alloc] initWithTitle:@"Date" placeholderValue:nil secure:NO keyboardType:UIKeyboardTypeAlphabet];
+
+    dateSetting.settingValue.value = [NSDate date];
+    dateSetting.settingValue.valueTransformerName = TTTRFC2822DateTransformerName;
+
+
     passwordSetting.enabled = NO;
     incomingSection.settings = @[
             [TATextFieldSetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"User Name"],
             passwordSetting,
             [[TATextFieldSetting alloc] initWithTitle:@"Host" placeholderValue:@"imap.google.com" secure:NO keyboardType:UIKeyboardTypeAlphabet],
             portSetting,
+            dateSetting,
             [TAMultiValueSetting settingWithTitle:@"SSL" values:sslValues],
     ];
 

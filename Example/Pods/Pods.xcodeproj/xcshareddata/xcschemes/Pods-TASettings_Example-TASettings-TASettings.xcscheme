@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7A8F44FAF5ED35F6F2CBC7E6"
+               BlueprintIdentifier = "2C8B6780EB66018CD5DF0531"
                BuildableName = "TASettings.bundle"
                BlueprintName = "Pods-TASettings_Example-TASettings-TASettings"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -39,7 +39,8 @@
 
 
     cell.titleLabel.text = textSetting.title;
-    cell.valueTextField.text = textSetting.settingValue.value;
+
+    cell.valueTextField.text = textSetting.settingValue.transformedValue;
     cell.valueTextField.placeholder = textSetting.placeholder;
     cell.valueTextField.keyboardType = textSetting.keyboardType;
     cell.valueTextField.secureTextEntry = textSetting.secure;
@@ -125,7 +126,7 @@
         }
     }
 
-    setting.settingValue.value = value;
+    [setting.settingValue setValueWithTransform:value];
 
     id <TASettingViewControllerDelegate> o = self.delegate;
     if ([o respondsToSelector:@selector(settingViewController:didChangeSetting:)]) {

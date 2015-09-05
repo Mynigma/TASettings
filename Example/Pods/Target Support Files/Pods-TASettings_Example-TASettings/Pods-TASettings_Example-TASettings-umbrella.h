@@ -1,7 +1,9 @@
 #import <UIKit/UIKit.h>
 
+#import "Keybaord.h"
 #import "TAMultiValueViewController.h"
 #import "TASettingViewController+CellConfiguration.h"
+#import "TASettingViewController+Keyboard.h"
 #import "TASettingViewController.h"
 #import "TAActionSetting.h"
 #import "TAMultiValueSetting.h"

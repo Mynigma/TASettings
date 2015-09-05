@@ -76,5 +76,26 @@
     return [[self alloc] initWithValue:value];
 }
 
+#pragma mark - Accessors
+
+- (NSString *)transformedValue
+{
+    NSString *value = self.value;
+    if(self.valueTransformerName) {
+        NSValueTransformer *transformer = [NSValueTransformer valueTransformerForName:self.valueTransformerName];
+        value = [transformer transformedValue:self.value];
+    }
+    return value;
+}
+
+- (void)setValueWithTransform:(id)value
+{
+    if (self.valueTransformerName) {
+        NSValueTransformer *transformer = [NSValueTransformer valueTransformerForName:self.valueTransformerName];
+        value = [transformer reverseTransformedValue:value];
+    }
+    self.value = value;
+}
+
 
 @end

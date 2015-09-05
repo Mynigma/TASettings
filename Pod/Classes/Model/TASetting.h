@@ -24,6 +24,7 @@ typedef NS_ENUM(NSUInteger, TASettingType) {
 @property(nonatomic, copy) NSString *footerText;
 @property(nonatomic, assign) BOOL enabled;
 @property(nonatomic, strong, readonly) TASettingValue *settingValue;
+
 @property(nonatomic, strong) NSArray *settings; // Array of NSSettings
 
 @property(nonatomic, strong) id <TASettingValidator> validator;

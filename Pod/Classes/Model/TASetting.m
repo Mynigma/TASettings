@@ -59,6 +59,7 @@
 {
     NSMutableString *description = [NSMutableString stringWithFormat:@"<%@: ", NSStringFromClass([self class])];
     [description appendFormat:@"%@", self.title];
+    [description appendFormat:@"%@", self.settingValue.value];
     [description appendString:@">"];
     return description;
 }
