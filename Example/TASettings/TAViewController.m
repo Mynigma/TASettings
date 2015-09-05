@@ -83,9 +83,12 @@
     portSetting.validator = [[TANumberValidator alloc] init];
 
     TASetting *incomingSection = [TASetting settingWithSettingType:TASettingTypeGroup localizedTitle:@"Incoming"];
+
+    TASetting *passwordSetting = [[TATextFieldSetting alloc] initWithTitle:@"Password" placeholderValue:nil secure:YES keyboardType:UIKeyboardTypeAlphabet];
+    passwordSetting.enabled = NO;
     incomingSection.settings = @[
             [TATextFieldSetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"User Name"],
-            [[TATextFieldSetting alloc] initWithTitle:@"Password" placeholderValue:nil secure:YES keyboardType:UIKeyboardTypeAlphabet],
+            passwordSetting,
             [[TATextFieldSetting alloc] initWithTitle:@"Host" placeholderValue:@"imap.google.com" secure:NO keyboardType:UIKeyboardTypeAlphabet],
             portSetting,
             [TAMultiValueSetting settingWithTitle:@"SSL" values:sslValues],

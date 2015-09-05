@@ -7,7 +7,7 @@
 @class TASettingValue;
 @protocol TASettingValidator;
 
-typedef NS_ENUM(NSUInteger , TASettingType) {
+typedef NS_ENUM(NSUInteger, TASettingType) {
     TASettingTypeGroup,
     TASettingTypeChild,
     TASettingTypeTextField,
@@ -22,19 +22,21 @@ typedef NS_ENUM(NSUInteger , TASettingType) {
 @property(nonatomic, copy) NSString *title;
 @property(nonatomic, copy) NSString *subtitle;
 @property(nonatomic, copy) NSString *footerText;
+@property(nonatomic, assign) BOOL enabled;
 @property(nonatomic, strong, readonly) TASettingValue *settingValue;
 @property(nonatomic, strong) NSArray *settings; // Array of NSSettings
 
-@property (nonatomic, strong) id<TASettingValidator> validator;
+@property(nonatomic, strong) id <TASettingValidator> validator;
 
 - (instancetype)initWithSettingType:(TASettingType)settingType title:(NSString *)title NS_DESIGNATED_INITIALIZER;
 
 #pragma mark - Factory Methods
 
 + (instancetype)settingWithSettingType:(TASettingType)settingType localizedTitle:(NSString *)localizedTitle;
+
 + (instancetype)settingWithSettingType:(TASettingType)settingType;
 
-+ (instancetype)switchSettingWithTitle:(NSString *)title settingValue:(TASettingValue *) settingValue;
++ (instancetype)switchSettingWithTitle:(NSString *)title settingValue:(TASettingValue *)settingValue;
 
 
 @end

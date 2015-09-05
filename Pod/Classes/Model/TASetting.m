@@ -20,6 +20,7 @@
     if (self) {
         self.settingType = settingType;
         self.title = title;
+        self.enabled = YES;
     }
 
     return self;

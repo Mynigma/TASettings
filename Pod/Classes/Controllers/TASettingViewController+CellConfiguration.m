@@ -26,6 +26,7 @@
 
     cell.titleLabel.text = setting.title;
     cell.valueSwitch.on = setting.settingValue.value != nil ? [setting.settingValue.value boolValue] : [setting.settingValue.defaultValue boolValue];
+    cell.valueSwitch.enabled = setting.enabled;
 
     [cell.valueSwitch addTarget:self action:@selector(switchValueChanged:) forControlEvents:UIControlEventValueChanged];
 }
@@ -42,6 +43,7 @@
     cell.valueTextField.placeholder = textSetting.placeholder;
     cell.valueTextField.keyboardType = textSetting.keyboardType;
     cell.valueTextField.secureTextEntry = textSetting.secure;
+    cell.valueTextField.enabled = textSetting.enabled;
 
     cell.valueTextField.delegate = self;
 }
@@ -69,10 +71,11 @@
 {
     NSAssert([tableViewCell isKindOfClass:[TAActionCell class]], @"Must be a %@ class", NSStringFromClass([TAActionCell class]));
     TAActionCell *cell = (TAActionCell *) tableViewCell;
-    TAActionSetting *actionSetting = (TAActionSetting *) setting;
 
-    [cell.button setTitle:setting.title forState:UIControlStateNormal];
-    [cell.button addTarget:self action:@selector(actionCellButtonPressed:) forControlEvents:UIControlEventTouchDown];
+    if(setting.enabled) {
+        [cell.button setTitle:setting.title forState:UIControlStateNormal];
+        [cell.button addTarget:self action:@selector(actionCellButtonPressed:) forControlEvents:UIControlEventTouchDown];
+    }
 }
 
 #pragma mark - Switch Changes
