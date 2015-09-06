@@ -32,7 +32,10 @@ static void *TAContext = &TAContext;
 {
     self = [super init];
     if (self) {
-        self.settings = settings;
+        _settings = settings;
+        _showCancelButton = YES;
+        _showDoneButton = YES;
+
     }
     return self;
 
@@ -53,7 +56,12 @@ static void *TAContext = &TAContext;
 
     [self.view addSubview:self.tableView];
 
+    [self startObservingSettings];
     [self startObservingKeyboard];
+
+    self.sections = [self.settings.settings filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(TASetting *setting, NSDictionary *bindings) {
+        return setting.settingType == TASettingTypeGroup;
+    }]];
 }
 
 
@@ -223,23 +231,6 @@ static void *TAContext = &TAContext;
     }
 }
 
-#pragma mark - Accessors
-
-- (void)setSettings:(TASetting *)settings
-{
-
-    [self stopObservingSettings:_settings];
-
-    _settings = settings;
-
-    self.title = settings.title;
-
-    self.sections = [settings.settings filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(TASetting *setting, NSDictionary *bindings) {
-        return setting.settingType == TASettingTypeGroup;
-    }]];
-
-    [self startObservingSettings:settings];
-}
 
 #pragma mark - KVO
 
@@ -255,9 +246,9 @@ static void *TAContext = &TAContext;
     }
 }
 
-- (void)startObservingSettings:(TASetting *)settings
+- (void)startObservingSettings
 {
-    [self traverseSettings:settings withBlock:^(TASetting *leafSetting) {
+    [self traverseSettings:self.settings withBlock:^(TASetting *leafSetting) {
         [@[ @"subtitle", @"title", @"settingValue" ] enumerateObjectsUsingBlock:^(NSString *keyPath, NSUInteger idx, BOOL *stop) {
             [leafSetting addObserver:self
                           forKeyPath:keyPath
@@ -266,9 +257,9 @@ static void *TAContext = &TAContext;
     }];
 }
 
-- (void)stopObservingSettings:(TASetting *)settings
+- (void)stopObservingSettings
 {
-    [self traverseSettings:settings withBlock:^(TASetting *leafSetting) {
+    [self traverseSettings:self.settings withBlock:^(TASetting *leafSetting) {
 
         [@[ @"subtitle", @"title", @"settingValue" ] enumerateObjectsUsingBlock:^(NSString *keyPath, NSUInteger idx, BOOL *stop) {
             [leafSetting removeObserver:self
@@ -287,7 +278,7 @@ static void *TAContext = &TAContext;
 
 - (void)dealloc
 {
-    [self stopObservingSettings:self.settings];
+    [self stopObservingSettings];
     [self stopObservingKeyboard];
 }
 
