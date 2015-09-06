@@ -1,6 +1,0 @@
-framework module TransformerKit {
-  umbrella header "Pods-TASettings_Example-TransformerKit-umbrella.h"
-
-  export *
-  module * { export * }
-}

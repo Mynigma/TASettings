@@ -49,9 +49,7 @@ code_sign() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'TASettings.framework'
-  install_framework 'TransformerKit.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'TASettings.framework'
-  install_framework 'TransformerKit.framework'
 fi
