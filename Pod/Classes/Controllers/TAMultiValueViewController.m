@@ -48,7 +48,6 @@ static void *TAMultiContext = &TAMultiContext;
 }
 
 
-
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
@@ -77,9 +76,9 @@ static void *TAMultiContext = &TAMultiContext;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
     TASettingValue *settingValue = self.setting.values[(NSUInteger) indexPath.row];
-    settingValue.value = @(![settingValue.value boolValue]);
+    settingValue.selected = !settingValue.selected;
 
-    // Todo, too much assumtion
+    // Todo, too much assumption
     TASettingViewController *settingViewController = self.navigationController.viewControllers[self.navigationController.viewControllers.count - 2];
     [self.delegate settingViewController:settingViewController didSelectValue:settingValue inSettings:(TAMultiValueSetting *) settingValue.parent];
 }
@@ -90,7 +89,7 @@ static void *TAMultiContext = &TAMultiContext;
 - (void)configureValueCell:(TALabelCell *)cell withSettingValue:(TASettingValue *)settingValue
 {
     cell.titleLabel.text = settingValue.title;
-    cell.accessoryType = [settingValue.value boolValue] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    cell.accessoryType = settingValue.selected ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
 }
 
 #pragma mark - KVO

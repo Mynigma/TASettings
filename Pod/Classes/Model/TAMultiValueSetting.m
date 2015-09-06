@@ -32,7 +32,7 @@ static void *TAMultiValueSettingContext = &TAMultiValueSettingContext;
 - (void)startObservingValues
 {
     [self.values enumerateObjectsUsingBlock:^(TASettingValue *settingValue, NSUInteger idx, BOOL *stop) {
-        [settingValue addObserver:self forKeyPath:@"value" options:0 context:TAMultiValueSettingContext];
+        [settingValue addObserver:self forKeyPath:@"selected" options:0 context:TAMultiValueSettingContext];
     }];
 
 }
@@ -40,7 +40,7 @@ static void *TAMultiValueSettingContext = &TAMultiValueSettingContext;
 - (void)stopObservingValues
 {
     [self.values enumerateObjectsUsingBlock:^(TASettingValue *settingValue, NSUInteger idx, BOOL *stop) {
-        [settingValue removeObserver:self forKeyPath:@"value" context:TAMultiValueSettingContext];
+        [settingValue removeObserver:self forKeyPath:@"selected" context:TAMultiValueSettingContext];
     }];
 }
 
@@ -56,7 +56,7 @@ static void *TAMultiValueSettingContext = &TAMultiValueSettingContext;
 {
     __block NSString *subtitle = @"";
     [self.values enumerateObjectsUsingBlock:^(TASettingValue *obj, NSUInteger idx, BOOL *stop) {
-        if ([obj.value boolValue]) {
+        if (obj.selected) {
             subtitle = [subtitle stringByAppendingString:[NSString stringWithFormat:@"%@%@", subtitle.length == 0 ? @"" : @", ", obj.title]];
         }
     }];

@@ -10,52 +10,35 @@
 
 }
 
-- (instancetype)initWithTitle:(NSString *)title value:(id)value defaultValue:(id)defaultValue
+
+- (instancetype)initWithTitle:(NSString *)title value:(id)value selected:(BOOL)selected defaultValue:(id)defaultValue
 {
     self = [super init];
     if (self) {
         self.title = title;
         self.value = value;
+        self.selected = selected;
         self.defaultValue = defaultValue;
     }
 
     return self;
 }
 
-+ (instancetype)valueWithTitle:(NSString *)title value:(id)value defaultValue:(id)defaultValue
+- (instancetype)initWithTitle:(NSString *)title value:(id)value selected:(BOOL)selected
 {
-    return [[self alloc] initWithTitle:title value:value defaultValue:defaultValue];
-}
-
-- (instancetype)initWithValue:(id)value
-{
-    self = [super init];
-    if (self) {
-        self.value = value;
-    }
-
+    self = [self initWithTitle:title value:value selected:selected defaultValue:nil];
     return self;
 }
 
-- (instancetype)initWithValue:(id)value defaultValue:(id)defaultValue
++ (instancetype)valueWithTitle:(NSString *)title value:(id)value selected:(BOOL)selected
 {
-    self = [super init];
-    if (self) {
-        self.value = value;
-        self.defaultValue = defaultValue;
-    }
-
-    return self;
+    return [[self alloc] initWithTitle:title value:value selected:selected];
 }
+
 
 - (instancetype)initWithTitle:(NSString *)title value:(id)value
 {
-    self = [super init];
-    if (self) {
-        self.title = title;
-        self.value = value;
-    }
-
+    self = [self initWithTitle:title value:value selected:NO defaultValue:nil];
     return self;
 }
 
@@ -65,16 +48,18 @@
 }
 
 
+- (instancetype)initWithValue:(id)value defaultValue:(id)defaultValue
+{
+    self = [self initWithTitle:nil value:value selected:NO defaultValue:defaultValue];
+    return self;
+}
+
+
 + (instancetype)valueWithValue:(id)value defaultValue:(id)defaultValue
 {
     return [[self alloc] initWithValue:value defaultValue:defaultValue];
 }
 
-
-+ (instancetype)valueWithValue:(id)value
-{
-    return [[self alloc] initWithValue:value];
-}
 
 #pragma mark - Accessors
 

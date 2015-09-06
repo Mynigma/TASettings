@@ -57,10 +57,10 @@
 
 
     NSArray *sslValues = @[
-            [TASettingValue valueWithTitle:@"Auto" value:@NO],
-            [TASettingValue valueWithTitle:@"Clear" value:@NO],
-            [TASettingValue valueWithTitle:@"START TLS" value:@YES],
-            [TASettingValue valueWithTitle:@"SSL" value:@NO] ];
+            [TASettingValue valueWithTitle:@"Auto" value:@1 selected:NO],
+            [TASettingValue valueWithTitle:@"Clear" value:@2 selected:NO],
+            [TASettingValue valueWithTitle:@"START TLS" value:@3 selected:YES],
+            [TASettingValue valueWithTitle:@"SSL" value:@4 selected:NO]];
 
 
     TASetting *generalSection = [TASetting settingWithSettingType:TASettingTypeGroup localizedTitle:@"General"];
@@ -175,8 +175,8 @@
     NSLog(@"%s %@", sel_getName(_cmd), settingValue.title);
     // deselect the previously selected
     [setting.values enumerateObjectsUsingBlock:^(TASettingValue *currentSettingValue, NSUInteger idx, BOOL *stop) {
-        if (currentSettingValue != settingValue && [currentSettingValue.value boolValue]) {
-            currentSettingValue.value = @NO;
+        if (currentSettingValue != settingValue && currentSettingValue.selected) {
+            currentSettingValue.selected = NO;
         }
     }];
 
