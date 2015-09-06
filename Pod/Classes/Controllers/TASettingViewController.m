@@ -61,6 +61,7 @@ static void *TAContext = &TAContext;
 {
     [super viewWillAppear:animated];
     [self addDoneButtonIfNecessary];
+    [self addCancelButtonIfNecessary];
 }
 
 
@@ -156,7 +157,17 @@ static void *TAContext = &TAContext;
 - (void)doneButtonPressed:(id)doneButton
 {
     [self.view endEditing:YES];
-    [self.delegate settingViewController:self didRequestSaveSettings:self.settings];
+    if ([self.delegate respondsToSelector:@selector(settingViewController:didRequestSaveSettings:)]) {
+        [self.delegate settingViewController:self didRequestSaveSettings:self.settings];
+    }
+}
+
+-(void )cancelButtonPressed:(id) cancelButton
+{
+    [self.view endEditing:YES];
+    if ([self.delegate respondsToSelector:@selector(settingViewController:willDismissSettings:)]) {
+        [self.delegate settingViewController:self willDismissSettings:self.settings];
+    }
 }
 
 #pragma mark - Helpers
@@ -196,6 +207,19 @@ static void *TAContext = &TAContext;
                                                                                     action:@selector(doneButtonPressed:)];
 
         self.navigationItem.rightBarButtonItem = buttonItem;
+    }
+}
+
+- (void)addCancelButtonIfNecessary
+{
+    if (self.showCancelButton) {
+        NSAssert(self.navigationController, @"If you sent the propery showCancelButton, you must embedd in a navigation controller");
+
+        UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+                                                                                    target:self
+                                                                                    action:@selector(cancelButtonPressed:)];
+
+        self.navigationItem.leftBarButtonItem = buttonItem;
     }
 }
 

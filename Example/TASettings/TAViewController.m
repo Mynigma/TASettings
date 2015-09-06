@@ -39,6 +39,7 @@
 
     self.settingViewController.delegate = self;
     self.settingViewController.showDoneButton = YES;
+    self.settingViewController.showCancelButton = YES;
 
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.settingViewController];
 
@@ -163,6 +164,12 @@
 - (void)settingViewController:(TASettingViewController *)controller didRequestSaveSettings:(TASetting *)setting
 {
     NSLog(@"%s", sel_getName(_cmd));
+    self.settingViewController = nil;
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)settingViewController:(TASettingViewController *)controller willDismissSettings:(TASetting *)setting
+{
     self.settingViewController = nil;
     [self dismissViewControllerAnimated:YES completion:nil];
 }

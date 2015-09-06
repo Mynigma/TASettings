@@ -36,7 +36,9 @@
 #pragma mark - Saving
 
 /**
- *  Called when the setting view controller will be dismissed.
+ *  Called when the setting view controller will be dismissed. This happens when
+ *  - the user pops a child setting view controller
+ *  - the user cancels the root setting view controller
  *
  *  @param controller The setting view controller
  *  @param setting    The main setting object associated to this view controller
@@ -56,7 +58,12 @@
 
 @interface TASettingViewController : UIViewController
 
+// If YES, a Done button will be put in the right bar menu item
 @property(nonatomic, assign) BOOL showDoneButton;
+
+// If YES, a Cancel button will be put in the left bar menu item
+@property(nonatomic, assign) BOOL showCancelButton;
+
 @property(nonatomic, strong, readonly) TASetting *settings;
 @property(nonatomic, strong) UITableView *tableView;
 
