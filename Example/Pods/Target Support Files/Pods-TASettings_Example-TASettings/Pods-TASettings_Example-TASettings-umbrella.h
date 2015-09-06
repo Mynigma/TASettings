@@ -13,6 +13,7 @@
 #import "TASettingValue.h"
 #import "TASwitch.h"
 #import "TATextFieldSetting.h"
+#import "TASettings.h"
 #import "TAActionCell.h"
 #import "TADetailValueCell.h"
 #import "TALabelCell.h"

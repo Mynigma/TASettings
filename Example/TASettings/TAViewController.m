@@ -8,11 +8,8 @@
 
 #import "TAViewController.h"
 #import "TADateTransformer.h"
-#import <TASettings/TATextFieldSetting.h>
-#import <TASettings/TASettingValue.h>
-#import <TASettings/TAMultiValueSetting.h>
-#import <TASettings/TANumberValidator.h>
-#import <TASettings/TAActionSetting.h>
+
+#import <TASettings/TASettings.h>
 
 @interface TAViewController () <TASettingViewControllerDelegate>
 
