@@ -62,6 +62,8 @@ static void *TAContext = &TAContext;
     self.sections = [self.settings.settings filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(TASetting *setting, NSDictionary *bindings) {
         return setting.settingType == TASettingTypeGroup;
     }]];
+
+    self.title = self.settings.title;
 }
 
 
