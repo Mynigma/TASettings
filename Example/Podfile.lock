@@ -1,27 +1,5 @@
 PODS:
-  - TASettings (0.1.0):
-    - TransformerKit (~> 0.5)
-  - TransformerKit (0.5.4):
-    - TransformerKit/Core (= 0.5.4)
-    - TransformerKit/Cryptography (= 0.5.4)
-    - TransformerKit/Data (= 0.5.4)
-    - TransformerKit/Date (= 0.5.4)
-    - TransformerKit/Image (= 0.5.4)
-    - TransformerKit/JSON (= 0.5.4)
-    - TransformerKit/String (= 0.5.4)
-  - TransformerKit/Core (0.5.4)
-  - TransformerKit/Cryptography (0.5.4):
-    - TransformerKit/Core
-  - TransformerKit/Data (0.5.4):
-    - TransformerKit/Core
-  - TransformerKit/Date (0.5.4):
-    - TransformerKit/Core
-  - TransformerKit/Image (0.5.4):
-    - TransformerKit/Core
-  - TransformerKit/JSON (0.5.4):
-    - TransformerKit/Core
-  - TransformerKit/String (0.5.4):
-    - TransformerKit/Core
+  - TASettings (0.1.0)
 
 DEPENDENCIES:
   - TASettings (from `../`)
@@ -31,7 +9,6 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  TASettings: 2680ba7676b885452caacf1ecf90fbf8f3872327
-  TransformerKit: 0a235de1030a23d47c86706c0316b4a0c7105d73
+  TASettings: e40325d1ee77a921578642a4b6cb60d3d0742d59
 
 COCOAPODS: 0.37.2

@@ -6,9 +6,26 @@
 #import "TADateTransformer.h"
 
 
+@interface TADateTransformer ()
+@property(nonatomic, strong) NSDateFormatter *dateFormatter;
+@end
+
 @implementation TADateTransformer {
 
 }
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _dateFormatter = [[NSDateFormatter alloc] init];
+        _dateFormatter.timeStyle = NSDateFormatterNoStyle;
+        _dateFormatter.dateStyle = NSDateFormatterMediumStyle;
+    }
+
+    return self;
+}
+
 
 + (BOOL)allowsReverseTransformation
 {
@@ -17,17 +34,19 @@
 
 + (Class)transformedValueClass
 {
-    return [super transformedValueClass];
+    return [NSString class];
 }
 
 - (id)transformedValue:(id)value
 {
-    return [super transformedValue:value];
+
+    return  [self.dateFormatter stringFromDate:value];
 }
 
 - (id)reverseTransformedValue:(id)value
 {
-    return [super reverseTransformedValue:value];
+    NSDate *date = [self.dateFormatter dateFromString:value];
+    return date;
 }
 
 

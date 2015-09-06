@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19A17C9DEADCCA4C8F0D3398 /* TADateTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A1797CD32E6BEE4D896455 /* TADateTransformer.m */; };
 		3D9328011B8617490046333E /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D9328001B8617490046333E /* Launch Screen.xib */; };
 		5F79E9ECA6AC0FD7FFA81971 /* Pods_TASettings_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 001BBFECB48D4EDD2BEB25E4 /* Pods_TASettings_Example.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -22,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		001BBFECB48D4EDD2BEB25E4 /* Pods_TASettings_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TASettings_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		19A178F32C6EAA1B70341B11 /* TADateTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TADateTransformer.h; sourceTree = "<group>"; };
+		19A1797CD32E6BEE4D896455 /* TADateTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TADateTransformer.m; sourceTree = "<group>"; };
 		269D44E52A39D1428D00AAFB /* TASettings.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = TASettings.podspec; path = ../TASettings.podspec; sourceTree = "<group>"; };
 		3D9328001B8617490046333E /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* TASettings_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TASettings_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +121,8 @@
 				6003F5A6195388D20070C39A /* TAViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
+				19A1797CD32E6BEE4D896455 /* TADateTransformer.m */,
+				19A178F32C6EAA1B70341B11 /* TADateTransformer.h */,
 			);
 			name = "Example for TASettings";
 			path = TASettings;
@@ -284,6 +289,7 @@
 				6003F59E195388D20070C39A /* TAAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* TAViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				19A17C9DEADCCA4C8F0D3398 /* TADateTransformer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

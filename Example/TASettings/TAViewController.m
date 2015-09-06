@@ -7,12 +7,12 @@
 //
 
 #import "TAViewController.h"
+#import "TADateTransformer.h"
 #import <TASettings/TATextFieldSetting.h>
 #import <TASettings/TASettingValue.h>
 #import <TASettings/TAMultiValueSetting.h>
 #import <TASettings/TANumberValidator.h>
 #import <TASettings/TAActionSetting.h>
-#import <TransformerKit/TTTDateTransformers.h>
 
 @interface TAViewController () <TASettingViewControllerDelegate>
 
@@ -88,8 +88,11 @@
     TASetting *passwordSetting = [[TATextFieldSetting alloc] initWithTitle:@"Password" placeholderValue:nil secure:YES keyboardType:UIKeyboardTypeAlphabet];
     TASetting *dateSetting = [[TATextFieldSetting alloc] initWithTitle:@"Date" placeholderValue:nil secure:NO keyboardType:UIKeyboardTypeAlphabet];
 
+
     dateSetting.settingValue.value = [NSDate date];
-    dateSetting.settingValue.valueTransformerName = TTTRFC2822DateTransformerName;
+
+    [NSValueTransformer setValueTransformer:[[TADateTransformer alloc] init] forName:@"TADateTransformer"];
+    dateSetting.settingValue.valueTransformerName = @"TADateTransformer";
 
 
     passwordSetting.enabled = NO;
