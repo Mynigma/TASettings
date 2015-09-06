@@ -23,7 +23,6 @@
 		6C0DDBA2F6A7EAFF6F830ED1 /* UILabel+TALabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 3319664E5BA462043AA22A83 /* UILabel+TALabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6DB8263C4820C35202338B95 /* UILabel+TALabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB67F196A7B216BB7C2CD3B7 /* UILabel+TALabel.m */; };
 		707A49E2669A95C156C4F173 /* TAActionSetting.h in Headers */ = {isa = PBXBuildFile; fileRef = D396FB0CF0144D5DC66E39C8 /* TAActionSetting.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7173549DF11793BE8BD34D13 /* Keybaord.h in Headers */ = {isa = PBXBuildFile; fileRef = 257FB929B3A4BA769CD55501 /* Keybaord.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		75FB68D504547569E5CA235B /* TASwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F83D6C90EFFF85D88BCB38E /* TASwitchCell.m */; };
 		76EB7F9A8C839F34EDCBD10E /* TATextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9231AAF6176E5C689FA38B8 /* TATextFieldCell.m */; };
 		80E25FDA13125CFFDF1EDB44 /* TADetailValueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D9C22243C3D542CEC5A645 /* TADetailValueCell.m */; };
@@ -76,7 +75,6 @@
 		04D8D64153AF827B69AE807A /* TASettings.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TASettings.h; sourceTree = "<group>"; };
 		1159E859F9622A5BF1367BB1 /* TASettingViewController+CellConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TASettingViewController+CellConfiguration.m"; sourceTree = "<group>"; };
 		20F836C42FBB365CE069E498 /* TASettingViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TASettingViewController.m; sourceTree = "<group>"; };
-		257FB929B3A4BA769CD55501 /* Keybaord.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Keybaord.h; sourceTree = "<group>"; };
 		29D9C22243C3D542CEC5A645 /* TADetailValueCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TADetailValueCell.m; sourceTree = "<group>"; };
 		2C4E1B73525517447BBC35A7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		2F83D6C90EFFF85D88BCB38E /* TASwitchCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TASwitchCell.m; sourceTree = "<group>"; };
@@ -292,7 +290,6 @@
 		C9BC93F85324D69FFE26AA05 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				257FB929B3A4BA769CD55501 /* Keybaord.h */,
 				347FA6AB1158DA1460A9CCE6 /* TAMultiValueViewController.h */,
 				C21C9AFB9F65B44B813834C3 /* TAMultiValueViewController.m */,
 				78F86F82EBC134A6C4DB87FB /* TASettingViewController.h */,
@@ -354,7 +351,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7173549DF11793BE8BD34D13 /* Keybaord.h in Headers */,
 				DFE4A312E41D288DACEED6AF /* Pods-TASettings_Example-TASettings-umbrella.h in Headers */,
 				EE1E1F3A5AB587AC1CBC6D79 /* TAActionCell.h in Headers */,
 				707A49E2669A95C156C4F173 /* TAActionSetting.h in Headers */,
