@@ -78,7 +78,7 @@ static void *TAContext = &TAContext;
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    self.tableView.frame = self.view.frame;
+    self.tableView.frame = self.view.bounds;
 }
 
 #pragma mark - UITableViewDataSource
