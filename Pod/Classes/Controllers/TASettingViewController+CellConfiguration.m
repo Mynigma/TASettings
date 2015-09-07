@@ -72,7 +72,8 @@
 {
     NSAssert([tableViewCell isKindOfClass:[TAActionCell class]], @"Must be a %@ class", NSStringFromClass([TAActionCell class]));
     TAActionCell *cell = (TAActionCell *) tableViewCell;
-
+    TAActionSetting *actionSetting = (TAActionSetting *) setting;
+    cell.style = actionSetting.style;
     if(setting.enabled) {
         [cell.button setTitle:setting.title forState:UIControlStateNormal];
         [cell.button addTarget:self action:@selector(actionCellButtonPressed:) forControlEvents:UIControlEventTouchDown];

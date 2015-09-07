@@ -7,19 +7,40 @@
 
 @interface TAActionCell ()
 @property(nonatomic, strong) UIButton *button;
+
+@property (nonatomic, strong) NSMutableDictionary *fontsByStyle;
+@property (nonatomic, strong) NSMutableDictionary *colorsByStyle;
 @end
 
 @implementation TAActionCell {
 
 }
 
++ (void)initialize {
+    // this sets the default appearance before the user customizes it
+    if (self == [TAActionCell class]) {
+        // todo get those colors programatically
+
+
+        [[TAActionCell appearance] setTitleColor:[UIColor colorWithRed:0.19 green:0.48 blue:1 alpha:1] forStyle:TAActionSettingStyleDefault];
+        [[TAActionCell appearance] setTitleColor:[UIColor colorWithRed:0.96 green:0.23 blue:0.19 alpha:1] forStyle:TAActionSettingStyleDestructive];
+
+        [[TAActionCell appearance] setTitleFont:[UIFont systemFontOfSize:[UIFont buttonFontSize]] forStyle:TAActionSettingStyleDefault];
+        [[TAActionCell appearance] setTitleFont:[UIFont systemFontOfSize:[UIFont buttonFontSize]] forStyle:TAActionSettingStyleDestructive];
+
+    }
+}
+
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.button = [UIButton buttonWithType:UIButtonTypeSystem];
+        self.button = [UIButton buttonWithType:UIButtonTypeCustom];
 
         [self.contentView addSubview:self.button];
+        self.fontsByStyle = [[NSMutableDictionary alloc] init];
+        self.colorsByStyle = [[NSMutableDictionary alloc] init];
+
 
         [self setupAutoLayout];
     }
@@ -54,6 +75,31 @@
 }
 
 #pragma mark - Accessors
+
+- (void)setStyle:(TAActionSettingStyle)style
+{
+    _style = style;
+    UIColor *color = self.colorsByStyle[@(style)];
+    if(color) {
+        [self.button setTitleColor:color forState:UIControlStateNormal];
+    }
+
+    UIFont *font = self.fontsByStyle[@(style)];
+    if(font) {
+        self.button.titleLabel.font = font;
+    }
+}
+
+
+- (void)setTitleColor:(UIColor *)color forStyle:(TAActionSettingStyle)style
+{
+    self.colorsByStyle[@(style)] = color;
+}
+
+- (void)setTitleFont:(UIFont *)font forStyle:(TAActionSettingStyle)style
+{
+    self.fontsByStyle[@(style)] = font;
+}
 
 
 @end

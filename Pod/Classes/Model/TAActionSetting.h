@@ -7,14 +7,18 @@
 
 @class TASettingViewController;
 
-
+typedef NS_ENUM(NSUInteger , TAActionSettingStyle) {
+    TAActionSettingStyleDefault = 0,
+    TAActionSettingStyleDestructive
+};
 typedef void(^TAActionSettingBlock)(TASettingViewController *settingViewController, TASetting * setting);
 
 @interface TAActionSetting : TASetting
 
 @property (nonatomic, copy) TAActionSettingBlock actionBlock;
+@property (nonatomic, readonly) TAActionSettingStyle style;
 
 
-- (instancetype)initWithTitle:(NSString *)title actionBlock:(TAActionSettingBlock)actionBlock NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithTitle:(NSString *)title actionBlock:(TAActionSettingBlock)actionBlock style:(TAActionSettingStyle)style;
 
 @end

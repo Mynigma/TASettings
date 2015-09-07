@@ -8,6 +8,7 @@
 
 #import "TAViewController.h"
 #import "TADateTransformer.h"
+#import "TAActionSetting.h"
 
 #import <TASettings/TASettings.h>
 
@@ -63,7 +64,7 @@
     TASetting *oauthSection = [TASetting settingWithSettingType:TASettingTypeGroup localizedTitle:@"OAuth"];
     oauthSection.footerText = @"";
     oauthSection.children = @[
-            [[TAActionSetting alloc] initWithTitle:@"Disconnect" actionBlock:self.oauthActionBlock]
+            [[TAActionSetting alloc] initWithTitle:@"Disconnect" actionBlock:self.oauthActionBlock style:TAActionSettingStyleDefault]
     ];
 
 
@@ -105,7 +106,7 @@
     TASetting *deleteSection = [TASetting settingWithSettingType:TASettingTypeGroup];
     deleteSection.footerText = @"";
     deleteSection.children = @[
-            [[TAActionSetting alloc] initWithTitle:@"Delete Account" actionBlock:self.deleteActionBlock]
+            [[TAActionSetting alloc] initWithTitle:@"Delete Account" actionBlock:self.deleteActionBlock style:TAActionSettingStyleDestructive]
     ];
 
     TASetting *childSection = [TASetting settingWithSettingType:TASettingTypeGroup];
