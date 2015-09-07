@@ -15,6 +15,7 @@
     if (self) {
 
         self.valueSwitch = [[UISwitch alloc] init];
+        [self.valueSwitch setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
         [self.contentView addSubview:self.valueSwitch];
 
         [self setupAutoLayout];
