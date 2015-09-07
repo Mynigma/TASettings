@@ -13,4 +13,11 @@
 
 #import "TASettingViewController.h"
 
+#import "TAActionCell.h"
+#import "TADetailValueCell.h"
+#import "TALabelCell.h"
+#import "TASettingCell.h"
+#import "TASwitchCell.h"
+#import "TATextFieldCell.h"
+
 #endif

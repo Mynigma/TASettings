@@ -19,8 +19,8 @@
 + (void)initialize {
     // this sets the default appearance before the user customizes it
     if (self == [TAActionCell class]) {
-        // todo get those colors programatically
 
+        // todo get those colors programatically
 
         [[TAActionCell appearance] setTitleColor:[UIColor colorWithRed:0.19 green:0.48 blue:1 alpha:1] forStyle:TAActionSettingStyleDefault];
         [[TAActionCell appearance] setTitleColor:[UIColor colorWithRed:0.96 green:0.23 blue:0.19 alpha:1] forStyle:TAActionSettingStyleDestructive];
