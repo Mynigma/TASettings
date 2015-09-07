@@ -25,8 +25,6 @@
 
     //[[TAActionCell appearance] setTitleColor:[UIColor colorWithRed:0.96 green:0.23 blue:0.19 alpha:1] forStyle:TAActionSettingStyleDestructive];
 
-    [[UIButton appearance] setTitleColor:nil forState:0];
-
 
     NSDictionary *navBarTextAttributes = @{
             NSForegroundColorAttributeName : [UIColor whiteColor]
