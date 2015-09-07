@@ -18,17 +18,6 @@
 
 @implementation TAViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - Actions
 
@@ -65,7 +54,7 @@
 
     TASetting *settingGeneralAccountName = [[TATextFieldSetting alloc] initWithTitle:@"Account Name" placeholderValue:@"Gmail" secure:NO keyboardType:UIKeyboardTypeAlphabet];
     settingGeneralAccountName.settingValue.value = @"Steve Jobs";
-    generalSection.settings = @[
+    generalSection.children = @[
             settingGeneralAccountName,
             [[TATextFieldSetting alloc] initWithTitle:@"Sender Name" placeholderValue:@"John Doe" secure:NO keyboardType:UIKeyboardTypeAlphabet],
             [TASetting switchSettingWithTitle:@"Copy to sent messages" settingValue:[TASettingValue valueWithValue:nil defaultValue:@YES]],
@@ -73,7 +62,7 @@
 
     TASetting *oauthSection = [TASetting settingWithSettingType:TASettingTypeGroup localizedTitle:@"OAuth"];
     oauthSection.footerText = @"";
-    oauthSection.settings = @[
+    oauthSection.children = @[
             [[TAActionSetting alloc] initWithTitle:@"Disconnect" actionBlock:self.oauthActionBlock]
     ];
 
@@ -94,7 +83,7 @@
 
 
     passwordSetting.enabled = NO;
-    incomingSection.settings = @[
+    incomingSection.children = @[
             [TATextFieldSetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"User Name"],
             passwordSetting,
             [[TATextFieldSetting alloc] initWithTitle:@"Host" placeholderValue:@"imap.google.com" secure:NO keyboardType:UIKeyboardTypeAlphabet],
@@ -104,7 +93,7 @@
     ];
 
     TASetting *outgoingSection = [TASetting settingWithSettingType:TASettingTypeGroup localizedTitle:@"Outgoing"];
-    outgoingSection.settings = @[
+    outgoingSection.children = @[
             [TATextFieldSetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"User Name"],
             [[TATextFieldSetting alloc] initWithTitle:@"Password" placeholderValue:nil secure:YES keyboardType:UIKeyboardTypeAlphabet],
             [[TATextFieldSetting alloc] initWithTitle:@"Host" placeholderValue:@"smtp.google.com" secure:NO keyboardType:UIKeyboardTypeAlphabet],
@@ -115,15 +104,15 @@
 
     TASetting *deleteSection = [TASetting settingWithSettingType:TASettingTypeGroup];
     deleteSection.footerText = @"";
-    deleteSection.settings = @[
+    deleteSection.children = @[
             [[TAActionSetting alloc] initWithTitle:@"Delete Account" actionBlock:self.deleteActionBlock]
     ];
 
     TASetting *childSection = [TASetting settingWithSettingType:TASettingTypeGroup];
-    childSection.settings = @[ settings ];
+    childSection.children = @[ settings ];
 
 
-    settings.settings = @[ generalSection, oauthSection, incomingSection, outgoingSection, deleteSection ];
+    settings.children = @[ generalSection, oauthSection, incomingSection, outgoingSection, deleteSection ];
 
     return settings;
 }
