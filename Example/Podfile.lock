@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  TASettings: e40325d1ee77a921578642a4b6cb60d3d0742d59
+  TASettings: bff9a0d12fa08f04bab745f69b70a55abf4b9fab
 
 COCOAPODS: 0.37.2

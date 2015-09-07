@@ -1,17 +1,17 @@
 {
   "name": "TASettings",
   "version": "0.1.0",
-  "summary": "A short description of TASettings.",
-  "description": "",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/TASettings",
+  "summary": "Easy to use settings view model",
+  "homepage": "https://github.com/JanC/TASettings",
   "license": "MIT",
   "authors": {
     "Jan Chaloupecky": "jan.chaloupecky@gmail.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/TASettings.git",
+    "git": "https://github.com/JanC/TASettings.git",
     "tag": "0.1.0"
   },
+  "social_media_url": "https://twitter.com/TexTwil",
   "platforms": {
     "ios": "7.0"
   },
