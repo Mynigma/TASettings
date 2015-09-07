@@ -24,6 +24,12 @@
     return self;
 }
 
+-(instancetype) init
+{
+    self = [self initWithTitle:nil value:nil selected:NO defaultValue:nil];
+    return self;
+}
+
 - (instancetype)initWithTitle:(NSString *)title value:(id)value selected:(BOOL)selected
 {
     self = [self initWithTitle:title value:value selected:selected defaultValue:nil];

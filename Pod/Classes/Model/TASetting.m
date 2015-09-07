@@ -26,6 +26,12 @@
     return self;
 }
 
+-(instancetype) init
+{
+    self = [self initWithSettingType:TASettingTypeGroup title:@""];
+    return self;
+}
+
 #pragma mark - Factory Methods
 
 + (instancetype)settingWithSettingType:(TASettingType)settingType localizedTitle:(NSString *)localizedTitle
