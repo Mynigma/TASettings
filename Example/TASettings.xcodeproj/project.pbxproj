@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		034B142499B4F0534C8B665C /* libPods-TASettingsApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12B2AF1E3D8BA332730842BF /* libPods-TASettingsApp.a */; };
 		19A17C9DEADCCA4C8F0D3398 /* TADateTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A1797CD32E6BEE4D896455 /* TADateTransformer.m */; };
 		3D9328011B8617490046333E /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D9328001B8617490046333E /* Launch Screen.xib */; };
 		5F79E9ECA6AC0FD7FFA81971 /* Pods_TASettings_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 001BBFECB48D4EDD2BEB25E4 /* Pods_TASettings_Example.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -23,11 +24,13 @@
 
 /* Begin PBXFileReference section */
 		001BBFECB48D4EDD2BEB25E4 /* Pods_TASettings_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TASettings_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		12B2AF1E3D8BA332730842BF /* libPods-TASettingsApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TASettingsApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19A178F32C6EAA1B70341B11 /* TADateTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TADateTransformer.h; sourceTree = "<group>"; };
 		19A1797CD32E6BEE4D896455 /* TADateTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TADateTransformer.m; sourceTree = "<group>"; };
+		1FFB2E03B6D2061B8E4238D2 /* Pods-TASettingsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TASettingsApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TASettingsApp/Pods-TASettingsApp.debug.xcconfig"; sourceTree = "<group>"; };
 		269D44E52A39D1428D00AAFB /* TASettings.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = TASettings.podspec; path = ../TASettings.podspec; sourceTree = "<group>"; };
 		3D9328001B8617490046333E /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
-		6003F58A195388D20070C39A /* TASettings_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TASettings_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6003F58A195388D20070C39A /* TASettingsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TASettingsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -41,16 +44,11 @@
 		6003F5A6195388D20070C39A /* TAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TAViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
-		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
-		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
+		776D30216F381511F200E8D7 /* Pods-TASettingsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TASettingsApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TASettingsApp/Pods-TASettingsApp.release.xcconfig"; sourceTree = "<group>"; };
 		8031BE959BFD1EF699C9DBF7 /* Pods_TASettings_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TASettings_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A4D599D041AE0A69A0F1CEB9 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		BF805366A9A2EB31CEA8250F /* Pods-TASettings_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TASettings_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TASettings_Example/Pods-TASettings_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		C707F0C93079DDB4250775AF /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		D46CE7D8067972C494CE8DD1 /* Pods-TASettings_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TASettings_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-TASettings_Example/Pods-TASettings_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,37 +60,28 @@
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
 				5F79E9ECA6AC0FD7FFA81971 /* Pods_TASettings_Example.framework in Frameworks */,
+				034B142499B4F0534C8B665C /* libPods-TASettingsApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5681D8F8BC677B29952FB25F /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				BF805366A9A2EB31CEA8250F /* Pods-TASettings_Example.debug.xcconfig */,
-				D46CE7D8067972C494CE8DD1 /* Pods-TASettings_Example.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* Example for TASettings */,
-				6003F5B5195388D20070C39A /* Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
-				5681D8F8BC677B29952FB25F /* Pods */,
+				C9948D3007A596ADDE5E81DA /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
 		6003F58B195388D20070C39A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6003F58A195388D20070C39A /* TASettings_Example.app */,
+				6003F58A195388D20070C39A /* TASettingsApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,6 +95,7 @@
 				6003F5AF195388D20070C39A /* XCTest.framework */,
 				001BBFECB48D4EDD2BEB25E4 /* Pods_TASettings_Example.framework */,
 				8031BE959BFD1EF699C9DBF7 /* Pods_TASettings_Tests.framework */,
+				12B2AF1E3D8BA332730842BF /* libPods-TASettingsApp.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -139,25 +129,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		6003F5B5195388D20070C39A /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				6003F5BB195388D20070C39A /* Tests.m */,
-				6003F5B6195388D20070C39A /* Supporting Files */,
-			);
-			path = Tests;
-			sourceTree = "<group>";
-		};
-		6003F5B6195388D20070C39A /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				6003F5B7195388D20070C39A /* Tests-Info.plist */,
-				6003F5B8195388D20070C39A /* InfoPlist.strings */,
-				606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		60FF7A9C1954A5C5007DD14C /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,27 +139,35 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		C9948D3007A596ADDE5E81DA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1FFB2E03B6D2061B8E4238D2 /* Pods-TASettingsApp.debug.xcconfig */,
+				776D30216F381511F200E8D7 /* Pods-TASettingsApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6003F589195388D20070C39A /* TASettings_Example */ = {
+		6003F589195388D20070C39A /* TASettingsApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "TASettings_Example" */;
+			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "TASettingsApp" */;
 			buildPhases = (
 				0302CE56464356911058AB20 /* Check Pods Manifest.lock */,
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				9CF75BA95BE7E2E41A396730 /* Embed Pods Frameworks */,
 				CCDAD4A990E0EF6A3591FCD6 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = TASettings_Example;
+			name = TASettingsApp;
 			productName = TASettings;
-			productReference = 6003F58A195388D20070C39A /* TASettings_Example.app */;
+			productReference = 6003F58A195388D20070C39A /* TASettingsApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -214,7 +193,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6003F589195388D20070C39A /* TASettings_Example */,
+				6003F589195388D20070C39A /* TASettingsApp */,
 			);
 		};
 /* End PBXProject section */
@@ -249,21 +228,6 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		9CF75BA95BE7E2E41A396730 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TASettings_Example/Pods-TASettings_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		CCDAD4A990E0EF6A3591FCD6 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -276,7 +240,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TASettings_Example/Pods-TASettings_Example-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TASettingsApp/Pods-TASettingsApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -300,14 +264,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				6003F597195388D20070C39A /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		6003F5B8195388D20070C39A /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6003F5B9195388D20070C39A /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -389,7 +345,7 @@
 		};
 		6003F5C0195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BF805366A9A2EB31CEA8250F /* Pods-TASettings_Example.debug.xcconfig */;
+			baseConfigurationReference = 1FFB2E03B6D2061B8E4238D2 /* Pods-TASettingsApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -404,7 +360,7 @@
 		};
 		6003F5C1195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D46CE7D8067972C494CE8DD1 /* Pods-TASettings_Example.release.xcconfig */;
+			baseConfigurationReference = 776D30216F381511F200E8D7 /* Pods-TASettingsApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -429,7 +385,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "TASettings_Example" */ = {
+		6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "TASettingsApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6003F5C0195388D20070C39A /* Debug */,

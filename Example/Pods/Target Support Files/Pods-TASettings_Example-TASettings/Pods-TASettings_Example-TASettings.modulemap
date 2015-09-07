@@ -1,6 +1,0 @@
-framework module TASettings {
-  umbrella header "Pods-TASettings_Example-TASettings-umbrella.h"
-
-  export *
-  module * { export * }
-}
