@@ -59,7 +59,7 @@ static void *TAContext = &TAContext;
     [self startObservingSettings];
     [self startObservingKeyboard];
 
-    self.sections = [self.settings.settings filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(TASetting *setting, NSDictionary *bindings) {
+    self.sections = [self.settings.children filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(TASetting *setting, NSDictionary *bindings) {
         return setting.settingType == TASettingTypeGroup;
     }]];
 
@@ -98,7 +98,7 @@ static void *TAContext = &TAContext;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self settingsForSection:section].settings.count;
+    return [self settingsForSection:section].children.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -157,7 +157,7 @@ static void *TAContext = &TAContext;
 - (TASetting *)settingForIndexPath:(NSIndexPath *)indexPath
 {
     TASetting *settings = [self settingsForSection:indexPath.section];
-    TASetting *setting = settings.settings[indexPath.row];
+    TASetting *setting = settings.children[indexPath.row];
     return setting;
 }
 
@@ -238,8 +238,8 @@ static void *TAContext = &TAContext;
 
 - (void)traverseSettings:(TASetting *)setting withBlock:(void (^)(TASetting *leafSetting))block
 {
-    if (setting.settings.count > 0) {
-        [setting.settings enumerateObjectsUsingBlock:^(TASetting *childSetting, NSUInteger idx2, BOOL *stop2) {
+    if (setting.children.count > 0) {
+        [setting.children enumerateObjectsUsingBlock:^(TASetting *childSetting, NSUInteger idx2, BOOL *stop2) {
             [self traverseSettings:childSetting withBlock:block];
         }];
 
