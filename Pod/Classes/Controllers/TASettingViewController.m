@@ -203,7 +203,7 @@ static void *TAContext = &TAContext;
     });
 
     NSString *cellId = mapping[@(settingType)];
-    NSAssert(cellId, @"Must provide a mapping for setting type  %d", settingType);
+    NSAssert(cellId, @"Must provide a mapping for setting type  %@", @(settingType));
     return cellId;
 }
 

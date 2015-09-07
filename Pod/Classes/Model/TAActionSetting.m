@@ -19,4 +19,11 @@
     return self;
 }
 
+- (instancetype)initWithSettingType:(TASettingType)settingType title:(NSString *)title
+{
+    self = [self initWithTitle:title actionBlock:nil];
+    return self;
+    
+}
+
 @end
