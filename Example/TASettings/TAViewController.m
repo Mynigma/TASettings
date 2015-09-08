@@ -15,6 +15,8 @@
 @interface TAViewController () <TASettingViewControllerDelegate>
 
 @property(nonatomic, strong) TASettingViewController *settingViewController;
+@property(nonatomic, strong) TASetting *incomingPassword;
+@property(nonatomic, strong) TASetting *outgoingPassword;
 @end
 
 @implementation TAViewController
@@ -48,7 +50,7 @@
             [TASettingValue valueWithTitle:@"Auto" value:@1 selected:NO],
             [TASettingValue valueWithTitle:@"Clear" value:@2 selected:NO],
             [TASettingValue valueWithTitle:@"START TLS" value:@3 selected:YES],
-            [TASettingValue valueWithTitle:@"SSL" value:@4 selected:NO]];
+            [TASettingValue valueWithTitle:@"SSL" value:@4 selected:NO] ];
 
 
     TASetting *generalSection = [TASetting settingWithSettingType:TASettingTypeGroup localizedTitle:@"General"];
@@ -73,7 +75,7 @@
 
     TASetting *incomingSection = [TASetting settingWithSettingType:TASettingTypeGroup localizedTitle:@"Incoming"];
 
-    TASetting *passwordSetting = [[TATextFieldSetting alloc] initWithTitle:@"Password" placeholderValue:nil secure:YES keyboardType:UIKeyboardTypeAlphabet];
+    self.outgoingPassword = [[TATextFieldSetting alloc] initWithTitle:@"Password" placeholderValue:nil secure:NO keyboardType:UIKeyboardTypeAlphabet];
     TASetting *dateSetting = [[TATextFieldSetting alloc] initWithTitle:@"Date" placeholderValue:nil secure:NO keyboardType:UIKeyboardTypeAlphabet];
 
 
@@ -83,10 +85,10 @@
     dateSetting.settingValue.valueTransformerName = @"TADateTransformer";
 
 
-    passwordSetting.enabled = NO;
+    self.outgoingPassword.enabled = YES;
     incomingSection.children = @[
             [TATextFieldSetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"User Name"],
-            passwordSetting,
+            self.outgoingPassword,
             [[TATextFieldSetting alloc] initWithTitle:@"Host" placeholderValue:@"imap.google.com" secure:NO keyboardType:UIKeyboardTypeAlphabet],
             portSetting,
             dateSetting,
@@ -94,9 +96,10 @@
     ];
 
     TASetting *outgoingSection = [TASetting settingWithSettingType:TASettingTypeGroup localizedTitle:@"Outgoing"];
+    self.incomingPassword = [[TATextFieldSetting alloc] initWithTitle:@"Password" placeholderValue:nil secure:NO keyboardType:UIKeyboardTypeAlphabet];
     outgoingSection.children = @[
             [TATextFieldSetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"User Name"],
-            [[TATextFieldSetting alloc] initWithTitle:@"Password" placeholderValue:nil secure:YES keyboardType:UIKeyboardTypeAlphabet],
+            self.incomingPassword,
             [[TATextFieldSetting alloc] initWithTitle:@"Host" placeholderValue:@"smtp.google.com" secure:NO keyboardType:UIKeyboardTypeAlphabet],
             [[TATextFieldSetting alloc] initWithTitle:@"Port" placeholderValue:@"587" secure:NO keyboardType:UIKeyboardTypeNamePhonePad],
             [TAMultiValueSetting settingWithTitle:@"SSL" values:sslValues],
@@ -148,7 +151,49 @@
 
 - (void)settingViewController:(TASettingViewController *)controller didChangeSetting:(TASetting *)setting
 {
+
     NSLog(@"Setting value changed: %@", setting);
+
+    [self reusePasswordIfNecessaryForSetting:setting];
+
+}
+
+#pragma mark - Private
+
+- (void)reusePasswordIfNecessaryForSetting:(TASetting *)setting
+{
+    if ([self shouldAskForPasswordReuse:setting]) {
+
+        NSString *message = [NSString stringWithFormat:@"Use the same password for %@?", setting == self.incomingPassword ? @"outgoing" : @"icoming"];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Reuse password?" message:message preferredStyle:UIAlertControllerStyleAlert];
+
+
+        [alertController addAction:[UIAlertAction actionWithTitle:@"No thanks" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+
+        }]];
+
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+
+            if (setting == self.outgoingPassword) {
+                self.incomingPassword.settingValue.value = setting.settingValue.value;
+            }
+
+            if (setting == self.incomingPassword) {
+                self.outgoingPassword.settingValue.value = setting.settingValue.value;
+            }
+
+        }]];
+
+        [self.settingViewController presentViewController:alertController animated:YES completion:nil];
+    }
+}
+
+- (BOOL)shouldAskForPasswordReuse:(TASetting *)setting
+{
+    TASetting *otherPasswordSetting = setting == self.incomingPassword ? self.outgoingPassword : self.incomingPassword;
+    return (setting == self.incomingPassword || setting == self.outgoingPassword) // is a password value
+            && setting.settingValue.transformedValue.length > 0 // not empty
+            && ![setting.settingValue.transformedValue isEqualToString:otherPasswordSetting.settingValue.transformedValue]; // different from the other password value
 }
 
 - (void)settingViewController:(TASettingViewController *)controller didRequestSaveSettings:(TASetting *)setting
