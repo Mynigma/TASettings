@@ -56,7 +56,7 @@ static void *TAContext = &TAContext;
 
     [self.view addSubview:self.tableView];
 
-    [self startObservingSettings];
+    [self startObservingSettings:self.settings];
     [self startObservingKeyboard];
 
     self.sections = [self.settings.children filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(TASetting *setting, NSDictionary *bindings) {
@@ -248,55 +248,72 @@ static void *TAContext = &TAContext;
     }
 }
 
-- (void)startObservingSettings
+- (void)startObservingSettings:(TASetting *)settings
 {
-    [self traverseSettings:self.settings
+    [self traverseSettings:settings
       nodeBlock:^(TASetting *nodeSetting) {
-
-          [nodeSetting addObserver:self forKeyPath:@"children" options:0 context:TAContext];
+          [nodeSetting addObserver:self forKeyPath:@"children" options: NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:TAContext];
 
     } leafBlock:^(TASetting *leafSetting) {
-        [@[ @"subtitle", @"title", @"settingValue", @"settingValue.value" ] enumerateObjectsUsingBlock:^(NSString *keyPath, NSUInteger idx, BOOL *stop) {
-            [leafSetting addObserver:self
-                          forKeyPath:keyPath
-                             options:0 context:TAContext];
-        }];
+        [self startObservingLeafSetting:leafSetting];
     }];
 }
 
-- (void)stopObservingSettings
+- (void)stopObservingSettings:(TASetting *)settings
 {
-    [self traverseSettings:self.settings
+    [self traverseSettings:settings
       nodeBlock:^(TASetting *nodeSetting) {
           [nodeSetting removeObserver:self forKeyPath:@"children" context:TAContext];
 
       } leafBlock:^(TASetting *leafSetting) {
+                [self stopObservingLeafSetting:leafSetting];
+       }];
+}
 
-        [@[ @"subtitle", @"title", @"settingValue", @"settingValue.value" ] enumerateObjectsUsingBlock:^(NSString *keyPath, NSUInteger idx, BOOL *stop) {
-            [leafSetting removeObserver:self
-                             forKeyPath:keyPath
-                                context:TAContext];
-        }];
+- (void)startObservingLeafSetting:(TASetting *)leafSetting
+{
+    [@[ @"subtitle", @"title", @"settingValue", @"settingValue.value" ] enumerateObjectsUsingBlock:^(NSString *keyPath, NSUInteger idx, BOOL *stop) {
+        [leafSetting addObserver:self
+                      forKeyPath:keyPath
+                         options:0 context:TAContext];
+    }];
+}
+
+- (void)stopObservingLeafSetting:(TASetting *)leafSetting
+{
+    [@[ @"subtitle", @"title", @"settingValue", @"settingValue.value" ] enumerateObjectsUsingBlock:^(NSString *keyPath, NSUInteger idx, BOOL *stop) {
+        [leafSetting removeObserver:self
+                         forKeyPath:keyPath
+                            context:TAContext];
     }];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
+
     if (context == TAContext) {
+
+        if ([keyPath isEqualToString:@"children"]) {
+            NSArray *removedSettings = change[NSKeyValueChangeOldKey];
+            [removedSettings enumerateObjectsUsingBlock:^(TASetting *setting, NSUInteger idx, BOOL *stop) {
+                [self stopObservingSettings:setting];
+            }];
+
+            NSArray *addedSettings = change[NSKeyValueChangeNewKey];
+            [addedSettings enumerateObjectsUsingBlock:^(TASetting *setting, NSUInteger idx, BOOL *stop) {
+                [self startObservingSettings:setting];
+            }];
+        }
+
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-//            if([keyPath isEqualToString:@"children"]) {
-//                NSIndexSet *sections = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, (NSUInteger) [self.tableView numberOfSections])];
-//                [self.tableView reloadSections:sections withRowAnimation:UITableViewRowAnimationAutomatic];
-//            } else {
-                [self.tableView reloadData];
-//            }
+            [self.tableView reloadData];
         }];
     }
 }
 
 - (void)dealloc
 {
-    [self stopObservingSettings];
+    [self stopObservingSettings:self.settings];
     [self stopObservingKeyboard];
 }
 
