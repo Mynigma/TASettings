@@ -60,6 +60,22 @@
     return _settingValue;
 }
 
+#pragma mark - Public
+
+#pragma mark - Public
+
+- (void)removeSetting:(TASetting *)setting
+{
+    NSMutableArray *settings = [self mutableArrayValueForKey:@"children"];
+    [settings removeObject:setting];
+}
+
+- (void)insertSetting:(TASetting *)setting atIndex:(NSUInteger)index
+{
+    NSMutableArray *settings = [self mutableArrayValueForKey:@"children"];
+    [settings insertObject:setting atIndex:index];
+}
+
 
 - (NSString *)description
 {

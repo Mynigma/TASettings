@@ -39,5 +39,9 @@ typedef NS_ENUM(NSUInteger, TASettingType) {
 
 + (instancetype)switchSettingWithTitle:(NSString *)title settingValue:(TASettingValue *)settingValue;
 
+#pragma mark - Public
+-(void) removeSetting:(TASetting *) setting;
+-(void) insertSetting:(TASetting *) setting atIndex:(NSUInteger)index;
+
 
 @end

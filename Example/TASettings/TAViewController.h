@@ -10,6 +10,8 @@
 
 #import <TASettings/TASettingViewController.h>
 
+@class TATextFieldSetting;
+
 @interface TAViewController : UIViewController
 
 @end

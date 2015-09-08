@@ -11,12 +11,19 @@
 #import "TAActionSetting.h"
 
 #import <TASettings/TASettings.h>
+#import <TASettings/TATextFieldSetting.h>
 
 @interface TAViewController () <TASettingViewControllerDelegate>
 
 @property(nonatomic, strong) TASettingViewController *settingViewController;
 @property(nonatomic, strong) TASetting *incomingPassword;
+@property(nonatomic, strong) TATextFieldSetting *incomingHost;
 @property(nonatomic, strong) TASetting *outgoingPassword;
+@property(nonatomic, strong) TATextFieldSetting *outgoingHost;
+
+@property(nonatomic) BOOL oauthConnected;
+@property(nonatomic, strong) TASetting *incomingSection;
+@property(nonatomic, strong) TASetting *outgoingSection;
 @end
 
 @implementation TAViewController
@@ -53,6 +60,7 @@
             [TASettingValue valueWithTitle:@"SSL" value:@4 selected:NO] ];
 
 
+    // General Section
     TASetting *generalSection = [TASetting settingWithSettingType:TASettingTypeGroup localizedTitle:@"General"];
 
     TASetting *settingGeneralAccountName = [[TATextFieldSetting alloc] initWithTitle:@"Account Name" placeholderValue:@"Gmail" secure:NO keyboardType:UIKeyboardTypeAlphabet];
@@ -63,51 +71,61 @@
             [TASetting switchSettingWithTitle:@"Copy to sent messages" settingValue:[TASettingValue valueWithValue:nil defaultValue:@YES]],
     ];
 
+
+    // Oauth Section
     TASetting *oauthSection = [TASetting settingWithSettingType:TASettingTypeGroup localizedTitle:@"OAuth"];
     oauthSection.footerText = @"";
     oauthSection.children = @[
-            [[TAActionSetting alloc] initWithTitle:@"Disconnect" actionBlock:self.oauthActionBlock style:TAActionSettingStyleDefault]
+            [[TAActionSetting alloc] initWithTitle:@"Connect" actionBlock:self.oauthActionBlock style:TAActionSettingStyleDefault]
     ];
+    self.oauthConnected = NO;
 
 
     TASetting *portSetting = [[TATextFieldSetting alloc] initWithTitle:@"Port" placeholderValue:@"993" secure:NO keyboardType:UIKeyboardTypeNamePhonePad];
     portSetting.validator = [[TANumberValidator alloc] init];
 
-    TASetting *incomingSection = [TASetting settingWithSettingType:TASettingTypeGroup localizedTitle:@"Incoming"];
+    // Incoming section
 
-    self.outgoingPassword = [[TATextFieldSetting alloc] initWithTitle:@"Password" placeholderValue:nil secure:NO keyboardType:UIKeyboardTypeAlphabet];
+    self.incomingSection = [TASetting settingWithSettingType:TASettingTypeGroup localizedTitle:@"Incoming"];
+
     TASetting *dateSetting = [[TATextFieldSetting alloc] initWithTitle:@"Date" placeholderValue:nil secure:NO keyboardType:UIKeyboardTypeAlphabet];
-
-
     dateSetting.settingValue.value = [NSDate date];
 
     [NSValueTransformer setValueTransformer:[[TADateTransformer alloc] init] forName:@"TADateTransformer"];
     dateSetting.settingValue.valueTransformerName = @"TADateTransformer";
 
 
-    self.outgoingPassword.enabled = YES;
-    incomingSection.children = @[
+    self.incomingPassword = [[TATextFieldSetting alloc] initWithTitle:@"Password" placeholderValue:nil secure:NO keyboardType:UIKeyboardTypeAlphabet];
+    self.incomingHost = [[TATextFieldSetting alloc] initWithTitle:@"Host" placeholderValue:@"imap.google.com" secure:NO keyboardType:UIKeyboardTypeAlphabet];
+
+    NSArray *incomingSettings = [@[
             [TATextFieldSetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"User Name"],
-            self.outgoingPassword,
-            [[TATextFieldSetting alloc] initWithTitle:@"Host" placeholderValue:@"imap.google.com" secure:NO keyboardType:UIKeyboardTypeAlphabet],
+            self.incomingPassword,
+            self.incomingHost,
             portSetting,
             dateSetting,
             [TAMultiValueSetting settingWithTitle:@"SSL" values:sslValues],
-    ];
+    ] mutableCopy];
 
-    TASetting *outgoingSection = [TASetting settingWithSettingType:TASettingTypeGroup localizedTitle:@"Outgoing"];
-    self.incomingPassword = [[TATextFieldSetting alloc] initWithTitle:@"Password" placeholderValue:nil secure:NO keyboardType:UIKeyboardTypeAlphabet];
-    outgoingSection.children = @[
+
+    self.incomingSection.children = incomingSettings;
+
+    // Outgoing Section
+
+    self.outgoingPassword = [[TATextFieldSetting alloc] initWithTitle:@"Password" placeholderValue:nil secure:NO keyboardType:UIKeyboardTypeAlphabet];
+    self.outgoingHost = [[TATextFieldSetting alloc] initWithTitle:@"Host" placeholderValue:@"smtp.google.com" secure:NO keyboardType:UIKeyboardTypeAlphabet];
+
+    self.outgoingSection = [TASetting settingWithSettingType:TASettingTypeGroup localizedTitle:@"Outgoing"];
+    self.outgoingSection.children = @[
             [TATextFieldSetting settingWithSettingType:TASettingTypeTextField localizedTitle:@"User Name"],
-            self.incomingPassword,
-            [[TATextFieldSetting alloc] initWithTitle:@"Host" placeholderValue:@"smtp.google.com" secure:NO keyboardType:UIKeyboardTypeAlphabet],
+            self.outgoingPassword,
+            self.outgoingHost,
             [[TATextFieldSetting alloc] initWithTitle:@"Port" placeholderValue:@"587" secure:NO keyboardType:UIKeyboardTypeNamePhonePad],
             [TAMultiValueSetting settingWithTitle:@"SSL" values:sslValues],
     ];
 
 
     TASetting *deleteSection = [TASetting settingWithSettingType:TASettingTypeGroup];
-    deleteSection.footerText = @"";
     deleteSection.children = @[
             [[TAActionSetting alloc] initWithTitle:@"Delete Account" actionBlock:self.deleteActionBlock style:TAActionSettingStyleDestructive]
     ];
@@ -116,7 +134,7 @@
     childSection.children = @[ settings ];
 
 
-    settings.children = @[ generalSection, oauthSection, incomingSection, outgoingSection, deleteSection ];
+    settings.children = @[ generalSection, oauthSection, self.incomingSection, self.outgoingSection, deleteSection ];
 
     return settings;
 }
@@ -124,7 +142,24 @@
 - (TAActionSettingBlock)oauthActionBlock
 {
     return ^(TASettingViewController *controller, TASetting *setting) {
-        setting.title = [setting.title isEqualToString:@"Connect"] ? @"Disconnect" : @"Connect";
+
+        self.oauthConnected = !self.oauthConnected;
+
+        if(self.oauthConnected) {
+            [self.incomingSection removeSetting:self.incomingPassword];
+            [self.incomingSection removeSetting:self.incomingHost];
+
+            [self.outgoingSection removeSetting:self.outgoingPassword];
+            [self.outgoingSection removeSetting:self.outgoingHost];
+        } else {
+            [self.incomingSection insertSetting:self.incomingPassword atIndex:1];
+            [self.incomingSection insertSetting:self.incomingHost atIndex:2];
+
+            [self.outgoingSection insertSetting:self.outgoingPassword atIndex:1];
+            [self.outgoingSection insertSetting:self.outgoingHost atIndex:2];
+        }
+
+        setting.title = self.oauthConnected ? @"Disconnect" : @"Connect";
     };
 
 }
