@@ -42,7 +42,7 @@ static void *TAContext = &TAContext;
  *
  *  @param setting   The root setting where the recursion starts
  *  @param nodeBlock The block called on setting which have children
- *  @param leafBlock The block called on setting without childred
+ *  @param leafBlock The block called on setting without children
  */
 - (void)traverseSettings:(TASetting *)setting nodeBlock:(void (^)(TASetting *leafSetting))nodeBlock leafBlock:(void (^)(TASetting *leafSetting))leafBlock
 {
