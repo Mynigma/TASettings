@@ -10,9 +10,8 @@
 #import "TAMultiValueViewController.h"
 #import "TAActionCell.h"
 #import "TASettingViewController+CellConfiguration.h"
-#import "TASetting.h"
 #import "TASettingViewController+Keyboard.h"
-
+#import "TASettingViewController+KVO.h"
 
 
 @interface TASettingViewController () <UITableViewDataSource, UITableViewDelegate>
