@@ -251,7 +251,7 @@ static void *TAContext = &TAContext;
 - (void)startObservingSettings
 {
     [self traverseSettings:self.settings withBlock:^(TASetting *leafSetting) {
-        [@[ @"subtitle", @"title", @"settingValue" ] enumerateObjectsUsingBlock:^(NSString *keyPath, NSUInteger idx, BOOL *stop) {
+        [@[ @"subtitle", @"title", @"settingValue", @"settingValue.value" ] enumerateObjectsUsingBlock:^(NSString *keyPath, NSUInteger idx, BOOL *stop) {
             [leafSetting addObserver:self
                           forKeyPath:keyPath
                              options:0 context:TAContext];
@@ -263,7 +263,7 @@ static void *TAContext = &TAContext;
 {
     [self traverseSettings:self.settings withBlock:^(TASetting *leafSetting) {
 
-        [@[ @"subtitle", @"title", @"settingValue" ] enumerateObjectsUsingBlock:^(NSString *keyPath, NSUInteger idx, BOOL *stop) {
+        [@[ @"subtitle", @"title", @"settingValue", @"settingValue.value" ] enumerateObjectsUsingBlock:^(NSString *keyPath, NSUInteger idx, BOOL *stop) {
             [leafSetting removeObserver:self
                              forKeyPath:keyPath
                                 context:TAContext];
