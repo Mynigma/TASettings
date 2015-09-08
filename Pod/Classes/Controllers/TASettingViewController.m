@@ -28,7 +28,7 @@
 
 - (instancetype)initWithSettings:(TASetting *)settings
 {
-    self = [super init];
+    self = [super initWithNibName:nil bundle:nil];
     if (self) {
         _settings = settings;
         _showCancelButton = YES;
@@ -36,7 +36,17 @@
 
     }
     return self;
+}
 
+-(instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [self initWithSettings:nil];
+    return self;
+}
+-(instancetype) initWithCoder:(NSCoder *)aDecoder
+{
+    self = [self initWithSettings:nil];
+    return self;
 }
 
 
