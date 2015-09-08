@@ -236,21 +236,26 @@ static void *TAContext = &TAContext;
 
 #pragma mark - KVO
 
-- (void)traverseSettings:(TASetting *)setting withBlock:(void (^)(TASetting *leafSetting))block
+- (void)traverseSettings:(TASetting *)setting nodeBlock:(void (^)(TASetting *leafSetting))nodeBlock leafBlock:(void (^)(TASetting *leafSetting))leafBlock
 {
     if (setting.children.count > 0) {
+        nodeBlock(setting);
         [setting.children enumerateObjectsUsingBlock:^(TASetting *childSetting, NSUInteger idx2, BOOL *stop2) {
-            [self traverseSettings:childSetting withBlock:block];
+            [self traverseSettings:childSetting nodeBlock:nodeBlock leafBlock:leafBlock];
         }];
-
     } else {
-        block(setting);
+        leafBlock(setting);
     }
 }
 
 - (void)startObservingSettings
 {
-    [self traverseSettings:self.settings withBlock:^(TASetting *leafSetting) {
+    [self traverseSettings:self.settings
+      nodeBlock:^(TASetting *nodeSetting) {
+
+          [nodeSetting addObserver:self forKeyPath:@"children" options:0 context:TAContext];
+
+    } leafBlock:^(TASetting *leafSetting) {
         [@[ @"subtitle", @"title", @"settingValue", @"settingValue.value" ] enumerateObjectsUsingBlock:^(NSString *keyPath, NSUInteger idx, BOOL *stop) {
             [leafSetting addObserver:self
                           forKeyPath:keyPath
@@ -261,7 +266,11 @@ static void *TAContext = &TAContext;
 
 - (void)stopObservingSettings
 {
-    [self traverseSettings:self.settings withBlock:^(TASetting *leafSetting) {
+    [self traverseSettings:self.settings
+      nodeBlock:^(TASetting *nodeSetting) {
+          [nodeSetting removeObserver:self forKeyPath:@"children" context:TAContext];
+
+      } leafBlock:^(TASetting *leafSetting) {
 
         [@[ @"subtitle", @"title", @"settingValue", @"settingValue.value" ] enumerateObjectsUsingBlock:^(NSString *keyPath, NSUInteger idx, BOOL *stop) {
             [leafSetting removeObserver:self
@@ -275,7 +284,12 @@ static void *TAContext = &TAContext;
 {
     if (context == TAContext) {
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [self.tableView reloadData];
+//            if([keyPath isEqualToString:@"children"]) {
+//                NSIndexSet *sections = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, (NSUInteger) [self.tableView numberOfSections])];
+//                [self.tableView reloadSections:sections withRowAnimation:UITableViewRowAnimationAutomatic];
+//            } else {
+                [self.tableView reloadData];
+//            }
         }];
     }
 }
