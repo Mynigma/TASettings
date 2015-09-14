@@ -181,7 +181,6 @@
         [self.tableView endUpdates];
         [UIView setAnimationsEnabled:YES];
 
-        [self.tableView scrollToRowAtIndexPath:self.ta_editingIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
     }
 }
 
