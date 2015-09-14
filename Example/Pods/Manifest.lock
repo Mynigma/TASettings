@@ -1,5 +1,5 @@
 PODS:
-  - TASettings (0.1.0)
+  - TASettings (0.1.3)
 
 DEPENDENCIES:
   - TASettings (from `../`)
@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  TASettings: bff9a0d12fa08f04bab745f69b70a55abf4b9fab
+  TASettings: 5d15449e2452ad6e4fdde17d616ce38f1773e1de
 
 COCOAPODS: 0.37.2

@@ -13,6 +13,8 @@
 #import "TAActionCell.h"
 #import "TAActionSetting.h"
 #import "TASettingViewController+Keyboard.h"
+#import "TATextViewCell.h"
+#import "TATextViewSetting.h"
 
 
 @implementation TASettingViewController (CellConfiguration)
@@ -47,6 +49,19 @@
     cell.valueTextField.enabled = textSetting.enabled;
 
     cell.valueTextField.delegate = self;
+}
+
+- (void)configureTextViewCell:(UITableViewCell *)tableViewCell withSetting:(TASetting *)setting
+{
+    NSAssert([tableViewCell isKindOfClass:[TATextViewCell class]], @"Must be a %@ class", NSStringFromClass([TATextViewCell class]));
+    TATextViewCell *cell = (TATextViewCell *) tableViewCell;
+    TATextViewSetting *textSetting = (TATextViewSetting *) setting;
+
+    cell.valueTextView.text = textSetting.settingValue.transformedValue;
+    cell.valueTextView.keyboardType = textSetting.keyboardType;
+
+
+    cell.valueTextView.delegate = self;
 }
 
 - (void)configureMultiValueCell:(UITableViewCell *)tableViewCell withSetting:(TASetting *)setting

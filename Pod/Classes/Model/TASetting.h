@@ -11,6 +11,7 @@ typedef NS_ENUM(NSUInteger, TASettingType) {
     TASettingTypeGroup,
     TASettingTypeChild,
     TASettingTypeTextField,
+    TASettingTypeTextView,
     TASettingTypeSwitch,
     TASettingTypeMultiValue,
     TASettingTypeAction,

@@ -1,6 +1,6 @@
 {
   "name": "TASettings",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "summary": "Easy to use settings view model",
   "homepage": "https://github.com/JanC/TASettings",
   "license": "MIT",
@@ -9,7 +9,7 @@
   },
   "source": {
     "git": "https://github.com/JanC/TASettings.git",
-    "tag": "0.1.0"
+    "tag": "0.1.3"
   },
   "social_media_url": "https://twitter.com/TexTwil",
   "platforms": {

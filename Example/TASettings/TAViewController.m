@@ -11,7 +11,7 @@
 #import "TAActionSetting.h"
 
 #import <TASettings/TASettings.h>
-#import <TASettings/TATextFieldSetting.h>
+
 
 @interface TAViewController () <TASettingViewControllerDelegate>
 
@@ -134,7 +134,14 @@
     childSection.children = @[ settings ];
 
 
-    settings.children = @[ generalSection, oauthSection, self.incomingSection, self.outgoingSection, deleteSection ];
+    TASetting *signatureSection = [TASetting settingWithSettingType:TASettingTypeGroup localizedTitle:@"Signature"];
+    TASetting *signatureSetting =[[TATextViewSetting alloc] init];
+    signatureSetting.settingValue.value = @"--\nSent with Mynigma";
+    signatureSection.children = @[
+            signatureSetting
+    ];
+
+    settings.children = @[signatureSection, generalSection, oauthSection, self.incomingSection, self.outgoingSection, deleteSection ];
 
     return settings;
 }

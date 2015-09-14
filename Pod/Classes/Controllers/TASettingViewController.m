@@ -12,6 +12,7 @@
 #import "TASettingViewController+CellConfiguration.h"
 #import "TASettingViewController+Keyboard.h"
 #import "TASettingViewController+KVO.h"
+#import "TATextViewCell.h"
 
 
 @interface TASettingViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -56,11 +57,16 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
 
+    self.tableView.estimatedRowHeight = 44.0f;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+
     [self.tableView registerClass:[TATextFieldCell class] forCellReuseIdentifier:[self cellIdentifierForSettingType:TASettingTypeTextField]];
+    [self.tableView registerClass:[TATextViewCell class] forCellReuseIdentifier:[self cellIdentifierForSettingType:TASettingTypeTextView]];
     [self.tableView registerClass:[TASwitchCell class] forCellReuseIdentifier:[self cellIdentifierForSettingType:TASettingTypeSwitch]];
     [self.tableView registerClass:[TADetailValueCell class] forCellReuseIdentifier:[self cellIdentifierForSettingType:TASettingTypeMultiValue]];
     [self.tableView registerClass:[TADetailValueCell class] forCellReuseIdentifier:[self cellIdentifierForSettingType:TASettingTypeChild]];
     [self.tableView registerClass:[TAActionCell class] forCellReuseIdentifier:[self cellIdentifierForSettingType:TASettingTypeAction]];
+
 
     [self.view addSubview:self.tableView];
 
@@ -133,6 +139,9 @@
             break;
         case TASettingTypeGroup:
             break;
+        case TASettingTypeTextView:
+            [self configureTextViewCell:cell withSetting:setting];
+            break;
     }
 
     return cell;
@@ -203,6 +212,7 @@
     dispatch_once(&token, ^{
         mapping = @{
                 @(TASettingTypeTextField) : @"TASettingTypeTextFieldCellId",
+                @(TASettingTypeTextView) : @"TASettingTypeTextViewCellId",
                 @(TASettingTypeMultiValue) : @"TASettingTypeDetailCellId",
                 @(TASettingTypeChild) : @"TASettingTypeDetailCellId",
                 @(TASettingTypeSwitch) : @"TASettingTypeSwitchCellId",

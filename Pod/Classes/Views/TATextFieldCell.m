@@ -19,6 +19,7 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
 
         [self.contentView addSubview:self.valueTextField];
+
         
         [self setupAutoLayout];
 

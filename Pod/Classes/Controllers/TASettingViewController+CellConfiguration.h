@@ -5,10 +5,11 @@
 #import <Foundation/Foundation.h>
 #import "TASettingViewController.h"
 
-@interface TASettingViewController (CellConfiguration) <UITextFieldDelegate>
+@interface TASettingViewController (CellConfiguration) <UITextFieldDelegate, UITextViewDelegate>
 
 - (void)configureSwitchCell:(UITableViewCell *)tableViewCell withSetting:(TASetting *)setting;
 - (void)configureTextFieldCell:(UITableViewCell *)tableViewCell withSetting:(TASetting *)setting;
+- (void)configureTextViewCell:(UITableViewCell *)tableViewCell withSetting:(TASetting *)setting;
 - (void)configureMultiValueCell:(UITableViewCell *)tableViewCell withSetting:(TASetting *)setting;
 - (void)configureChildCell:(UITableViewCell *)tableViewCell withSetting:(TASetting *)setting;
 - (void)configureActionCell:(UITableViewCell *)tableViewCell withSetting:(TASetting *)setting;
