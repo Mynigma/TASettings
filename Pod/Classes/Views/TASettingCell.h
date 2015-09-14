@@ -4,6 +4,7 @@
 
 #import <Foundation/Foundation.h>
 
+extern CGFloat const TAMinimumCellHeight;
 
 @interface TASettingCell : UITableViewCell <UIAppearanceContainer>
 

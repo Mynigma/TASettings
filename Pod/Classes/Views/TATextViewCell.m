@@ -16,6 +16,7 @@
         self.valueTextView = [[UITextView alloc] initWithFrame:CGRectZero];
         self.valueTextView.scrollEnabled = NO;
 
+
         [self.contentView addSubview:self.valueTextView];
         [self.titleLabel removeFromSuperview];
 
@@ -41,11 +42,20 @@
                                                                              metrics:metrics
                                                                                views:views]];
 
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[valueTextView(>=50)]-|"
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[valueTextView(>=70)]-|"
                                                                              options:(NSLayoutFormatOptions) 0
                                                                              metrics:metrics
                                                                                views:views]];
 
+}
+
+#pragma mark - UIAppearanceContainer
+
+
+- (void)setValueTextFieldFont:(UIFont *)valueTextFieldFont
+{
+    _valueTextFieldFont = valueTextFieldFont;
+    self.valueTextView.font = valueTextFieldFont;
 }
 
 @end

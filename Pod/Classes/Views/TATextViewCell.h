@@ -10,4 +10,6 @@
 
 @property (nonatomic, strong) UITextView *valueTextView;
 
+@property (nonatomic, strong) UI_APPEARANCE_SELECTOR UIFont *valueTextFieldFont;
+
 @end

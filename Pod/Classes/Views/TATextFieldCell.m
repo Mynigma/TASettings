@@ -44,7 +44,7 @@
                                                                  attribute:NSLayoutAttributeWidth
                                                                 multiplier:0.3 constant:0]];
 
-    NSDictionary *metrics = @{};
+    NSDictionary *metrics = @{ @"TAMinimumCellHeight" : @(TAMinimumCellHeight) };
     NSDictionary *views = @{
             @"titleLabel" : self.titleLabel,
             @"valueTextField" : self.valueTextField,
@@ -57,7 +57,7 @@
                                                                                views:views]];
 
     // vertical spacing to label
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[titleLabel]-|"
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[titleLabel(>=TAMinimumCellHeight)]-|"
                                                                              options:(NSLayoutFormatOptions) 0
                                                                              metrics:metrics
                                                                                views:views]];

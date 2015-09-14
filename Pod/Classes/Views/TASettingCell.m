@@ -6,6 +6,8 @@
 #import "UILabel+TALabel.h"
 
 
+CGFloat const TAMinimumCellHeight = 44.0f - 2 * 9.0f; // it's actually the height of the label + top and bottom margins
+
 @implementation TASettingCell {
 
 }

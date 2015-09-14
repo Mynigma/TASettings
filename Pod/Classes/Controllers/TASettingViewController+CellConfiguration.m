@@ -11,10 +11,9 @@
 #import "TADetailValueCell.h"
 #import "TASettingValidator.h"
 #import "TAActionCell.h"
-#import "TAActionSetting.h"
 #import "TASettingViewController+Keyboard.h"
 #import "TATextViewCell.h"
-#import "TATextViewSetting.h"
+
 
 
 @implementation TASettingViewController (CellConfiguration)
@@ -55,13 +54,10 @@
 {
     NSAssert([tableViewCell isKindOfClass:[TATextViewCell class]], @"Must be a %@ class", NSStringFromClass([TATextViewCell class]));
     TATextViewCell *cell = (TATextViewCell *) tableViewCell;
-    TATextViewSetting *textSetting = (TATextViewSetting *) setting;
 
-    cell.valueTextView.text = textSetting.settingValue.transformedValue;
-    cell.valueTextView.keyboardType = textSetting.keyboardType;
-
-
+    cell.valueTextView.text = setting.settingValue.transformedValue;
     cell.valueTextView.delegate = self;
+
 }
 
 - (void)configureMultiValueCell:(UITableViewCell *)tableViewCell withSetting:(TASetting *)setting
@@ -137,18 +133,7 @@
 
 - (void)textViewDidChange:(UITextView *)textView
 {
-    CGSize size = textView.bounds.size;
-    CGSize newSize = [textView sizeThatFits:CGSizeMake(size.width, size.height)];
-
-    // resize the cell if the height has changed
-    if(size.height != newSize.height) {
-        [UIView setAnimationsEnabled:NO];
-        [self.tableView beginUpdates];
-        [self.tableView endUpdates];
-        [UIView setAnimationsEnabled:YES];
-
-        [self.tableView scrollToRowAtIndexPath:self.ta_editingIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
-    }
+    [self updateTextViewHeightIfNecessary:textView];
 }
 
 
@@ -181,6 +166,22 @@
     id <TASettingViewControllerDelegate> o = self.delegate;
     if ([o respondsToSelector:@selector(settingViewController:didChangeSetting:)]) {
         [o settingViewController:self didChangeSetting:setting];
+    }
+}
+
+- (void)updateTextViewHeightIfNecessary:(UITextView *)textView
+{
+    CGSize size = textView.bounds.size;
+    CGSize newSize = [textView sizeThatFits:CGSizeMake(size.width, size.height)];
+
+    // resize the cell if the height has changed
+    if (size.height != newSize.height) {
+        [UIView setAnimationsEnabled:NO];
+        [self.tableView beginUpdates];
+        [self.tableView endUpdates];
+        [UIView setAnimationsEnabled:YES];
+
+        [self.tableView scrollToRowAtIndexPath:self.ta_editingIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
     }
 }
 

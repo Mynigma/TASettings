@@ -26,7 +26,7 @@
 {
     self.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
 
-    NSDictionary *metrics = @{ };
+    NSDictionary *metrics = @{ @"TAMinimumCellHeight" : @(TAMinimumCellHeight) };
     NSDictionary *views = @{
             @"titleLabel" : self.titleLabel,
     };
@@ -38,7 +38,7 @@
                                                                                views:views]];
 
     // vertical spacing to label
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[titleLabel]-|"
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[titleLabel(>=TAMinimumCellHeight)]-|"
                                                                              options:(NSLayoutFormatOptions) 0
                                                                              metrics:metrics
                                                                                views:views]];

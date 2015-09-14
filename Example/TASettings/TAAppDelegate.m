@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 Jan Chaloupecky. All rights reserved.
 //
 
-#import <TASettings/TATextFieldCell.h>
-#import <TASettings/TASwitchCell.h>
+
+#import <TASettings/TASettings.h>
 
 #import "TAAppDelegate.h"
-#import "TAActionCell.h"
+
 
 @implementation TAAppDelegate
 
@@ -21,6 +21,7 @@
     [[TASettingCell appearance] setTitleLabelFont:[UIFont boldSystemFontOfSize:15]];
     [[TASettingCell appearance] setSubtitleLabelFont:[UIFont systemFontOfSize:15]];
     [[TATextFieldCell appearance] setValueTextFieldFont:[UIFont systemFontOfSize:15]];
+    [[TATextViewCell appearance] setValueTextFieldFont:[UIFont systemFontOfSize:15]];
 
 
     //[[TAActionCell appearance] setTitleColor:[UIColor colorWithRed:0.96 green:0.23 blue:0.19 alpha:1] forStyle:TAActionSettingStyleDestructive];

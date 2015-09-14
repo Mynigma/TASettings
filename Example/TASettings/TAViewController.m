@@ -135,13 +135,13 @@
 
 
     TASetting *signatureSection = [TASetting settingWithSettingType:TASettingTypeGroup localizedTitle:@"Signature"];
-    TASetting *signatureSetting =[[TATextViewSetting alloc] init];
+    TASetting *signatureSetting =[[TASetting alloc] initWithSettingType:TASettingTypeTextView title:nil];
     signatureSetting.settingValue.value = @"--\nSent with Mynigma";
     signatureSection.children = @[
             signatureSetting
     ];
 
-    settings.children = @[signatureSection, generalSection, oauthSection, self.incomingSection, self.outgoingSection, deleteSection ];
+    settings.children = @[generalSection, oauthSection, self.incomingSection, self.outgoingSection, signatureSection, deleteSection ];
 
     return settings;
 }

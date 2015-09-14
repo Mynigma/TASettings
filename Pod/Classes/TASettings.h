@@ -7,7 +7,6 @@
 #import "TAMultiValueSetting.h"
 #import "TANumberValidator.h"
 #import "TATextFieldSetting.h"
-#import "TATextViewSetting.h"
 #import "TASettingValidator.h"
 
 #import "TASettingValue.h"
@@ -20,5 +19,6 @@
 #import "TASettingCell.h"
 #import "TASwitchCell.h"
 #import "TATextFieldCell.h"
+#import "TATextViewCell.h"
 
 #endif

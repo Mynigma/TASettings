@@ -57,7 +57,7 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
 
-    self.tableView.estimatedRowHeight = 44.0f;
+    self.tableView.estimatedRowHeight = 70.0f;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
 
     [self.tableView registerClass:[TATextFieldCell class] forCellReuseIdentifier:[self cellIdentifierForSettingType:TASettingTypeTextField]];
