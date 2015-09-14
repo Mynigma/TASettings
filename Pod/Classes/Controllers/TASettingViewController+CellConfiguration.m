@@ -118,6 +118,40 @@
     [self.tableView scrollToRowAtIndexPath:self.ta_editingIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 }
 
+#pragma mark - UITextViewDelegate
+
+
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    UITableViewCell *cell = (UITableViewCell *) textView.superview.superview; // context view then cell
+    self.ta_editingIndexPath = [self.tableView indexPathForCell:cell];
+    [self.tableView scrollToRowAtIndexPath:self.ta_editingIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    UITableViewCell *cell = (UITableViewCell *) textView.superview.superview; // context view then cell
+    [self handleChangedValue:textView.text inCell:cell];
+}
+
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    CGSize size = textView.bounds.size;
+    CGSize newSize = [textView sizeThatFits:CGSizeMake(size.width, size.height)];
+
+    // resize the cell if the height has changed
+    if(size.height != newSize.height) {
+        [UIView setAnimationsEnabled:NO];
+        [self.tableView beginUpdates];
+        [self.tableView endUpdates];
+        [UIView setAnimationsEnabled:YES];
+
+        [self.tableView scrollToRowAtIndexPath:self.ta_editingIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+    }
+}
+
+
 #pragma mark - Button Action
 
 - (void)actionCellButtonPressed:(UIButton *)button

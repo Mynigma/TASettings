@@ -14,6 +14,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.valueTextView = [[UITextView alloc] initWithFrame:CGRectZero];
+        self.valueTextView.scrollEnabled = NO;
 
         [self.contentView addSubview:self.valueTextView];
         [self.titleLabel removeFromSuperview];

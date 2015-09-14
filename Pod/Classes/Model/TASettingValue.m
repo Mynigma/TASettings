@@ -85,7 +85,8 @@
         NSValueTransformer *transformer = [NSValueTransformer valueTransformerForName:self.valueTransformerName];
         value = [transformer reverseTransformedValue:value];
     }
-    self.value = value;
+    // ivar on purpose, we don't want to trigger KVO here
+    _value = value;
 }
 
 
