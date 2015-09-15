@@ -64,6 +64,12 @@
 // If YES, a Cancel button will be put in the left bar menu item
 @property(nonatomic, assign) BOOL showCancelButton;
 
+// A fixed background image shown behind the table view, if non-nil
+@property UIImage* backgroundImage;
+
+// The colour of the section headers
+@property UIColor* sectionHeaderTint;
+
 @property(nonatomic, strong, readonly) TASetting *settings;
 @property(nonatomic, strong) UITableView *tableView;
 

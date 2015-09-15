@@ -39,6 +39,9 @@
     self.settingViewController.delegate = self;
     self.settingViewController.showDoneButton = YES;
     self.settingViewController.showCancelButton = YES;
+    
+    self.settingViewController.backgroundImage = [UIImage imageNamed:@"RandomBackgroundImage.jpg"];
+    self.settingViewController.sectionHeaderTint = [UIColor whiteColor];
 
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.settingViewController];
 
