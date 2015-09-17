@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		034B142499B4F0534C8B665C /* libPods-TASettingsApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12B2AF1E3D8BA332730842BF /* libPods-TASettingsApp.a */; };
 		19A17C9DEADCCA4C8F0D3398 /* TADateTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A1797CD32E6BEE4D896455 /* TADateTransformer.m */; };
+		1E1029431BA8189C009924E9 /* RandomBackgroundImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1E1029421BA8189C009924E9 /* RandomBackgroundImage.jpg */; };
 		3D9328011B8617490046333E /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D9328001B8617490046333E /* Launch Screen.xib */; };
-		5F79E9ECA6AC0FD7FFA81971 /* Pods_TASettings_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 001BBFECB48D4EDD2BEB25E4 /* Pods_TASettings_Example.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -27,6 +27,7 @@
 		12B2AF1E3D8BA332730842BF /* libPods-TASettingsApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TASettingsApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19A178F32C6EAA1B70341B11 /* TADateTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TADateTransformer.h; sourceTree = "<group>"; };
 		19A1797CD32E6BEE4D896455 /* TADateTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TADateTransformer.m; sourceTree = "<group>"; };
+		1E1029421BA8189C009924E9 /* RandomBackgroundImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = RandomBackgroundImage.jpg; sourceTree = "<group>"; };
 		1FFB2E03B6D2061B8E4238D2 /* Pods-TASettingsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TASettingsApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TASettingsApp/Pods-TASettingsApp.debug.xcconfig"; sourceTree = "<group>"; };
 		269D44E52A39D1428D00AAFB /* TASettings.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = TASettings.podspec; path = ../TASettings.podspec; sourceTree = "<group>"; };
 		3D9328001B8617490046333E /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
@@ -59,7 +60,6 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				5F79E9ECA6AC0FD7FFA81971 /* Pods_TASettings_Example.framework in Frameworks */,
 				034B142499B4F0534C8B665C /* libPods-TASettingsApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,6 +121,7 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1E1029421BA8189C009924E9 /* RandomBackgroundImage.jpg */,
 				6003F595195388D20070C39A /* TASettings-Info.plist */,
 				6003F596195388D20070C39A /* InfoPlist.strings */,
 				6003F599195388D20070C39A /* main.m */,
@@ -206,6 +207,7 @@
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				3D9328011B8617490046333E /* Launch Screen.xib in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				1E1029431BA8189C009924E9 /* RandomBackgroundImage.jpg in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

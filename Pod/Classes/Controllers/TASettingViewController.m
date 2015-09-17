@@ -67,6 +67,18 @@
     [self.tableView registerClass:[TADetailValueCell class] forCellReuseIdentifier:[self cellIdentifierForSettingType:TASettingTypeChild]];
     [self.tableView registerClass:[TAActionCell class] forCellReuseIdentifier:[self cellIdentifierForSettingType:TASettingTypeAction]];
 
+    if(self.backgroundImage)
+    {
+        UIImageView* backgroundImageView = [[UIImageView alloc] initWithImage:self.backgroundImage];
+        
+        [backgroundImageView setFrame:self.view.frame];
+        [backgroundImageView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+        [backgroundImageView setContentMode:UIViewContentModeScaleAspectFill];
+
+        [self.view addSubview:backgroundImageView];
+        
+        [self.tableView setBackgroundColor:[UIColor clearColor]];
+    }
 
     [self.view addSubview:self.tableView];
 
@@ -166,6 +178,18 @@
         TASettingViewController *multiValueViewController = [[TASettingViewController alloc] initWithSettings:setting];
         multiValueViewController.delegate = self.delegate;
         [self.navigationController pushViewController:multiValueViewController animated:YES];
+    }
+}
+
+
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+    if(!self.sectionHeaderTint)
+        return;
+    
+    if([view isKindOfClass:[UITableViewHeaderFooterView class]])
+    {
+        [[(UITableViewHeaderFooterView*)view textLabel] setTextColor:self.sectionHeaderTint];
     }
 }
 
