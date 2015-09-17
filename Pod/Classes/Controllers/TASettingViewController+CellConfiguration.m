@@ -133,7 +133,7 @@
 
 - (void)textViewDidChange:(UITextView *)textView
 {
-    [self updateTextViewHeightIfNecessary:textView];
+    //[self updateTextViewHeightIfNecessary:textView];
 }
 
 
