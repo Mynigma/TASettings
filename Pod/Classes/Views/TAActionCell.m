@@ -79,26 +79,37 @@
 - (void)setStyle:(TAActionSettingStyle)style
 {
     _style = style;
-    UIColor *color = self.colorsByStyle[@(style)];
-    if(color) {
-        [self.button setTitleColor:color forState:UIControlStateNormal];
-    }
-
-    UIFont *font = self.fontsByStyle[@(style)];
-    if(font) {
-        self.button.titleLabel.font = font;
-    }
+    [self updateWithCurrentStyle];
 }
 
+
+#pragma mark - Appearance
 
 - (void)setTitleColor:(UIColor *)color forStyle:(TAActionSettingStyle)style
 {
     self.colorsByStyle[@(style)] = color;
+    [self updateWithCurrentStyle];
 }
 
 - (void)setTitleFont:(UIFont *)font forStyle:(TAActionSettingStyle)style
 {
     self.fontsByStyle[@(style)] = font;
+    [self updateWithCurrentStyle];
+}
+
+#pragma mark - Helpers
+
+-(void) updateWithCurrentStyle
+{
+    UIColor *color = self.colorsByStyle[@(self.style)];
+    if(color) {
+        [self.button setTitleColor:color forState:UIControlStateNormal];
+    }
+
+    UIFont *font = self.fontsByStyle[@(self.style)];
+    if(font) {
+        self.button.titleLabel.font = font;
+    }
 }
 
 
