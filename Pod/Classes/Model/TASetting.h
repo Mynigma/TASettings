@@ -19,6 +19,8 @@ typedef NS_ENUM(NSUInteger, TASettingType) {
 
 @interface TASetting : NSObject
 
+@property(nonatomic, strong) NSString* identifier;
+
 @property(nonatomic, assign) TASettingType settingType;
 @property(nonatomic, copy) NSString *title;
 @property(nonatomic, copy) NSString *subtitle;
